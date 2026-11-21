@@ -1,0 +1,23 @@
+{
+  "name": "AeroGram — Tezkor va Maxfiy Messenjer",
+  "short_name": "AeroGram",
+  "description": "Rasmiy Telegram bazasida yaratilgan tez, maxfiy va qulay Android messenjer — Ghost Mode, Tahrirlar tarixi va o'zbekcha maxsus imkoniyatlar bilan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060A14",
+  "theme_color": "#0EA5E9",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

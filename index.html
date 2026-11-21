@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>AeroGram — Tez va Qulay Messenjer</title>
+  <meta name="description" content="AeroGram — tez, maxfiy va qulay Android messenjer. Ghost Mode, Tahrirlar tarixi, Qo‘ng‘iroqdan oldin tasdiqlash va Yangi o‘zbek alifbosi bilan.">
+  <meta name="keywords" content="AeroGram, messenjer, Android ilova, Ghost Mode, tezkor muloqot">
+  <meta name="author" content="AeroGram">
+  <meta name="theme-color" content="#0EA5E9">
+  <link rel="canonical" href="https://aerogram.website/">
+
+  <!-- Favicons & App Icons -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph & Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aerogram.website/">
+  <meta property="og:site_name" content="AeroGram">
+  <meta property="og:title" content="AeroGram — Tez va Qulay Messenjer">
+  <meta property="og:description" content="Ghost Mode, O‘chirilgan xabarlar, Tahrirlar tarixi va maxsus qulayliklarga ega zamonaviy messenjer.">
+  <meta property="og:image" content="https://aerogram.website/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AeroGram — Tez va Qulay Messenjer">
+  <meta name="twitter:description" content="Rasmiy Telegram yonida alohida ishlaydigan zamonaviy Android messenjer.">
+  <meta name="twitter:image" content="https://aerogram.website/assets/og-image.png">
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Floating Pill Header -->
+  <header class="floating-nav" id="navbar">
+    <div class="nav-pill">
+      <a href="#top" class="brand" aria-label="AeroGram bosh sahifa">
+        <span class="brand-logo">
+          <svg viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="aeroPillGrad" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#0EA5E9"/>
+                <stop offset="55%" stop-color="#0284C7"/>
+                <stop offset="100%" stop-color="#312E81"/>
+              </linearGradient>
+            </defs>
+            <circle cx="64" cy="64" r="64" fill="url(#aeroPillGrad)"/>
+            <path d="M98 64 A34 34 0 1 1 64 30" stroke="#67E8F9" stroke-opacity="0.42" stroke-width="3" stroke-linecap="round"/>
+            <path d="M94.5 33.5L26.5 59.8c-2.9 1.1-2.8 5.3 0.2 6.2l19.8 6.5 33.8-24.8c1.1-0.8 2.4 0.6 1.4 1.7L55.2 76.8l17.4 13.8c2.6 2.1 6.5 0.7 7.2-2.6l20-48.8c1-3.5-1.9-6.9-5.3-5.7z" fill="#FFFFFF"/>
+            <path d="M46.5 72.5L53.4 92.8c0.6 1.8 2.9 2.2 4.1 0.9l8.6-9.3-10.9-7.6 26.5-27.4c1-1.1-0.3-2.5-1.4-1.7L46.5 72.5z" fill="#7DD3FC"/>
+          </svg>
+        </span>
+        <span class="brand-name">AeroGram</span>
+      </a>
+
+      <nav class="nav-center" aria-label="Asosiy menyu">
+        <a href="#features" class="nav-link" data-i18n="nav_features">Imkoniyatlar</a>
+        <a href="#why-aero" class="nav-link" data-i18n="nav_why">Nega AeroGram?</a>
+        <a href="#security" class="nav-link" data-i18n="nav_security">Xavfsizlik</a>
+        <a href="#screenshots" class="nav-link" data-i18n="nav_screens">Skrinshotlar</a>
+        <a href="#aero-download" class="nav-link" data-i18n="nav_apk">Yuklash</a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="lang-dropdown" id="lang-dropdown">
+          <button type="button" class="lang-trigger" id="lang-trigger" aria-expanded="false" aria-label="Tilni tanlash">
+            <span class="flag-slot" id="current-flag">
+              <svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="5.2" fill="#0099B5"/><rect y="5.2" width="24" height="0.5" fill="#CE1126"/><rect y="5.7" width="24" height="4.6" fill="#FFFFFF"/><rect y="10.3" width="24" height="0.5" fill="#CE1126"/><rect y="10.8" width="24" height="5.2" fill="#1EB53A"/><circle cx="4.5" cy="2.6" r="1.4" fill="#FFFFFF"/><circle cx="5.1" cy="2.6" r="1.2" fill="#0099B5"/></svg>
+            </span>
+            <span id="current-lang-label">O‘Z</span>
+            <svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="4 6 8 10 12 6"/></svg>
+          </button>
+          <div class="lang-menu" id="lang-menu" hidden>
+            <button type="button" class="lang-opt active" data-lang="uz">
+              <svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="5.2" fill="#0099B5"/><rect y="5.2" width="24" height="0.5" fill="#CE1126"/><rect y="5.7" width="24" height="4.6" fill="#FFFFFF"/><rect y="10.3" width="24" height="0.5" fill="#CE1126"/><rect y="10.8" width="24" height="5.2" fill="#1EB53A"/><circle cx="4.5" cy="2.6" r="1.4" fill="#FFFFFF"/><circle cx="5.1" cy="2.6" r="1.2" fill="#0099B5"/></svg>
+              <span>O‘Z</span>
+            </button>
+            <button type="button" class="lang-opt" data-lang="ru">
+              <svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="5.33" fill="#FFFFFF"/><rect y="5.33" width="24" height="5.33" fill="#0039A6"/><rect y="10.66" width="24" height="5.34" fill="#D52B1E"/></svg>
+              <span>RU</span>
+            </button>
+            <button type="button" class="lang-opt" data-lang="en">
+              <svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#B22234"/><path d="M0 2h24M0 5h24M0 8h24M0 11h24M0 14h24" stroke="#FFF" stroke-width="1.2"/><rect width="10" height="8.5" fill="#3C3B6E"/></svg>
+              <span>EN</span>
+            </button>
+          </div>
+        </div>
+
+        <button type="button" class="btn-nav-cta open-download" data-i18n="nav_download">Yuklab olish</button>
+
+        <button type="button" class="mobile-burger" id="mobile-burger" aria-label="Menyuni ochish" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Sheet -->
+    <div class="mobile-sheet" id="mobile-sheet" hidden>
+      <a href="#features" data-i18n="nav_features">Imkoniyatlar</a>
+      <a href="#why-aero" data-i18n="nav_why">Nega AeroGram?</a>
+      <a href="#security" data-i18n="nav_security">Xavfsizlik</a>
+      <a href="#screenshots" data-i18n="nav_screens">Skrinshotlar</a>
+      <a href="#aero-download" data-i18n="nav_apk">Yuklash</a>
+      <button type="button" class="btn-nav-cta btn-full open-download" data-i18n="hero_cta">Hozir yuklab olish</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <canvas id="hero-mist" aria-hidden="true"></canvas>
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <h1 data-i18n="hero_title">Tez va Qulay<br>Muloqot</h1>
+          <p class="hero-sub" data-i18n="hero_desc">AeroGram bilan yaqinlaringizga bepul qo‘ng‘iroq qiling, maxfiylikni boshqaring va Telegram’ning kengaytirilgan imkoniyatlaridan bahramand bo‘ling.</p>
+
+          <div class="hero-platforms">
+            <div class="plat-icon" title="Android ilova">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a1.48 1.48 0 0 1-.404-1.015V2.829c0-.387.152-.75.404-1.015zM14.85 13.057l2.927 2.927-11.264 6.451 8.337-9.378zm3.884-2.203l2.435 1.394c.707.405.707 1.1 0 1.504l-2.435 1.394-3.175-2.146 3.175-2.146zM6.513 1.565l11.264 6.451-2.927 2.927-8.337-9.378z"/></svg>
+            </div>
+            <div class="plat-icon plat-shield" title="Xavfsiz va Ishonchli">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <div class="plat-meta">
+              <strong data-i18n="hero_plat_t">Ishonchli va Tezkor</strong>
+              <span data-i18n="hero_plat_s">Android uchun tayyor • 50.89 MB</span>
+            </div>
+          </div>
+
+          <button type="button" class="btn-white-pill open-download" data-i18n="hero_cta">Hozir yuklab olish</button>
+        </div>
+
+        <div class="hero-hand-wrap reveal">
+          <img src="assets/images/hero-hand.jpg" alt="Qo‘lda ushlab turilgan AeroGram ilovasi" class="hero-hand-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1: Sticky Left + Clean Stacked Feature Cards -->
+    <section id="features" class="section section-light">
+      <div class="container offer-grid">
+        <div class="offer-sticky reveal">
+          <span class="eyebrow-pill" data-i18n="offer_pill">Nimalar mavjud</span>
+          <h2 data-i18n="offer_title">Foydali va Keng<br>Imkoniyatlar</h2>
+          <p class="muted-copy" data-i18n="offer_sub">Kundalik yozishmalaringizdan ko‘proq qulaylik oling</p>
+        </div>
+
+        <div class="offer-stack">
+          <article class="offer-card reveal">
+            <div class="outline-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </div>
+            <h3 data-i18n="of1_t">Ghost Mode (Ko‘rinmas Rejim)</h3>
+            <p data-i18n="of1_d">Xabarlarni o‘qish, yozayotganlik holati, onlayn maqomi va Stories ko‘rishni alohida yashiring.</p>
+          </article>
+
+          <article class="offer-card reveal">
+            <div class="outline-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </div>
+            <h3 data-i18n="of2_t">Qulay AeroGram Sozlamalari</h3>
+            <p data-i18n="of2_d">Qidiruv satriga ega toza ro‘yxat: qo‘shimcha funksiyalar standartda o‘chiq keladi, faqat keraklisini yoqasiz.</p>
+          </article>
+
+          <article class="offer-card reveal">
+            <div class="outline-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            </div>
+            <h3 data-i18n="of3_t">O‘chirilgan Xabarlar va Tahrirlar Tarixi</h3>
+            <p data-i18n="of3_d">Suhbatdosh o‘chirgan xabarlar o‘chib ketmaydi; tahrirlangan xabarning esa oldingi matnlarini ko‘rasiz.</p>
+          </article>
+
+          <article class="offer-card reveal">
+            <div class="outline-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <h3 data-i18n="of4_t">Qo‘ng‘iroqdan Oldin Tasdiqlash</h3>
+            <p data-i18n="of4_d">Chat yoki profilda tasodifan ovozli va video qo‘ng‘iroq bosib yuborishning oldini oluvchi qulay himoya oynasi.</p>
+          </article>
+
+          <article class="offer-card reveal">
+            <div class="outline-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 17V7l7 10V7"/></svg>
+            </div>
+            <h3 data-i18n="of5_t">Galereyadan Dumaloq Video va Alifbo</h3>
+            <p data-i18n="of5_d">Galereyadagi oddiy videoni dumaloq video-xabar qilib yuboring hamda matnlarni yangi o‘zbek alifbosiga (ş ç ō ḡ) o‘giring.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Why AeroGram? Bento Grid -->
+    <section id="why-aero" class="section section-light pt-0">
+      <div class="container">
+        <div class="bento-top">
+          <div class="bento-card bento-hero-card reveal">
+            <div class="bento-corner-mist" aria-hidden="true"></div>
+            <span class="eyebrow-pill" data-i18n="why_pill">Nega AeroGram?</span>
+            <h2 data-i18n="why_title">Abadiy Bepul | Cheksiz Bulut va Yuqori Shifrlash</h2>
+            <button type="button" class="btn-dark-pill open-download" data-i18n="why_btn">AeroGram’ni yuklab olish</button>
+          </div>
+
+          <div class="bento-card bento-photo-card reveal">
+            <h3 data-i18n="bt1_t">Doim Yangilanib Boradi</h3>
+            <p data-i18n="bt1_d">Rasmiy Telegram bazasiga asoslangan muntazam sifat va tezlik yangilanishlari.</p>
+            <div class="bento-media">
+              <img src="assets/images/bento-update.jpg" alt="Doim yangi versiya">
+            </div>
+          </div>
+        </div>
+
+        <div class="bento-bottom">
+          <div class="bento-card bento-photo-card reveal">
+            <h3 data-i18n="bt2_t">Yuqori Xavfsizlik</h3>
+            <p data-i18n="bt2_d">Shaxsiy raqamli sertifikat bilan imzolangan toza va ishonchli ilova.</p>
+            <div class="bento-media">
+              <img src="assets/images/bento-security.jpg" alt="AeroGram xavfsizligi">
+            </div>
+          </div>
+
+          <div class="bento-card bento-photo-card reveal">
+            <h3 data-i18n="bt3_t">Ortiqcha Ruxsatlarsiz</h3>
+            <p data-i18n="bt3_d">Ilova faqat muloqot va qo‘ng‘iroqlar uchun zarur ruxsatlarnigina so‘raydi.</p>
+            <div class="bento-media bento-clean-stage">
+              <div class="clean-audit-visual">
+                <div class="audit-pill"><span>✓</span> <em data-i18n="aud_1">Ovozli va Video Qo‘ng‘iroq</em></div>
+                <div class="audit-pill"><span>✓</span> <em data-i18n="aud_2">Tezkor Yozishmalar</em></div>
+                <div class="audit-pill is-off"><span>✕</span> <em data-i18n="aud_3">Ortiqcha Kuzatuvlar</em></div>
+                <div class="audit-pill is-off"><span>✕</span> <em data-i18n="aud_4">Keraksiz Ruxsatlar</em></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bento-card bento-photo-card reveal">
+            <h3 data-i18n="bt4_t">O‘zbekiston Uchun Mos</h3>
+            <p data-i18n="bt4_d">O‘zbekcha qulay interfeys, yangi alifbo va rasmiy Telegram yonida parallel ishlash.</p>
+            <div class="bento-media bento-uz-stage">
+              <div class="uz-flag-visual" aria-label="O‘zbekiston bayrog‘i">
+                <div class="uz-stripe uz-blue">
+                  <svg viewBox="0 0 60 28" aria-hidden="true">
+                    <circle cx="15" cy="14" r="8.5" fill="#FFFFFF"/>
+                    <circle cx="17.8" cy="14" r="7" fill="#0099B5"/>
+                    <g fill="#FFFFFF" transform="translate(29,6)">
+                      <circle cx="0" cy="16" r="1.4"/><circle cx="7" cy="16" r="1.4"/><circle cx="14" cy="16" r="1.4"/><circle cx="21" cy="16" r="1.4"/>
+                      <circle cx="7" cy="9" r="1.4"/><circle cx="14" cy="9" r="1.4"/><circle cx="21" cy="9" r="1.4"/>
+                      <circle cx="14" cy="2" r="1.4"/><circle cx="21" cy="2" r="1.4"/><circle cx="28" cy="2" r="1.4"/>
+                    </g>
+                  </svg>
+                </div>
+                <div class="uz-red"></div>
+                <div class="uz-stripe uz-white"><span>AeroGram • ş ç ō ḡ</span></div>
+                <div class="uz-red"></div>
+                <div class="uz-stripe uz-green"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Wide Security & Parallel Card -->
+    <section id="security" class="section section-light pt-0">
+      <div class="container">
+        <div class="wide-feature-card reveal">
+          <div class="wf-visual">
+            <div class="wf-icon-stage">
+              <svg viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="wfGrad" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#38BDF8"/>
+                    <stop offset="55%" stop-color="#0284C7"/>
+                    <stop offset="100%" stop-color="#312E81"/>
+                  </linearGradient>
+                </defs>
+                <rect width="128" height="128" rx="34" fill="url(#wfGrad)"/>
+                <path d="M98 64 A34 34 0 1 1 64 30" stroke="#67E8F9" stroke-opacity="0.45" stroke-width="2.8" stroke-linecap="round"/>
+                <path d="M94.5 33.5L26.5 59.8c-2.9 1.1-2.8 5.3 0.2 6.2l19.8 6.5 33.8-24.8c1.1-0.8 2.4 0.6 1.4 1.7L55.2 76.8l17.4 13.8c2.6 2.1 6.5 0.7 7.2-2.6l20-48.8c1-3.5-1.9-6.9-5.3-5.7z" fill="#FFFFFF"/>
+                <path d="M46.5 72.5L53.4 92.8c0.6 1.8 2.9 2.2 4.1 0.9l8.6-9.3-10.9-7.6 26.5-27.4c1-1.1-0.3-2.5-1.4-1.7L46.5 72.5z" fill="#7DD3FC"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="wf-body">
+            <h2 data-i18n="sec_title">Xavfsiz va Telegram bilan Yonma-Yon</h2>
+            <p class="muted-copy" data-i18n="sec_sub">Rasmiy Telegram ilovangiz va eski chatlaringizga hech qanday zarar yetkazmasdan alohida ilova bo‘lib ishlaydi.</p>
+
+            <ul class="check-list">
+              <li>
+                <span class="check-dot">✓</span>
+                <span data-i18n="chk_1">To‘g‘ridan-to‘g‘ri rasmiy Telegram serverlari orqali himoyalangan aloqa</span>
+              </li>
+              <li>
+                <span class="check-dot">✓</span>
+                <span data-i18n="chk_2">Barcha sozlamalar va chat tarixlari faqat telefoningizda saqlanadi</span>
+              </li>
+              <li>
+                <span class="check-dot">✓</span>
+                <span data-i18n="chk_3">Bepul, reklamasiz va cheklovlarsiz foydalanish</span>
+              </li>
+            </ul>
+
+            <button type="button" class="btn-dark-pill open-download" data-i18n="sec_btn">AeroGram’ni yuklab olish</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Editorial Studio Screenshots -->
+    <section id="screenshots" class="section section-light">
+      <div class="container">
+        <div class="center-head reveal">
+          <span class="eyebrow-pill" data-i18n="scr_pill">AeroGram ko‘rinishi</span>
+          <h2 data-i18n="scr_title">bir nechta jonli lavhalar!</h2>
+        </div>
+
+        <div class="shot-stack">
+          <article class="shot-card reveal">
+            <div class="shot-frame shot-wide">
+              <img src="assets/images/showcase-wide.jpg" alt="AeroGram kanallar va tezkor interfeys">
+            </div>
+            <div class="shot-meta">
+              <h3 data-i18n="sc1_t">Oddiy, Tez, Ishonchli</h3>
+              <p data-i18n="sc1_d">Rasmiy Telegram tezligi va cheksiz bulut xotirasi</p>
+            </div>
+          </article>
+
+          <div class="shot-pair">
+            <article class="shot-card reveal">
+              <div class="shot-frame shot-sq">
+                <img src="assets/images/showcase-satin.jpg" alt="AeroGram chat pufakchalari va stikerlar">
+              </div>
+              <div class="shot-meta">
+                <h3 data-i18n="sc2_t">Qulay Suhbatlar</h3>
+                <p data-i18n="sc2_d">Ghost Mode va kuchli shifrlash ostidagi erkin muloqot</p>
+              </div>
+            </article>
+
+            <article class="shot-card reveal">
+              <div class="shot-frame shot-sq shot-white-bg">
+                <img src="assets/images/showcase-hand-white.jpg" alt="AeroGram sozlamalar ekrani">
+              </div>
+              <div class="shot-meta">
+                <h3 data-i18n="sc3_t">Zamonaviy Interfeys</h3>
+                <p data-i18n="sc3_d">Boshqaruv sizning qo‘lingizda — o‘zingizga moslang</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: AeroGram Doodle Download Banner (Clean, zero tech hashes!) -->
+    <section id="aero-download" class="section section-light pt-0">
+      <div class="container">
+        <div class="doodle-banner reveal">
+          <div class="doodle-inner">
+            <h2>AeroGram</h2>
+            <p data-i18n="dl_sub">Oddiy Telegram’dan ham qulayroq, tezroq va xavfsizroq.</p>
+
+            <button type="button" class="store-card-btn open-download">
+              <span class="store-icon">
+                <img src="assets/favicon-32x32.png" width="36" height="36" alt="AeroGram">
+              </span>
+              <span class="store-text">
+                <strong data-i18n="dl_card_t">AeroGram ilovasi</strong>
+                <small data-i18n="dl_card_s">Android uchun bevosita yuklab olish (50.89 MB)</small>
+              </span>
+              <span class="store-arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: "Xo‘sh!" CTA Card Flanked by 3D Sapphire Glass -->
+    <section class="section section-light pt-0 cta-section">
+      <div class="container">
+        <div class="well-card reveal">
+          <img src="assets/images/cta-glass.jpg" alt="" aria-hidden="true" class="cta-glass cta-glass-left">
+          <img src="assets/images/cta-glass.jpg" alt="" aria-hidden="true" class="cta-glass cta-glass-right">
+
+          <div class="well-inner">
+            <span class="eyebrow-pill" data-i18n="well_pill">Xo‘sh!</span>
+            <h2 data-i18n="well_title">Telegram’ingizni yangi darajaga olib chiqishga tayyormisiz?</h2>
+            <p class="muted-copy" data-i18n="well_sub">AeroGram’ni hozir yuklab oling va oddiy Telegram bera olmaydigan imkoniyatlardan foydalaning.</p>
+            <button type="button" class="btn-dark-pill open-download" data-i18n="well_btn">AeroGram’ni yuklab olish</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Minimalist Dark Footer (Human product links, NO GitHub/source jargon!) -->
+  <footer class="footer">
+    <div class="footer-glow" aria-hidden="true"></div>
+    <div class="container footer-grid">
+      <div class="footer-col-brand">
+        <a href="#top" class="brand footer-brand-row">
+          <img src="assets/favicon-32x32.png" width="32" height="32" alt="AeroGram">
+          <span class="brand-name-light">AeroGram</span>
+        </a>
+        <p data-i18n="footer_sub">Android uchun qulay va tezkor messenjer</p>
+      </div>
+
+      <div class="footer-col-center">
+        <button type="button" class="footer-link-btn" id="open-privacy-btn" data-i18n="footer_privacy">Maxfiylik siyosati</button>
+      </div>
+
+      <div class="footer-col-right">
+        <strong data-i18n="footer_contact">Bog‘lanish</strong>
+        <a href="mailto:info@aerogram.website">info@aerogram.website</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© 2026 AeroGram — <a href="https://aerogram.website">aerogram.website</a></span>
+    </div>
+  </footer>
+
+  <!-- Floating Bottom-Right Theme Switcher Tab -->
+  <button type="button" class="floating-theme-tab" id="theme-toggle" aria-label="Tun / Kun mavzusi" title="Tun / Kun rejimi">
+    <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+  </button>
+
+  <!-- Clean Human Download Modal -->
+  <div class="modal-backdrop" id="download-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <button type="button" class="modal-close" id="modal-close" aria-label="Yopish">✕</button>
+      <div class="modal-head">
+        <img src="assets/icon-192.png" width="56" height="56" alt="AeroGram">
+        <div>
+          <span class="eyebrow-pill" data-i18n="mod_pill">Yangi versiya</span>
+          <h3 id="modal-title" data-i18n="mod_t">AeroGram ilovasini yuklash</h3>
+          <p class="modal-sub" data-i18n="mod_sub">Android 8.0+ • Bepul • 50.89 MB</p>
+        </div>
+      </div>
+
+      <a href="https://github.com/Bauntyme/AeroGram/releases/download/v1.1.0/AeroGram.apk" class="btn-nav-cta btn-full modal-dl-btn" target="_blank" rel="noopener noreferrer" data-i18n="mod_btn">
+        AeroGram.apk ni yuklab olish (50.89 MB)
+      </a>
+
+      <p class="modal-foot-note" data-i18n="mod_note">
+        <strong>O‘rnatish eslatmasi:</strong> Agar telefonda avvalgi versiya o‘rnatilgan bo‘lsa, avval uni o‘chirib keyin yangisini o‘rnating. Rasmiy Telegram ilovangiz va chatlaringiz saqlanib qoladi.
+      </p>
+    </div>
+  </div>
+
+  <!-- Clean Privacy Policy Modal -->
+  <div class="modal-backdrop" id="privacy-modal" hidden role="dialog" aria-modal="true" aria-labelledby="privacy-title">
+    <div class="modal-card">
+      <button type="button" class="modal-close" id="privacy-close" aria-label="Yopish">✕</button>
+      <div class="modal-head">
+        <img src="assets/icon-192.png" width="48" height="48" alt="AeroGram">
+        <div>
+          <h3 id="privacy-title" data-i18n="priv_t">Maxfiylik siyosati</h3>
+          <p class="modal-sub">aerogram.website</p>
+        </div>
+      </div>
+      <div class="privacy-body" data-i18n="priv_body">
+        <p>AeroGram foydalanuvchilarning shaxsiy yozishmalarini yig‘maydi va uchinchi tomon serverlariga yubormaydi. Barcha chatlar, media fayllar va qo‘ng‘iroqlar rasmiy Telegram serverlari orqali himoyalangan tartibda ishlaydi.</p>
+        <p>Qo‘shimcha funksiyalar (Ghost Mode, tahrirlar tarixi va interfeys sozlamalari) faqat foydalanuvchining o‘z qurilmasida saqlanadi.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
