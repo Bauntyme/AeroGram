@@ -139,19 +139,37 @@ replaceExact('src/components/auth/Auth.scss', [
   ['background-color: var(--color-telegram-blue);', 'background-color: transparent;'],
 ]);
 
-// 5. Rebrand initial and fallback English auth strings
+// 5. Rebrand all user-visible localization strings (initial, fallback, and cloud packs)
+const SKIP_BRAND_KEY_RE = /(?:Username|Url|URL|Link)$/;
+const UI_BRAND_RE = /(https?:\/\/[^\s)<>"']+|@[a-zA-Z0-9_]+)|(?:Telegram\s+Web(?:\s+[AZK])?|Telegram)/g;
+
+function rebrandUiText(text) {
+  return text.replace(UI_BRAND_RE, (match, keep) => (
+    keep || (match.includes('Web') ? 'AeroGram Web' : 'AeroGram')
+  ));
+}
+
 replaceExact('src/assets/localization/initialStrings.ts', [
   ['"AuthTitle": "Telegram",', '"AuthTitle": "AeroGram",'],
+  [
+    '"SentAppCode": "We\'ve sent the code to the **Telegram** app on your other device.",',
+    '"SentAppCode": "We\'ve sent the code to the **AeroGram** app on your other device.",',
+  ],
   ['"LoginQRTitle": "Log in to Telegram by QR Code",', '"LoginQRTitle": "Log in to AeroGram by QR Code",'],
-  ['"LoginQRHelp1": "Open Telegram on your phone",', '"LoginQRHelp1": "Open AeroGram or Telegram on your phone",'],
+  ['"LoginQRHelp1": "Open Telegram on your phone",', '"LoginQRHelp1": "Open AeroGram on your phone",'],
 ]);
 
-replaceExact('src/assets/localization/fallback.strings', [
-  ['"AuthTitle" = "Telegram";', '"AuthTitle" = "AeroGram";'],
-  ['"LoginQRTitle" = "Log in to Telegram by QR Code";', '"LoginQRTitle" = "Log in to AeroGram by QR Code";'],
-  ['"LoginQRHelp1" = "Open Telegram on your phone";', '"LoginQRHelp1" = "Open AeroGram or Telegram on your phone";'],
-  ['"WebSessionsTitle" = "Logged In with Telegram";', '"WebSessionsTitle" = "Logged In with AeroGram";'],
-]);
+const rebrandedFallback = readUtf8('src/assets/localization/fallback.strings')
+  .split('\n')
+  .map((line) => {
+    const match = line.match(/^"([^"]+)"(\s*=\s*")(.*)(";\s*\r?)$/);
+    if (!match || SKIP_BRAND_KEY_RE.test(match[1])) {
+      return line;
+    }
+    return `"${match[1]}"${match[2]}${rebrandUiText(match[3])}${match[4]}`;
+  })
+  .join('\n');
+writeUtf8('src/assets/localization/fallback.strings', rebrandedFallback);
 
 replaceExact('src/util/localization/index.ts', [
   [
@@ -166,11 +184,11 @@ replaceExact('src/util/localization/index.ts', [
 
   if (typeof string === 'string') {
     if (langKey === 'AuthTitle') return 'AeroGram';
-    if (langKey === 'LoginQRHelp1' && !string.includes('AeroGram')) {
-      return string.replaceAll('Telegram', 'AeroGram or Telegram');
-    }
-    if ((langKey === 'LoginQRTitle' || langKey === 'WebSessionsTitle') && string.includes('Telegram')) {
-      return string.replaceAll('Telegram', 'AeroGram');
+    if (!/(?:Username|Url|URL|Link)$/.test(langKey)) {
+      return string.replace(
+        /(https?:\\/\\/[^\\s)<>"']+|@[a-zA-Z0-9_]+)|(?:Telegram\\s+Web(?:\\s+[AZK])?|Telegram)/g,
+        (match, keep) => (keep || (match.includes('Web') ? 'AeroGram Web' : 'AeroGram')),
+      );
     }
   }
 
