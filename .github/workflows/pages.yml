@@ -1,0 +1,72 @@
+name: Deploy AeroGram Website & Web Client
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout AeroGram Website
+        uses: actions/checkout@v4
+
+      - name: Checkout Telegram Web A base
+        uses: actions/checkout@v4
+        with:
+          repository: Ajaxy/telegram-tt
+          ref: 4566a14adb6287867f21ed6c51449292581c8653
+          path: tweb-src
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+          cache-dependency-path: tweb-src/package-lock.json
+
+      - name: Apply AeroGram branding & API configuration
+        run: node brand/apply-web-brand.mjs tweb-src
+
+      - name: Install dependencies
+        working-directory: tweb-src
+        run: npm ci
+
+      - name: Build AeroGram Web (production)
+        working-directory: tweb-src
+        run: npm run build:production
+
+      - name: Assemble GitHub Pages artifact
+        run: |
+          rm -rf _site
+          mkdir -p _site/web
+          cp index.html site.webmanifest favicon.ico CNAME _site/
+          cp -r css js assets _site/
+          cp -r tweb-src/dist/. _site/web/
+          touch _site/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

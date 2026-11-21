@@ -51,16 +51,17 @@
         <span class="brand-logo">
           <svg viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
-              <linearGradient id="aeroPillGrad" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#0EA5E9"/>
-                <stop offset="55%" stop-color="#0284C7"/>
-                <stop offset="100%" stop-color="#312E81"/>
+              <linearGradient id="aeroPillGrad" x1="14" y1="8" x2="114" y2="120" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#38BDF8"/>
+                <stop offset="52%" stop-color="#0284C7"/>
+                <stop offset="100%" stop-color="#1E3A8A"/>
               </linearGradient>
             </defs>
             <circle cx="64" cy="64" r="64" fill="url(#aeroPillGrad)"/>
-            <path d="M98 64 A34 34 0 1 1 64 30" stroke="#67E8F9" stroke-opacity="0.42" stroke-width="3" stroke-linecap="round"/>
-            <path d="M94.5 33.5L26.5 59.8c-2.9 1.1-2.8 5.3 0.2 6.2l19.8 6.5 33.8-24.8c1.1-0.8 2.4 0.6 1.4 1.7L55.2 76.8l17.4 13.8c2.6 2.1 6.5 0.7 7.2-2.6l20-48.8c1-3.5-1.9-6.9-5.3-5.7z" fill="#FFFFFF"/>
-            <path d="M46.5 72.5L53.4 92.8c0.6 1.8 2.9 2.2 4.1 0.9l8.6-9.3-10.9-7.6 26.5-27.4c1-1.1-0.3-2.5-1.4-1.7L46.5 72.5z" fill="#7DD3FC"/>
+            <circle cx="64" cy="64" r="42" fill="#FFFFFF" fill-opacity="0.06"/>
+            <path d="M64 29C66.9 29 69.5 30.7 70.8 33.4L93.8 83.2C95.6 87.1 92.1 91.3 87.9 90.2L68.2 85.1C65.4 84.4 62.6 84.4 59.8 85.1L40.1 90.2C35.9 91.3 32.4 87.1 34.2 83.2L57.2 33.4C58.5 30.7 61.1 29 64 29Z" fill="#FFFFFF"/>
+            <path d="M64 47L75.5 76.5L64 73.2L52.5 76.5L64 47Z" fill="#0284C7"/>
+            <path d="M52.5 76.5L64 73.2V84.6C62.6 84.6 61.2 84.8 59.8 85.1L46.5 88.5L52.5 76.5Z" fill="#38BDF8" fill-opacity="0.88"/>
           </svg>
         </span>
         <span class="brand-name">AeroGram</span>
@@ -99,6 +100,7 @@
           </div>
         </div>
 
+        <a href="web/" class="btn-nav-web" data-i18n="nav_web">Saytda ochish</a>
         <button type="button" class="btn-nav-cta open-download" data-i18n="nav_download">Yuklab olish</button>
 
         <button type="button" class="mobile-burger" id="mobile-burger" aria-label="Menyuni ochish" aria-expanded="false">
@@ -114,6 +116,7 @@
       <a href="#security" data-i18n="nav_security">Xavfsizlik</a>
       <a href="#screenshots" data-i18n="nav_screens">Skrinshotlar</a>
       <a href="#aero-download" data-i18n="nav_apk">Yuklash</a>
+      <a href="web/" class="btn-outline-pill btn-full" data-i18n="hero_web">AeroGram Web’da ochish</a>
       <button type="button" class="btn-nav-cta btn-full open-download" data-i18n="hero_cta">Hozir yuklab olish</button>
     </div>
   </header>
@@ -140,7 +143,10 @@
             </div>
           </div>
 
-          <button type="button" class="btn-white-pill open-download" data-i18n="hero_cta">Hozir yuklab olish</button>
+          <div class="hero-btn-row">
+            <button type="button" class="btn-white-pill open-download" data-i18n="hero_cta">Hozir yuklab olish</button>
+            <a href="web/" class="btn-hero-web" data-i18n="hero_web">AeroGram’ni saytda ochish →</a>
+          </div>
         </div>
 
         <div class="hero-hand-wrap reveal">
@@ -279,16 +285,17 @@
             <div class="wf-icon-stage">
               <svg viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <defs>
-                  <linearGradient id="wfGrad" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+                  <linearGradient id="wfGrad" x1="14" y1="8" x2="114" y2="120" gradientUnits="userSpaceOnUse">
                     <stop offset="0%" stop-color="#38BDF8"/>
-                    <stop offset="55%" stop-color="#0284C7"/>
-                    <stop offset="100%" stop-color="#312E81"/>
+                    <stop offset="52%" stop-color="#0284C7"/>
+                    <stop offset="100%" stop-color="#1E3A8A"/>
                   </linearGradient>
                 </defs>
                 <rect width="128" height="128" rx="34" fill="url(#wfGrad)"/>
-                <path d="M98 64 A34 34 0 1 1 64 30" stroke="#67E8F9" stroke-opacity="0.45" stroke-width="2.8" stroke-linecap="round"/>
-                <path d="M94.5 33.5L26.5 59.8c-2.9 1.1-2.8 5.3 0.2 6.2l19.8 6.5 33.8-24.8c1.1-0.8 2.4 0.6 1.4 1.7L55.2 76.8l17.4 13.8c2.6 2.1 6.5 0.7 7.2-2.6l20-48.8c1-3.5-1.9-6.9-5.3-5.7z" fill="#FFFFFF"/>
-                <path d="M46.5 72.5L53.4 92.8c0.6 1.8 2.9 2.2 4.1 0.9l8.6-9.3-10.9-7.6 26.5-27.4c1-1.1-0.3-2.5-1.4-1.7L46.5 72.5z" fill="#7DD3FC"/>
+                <circle cx="64" cy="64" r="42" fill="#FFFFFF" fill-opacity="0.06"/>
+                <path d="M64 29C66.9 29 69.5 30.7 70.8 33.4L93.8 83.2C95.6 87.1 92.1 91.3 87.9 90.2L68.2 85.1C65.4 84.4 62.6 84.4 59.8 85.1L40.1 90.2C35.9 91.3 32.4 87.1 34.2 83.2L57.2 33.4C58.5 30.7 61.1 29 64 29Z" fill="#FFFFFF"/>
+                <path d="M64 47L75.5 76.5L64 73.2L52.5 76.5L64 47Z" fill="#0284C7"/>
+                <path d="M52.5 76.5L64 73.2V84.6C62.6 84.6 61.2 84.8 59.8 85.1L46.5 88.5L52.5 76.5Z" fill="#38BDF8" fill-opacity="0.88"/>
               </svg>
             </div>
           </div>
@@ -370,16 +377,29 @@
             <h2>AeroGram</h2>
             <p data-i18n="dl_sub">Oddiy Telegram’dan ham qulayroq, tezroq va xavfsizroq.</p>
 
-            <button type="button" class="store-card-btn open-download">
-              <span class="store-icon">
-                <img src="assets/favicon-32x32.png" width="36" height="36" alt="AeroGram">
-              </span>
-              <span class="store-text">
-                <strong data-i18n="dl_card_t">AeroGram ilovasi</strong>
-                <small data-i18n="dl_card_s">Android uchun bevosita yuklab olish (50.89 MB)</small>
-              </span>
-              <span class="store-arrow" aria-hidden="true">→</span>
-            </button>
+            <div class="doodle-cards">
+              <button type="button" class="store-card-btn open-download">
+                <span class="store-icon">
+                  <img src="assets/favicon-32x32.png" width="36" height="36" alt="AeroGram">
+                </span>
+                <span class="store-text">
+                  <strong data-i18n="dl_card_t">AeroGram ilovasi</strong>
+                  <small data-i18n="dl_card_s">Android uchun bevosita yuklab olish (50.89 MB)</small>
+                </span>
+                <span class="store-arrow" aria-hidden="true">→</span>
+              </button>
+
+              <a href="web/" class="store-card-btn store-card-web">
+                <span class="store-icon">
+                  <img src="assets/favicon-32x32.png" width="36" height="36" alt="AeroGram Web">
+                </span>
+                <span class="store-text">
+                  <strong data-i18n="web_card_t">AeroGram Web</strong>
+                  <small data-i18n="web_card_s">Ilova o‘rnatmasdan hoziroq saytda ochish</small>
+                </span>
+                <span class="store-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -396,7 +416,10 @@
             <span class="eyebrow-pill" data-i18n="well_pill">Xo‘sh!</span>
             <h2 data-i18n="well_title">Telegram’ingizni yangi darajaga olib chiqishga tayyormisiz?</h2>
             <p class="muted-copy" data-i18n="well_sub">AeroGram’ni hozir yuklab oling va oddiy Telegram bera olmaydigan imkoniyatlardan foydalaning.</p>
-            <button type="button" class="btn-dark-pill open-download" data-i18n="well_btn">AeroGram’ni yuklab olish</button>
+            <div class="well-actions">
+              <button type="button" class="btn-dark-pill open-download" data-i18n="well_btn">AeroGram’ni yuklab olish</button>
+              <a href="web/" class="btn-outline-pill" data-i18n="hero_web">AeroGram’ni saytda ochish →</a>
+            </div>
           </div>
         </div>
       </div>
