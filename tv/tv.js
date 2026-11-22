@@ -2,35 +2,35 @@
   "use strict";
 
   const CHANNELS = [
-    { id: "zor-tv", code: "ZO‘R", grad: "linear-gradient(135deg,#7C3AED,#EC4899)", name: "Zo‘r TV", cat: "entertainment", catLabel: { uz: "Ko‘ngilochar", ru: "Развлекательный", en: "Entertainment" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream8.cinerama.uz/1016/playlist.m3u8" },
-    { id: "sevimli", code: "SEV", grad: "linear-gradient(135deg,#E11D48,#F97316)", name: "Sevimli TV", cat: "entertainment", catLabel: { uz: "Ko‘ngilochar", ru: "Развлекательный", en: "Entertainment" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream8.cinerama.uz/1017/playlist.m3u8" },
-    { id: "toshkent", code: "TOSH", grad: "linear-gradient(135deg,#0284C7,#1D4ED8)", name: "Toshkent", cat: "tashkent", catLabel: { uz: "Toshkent & Asosiy", ru: "Ташкент и основные", en: "Tashkent & Main" }, maxQ: "576p SD", isFhd: false, url: "https://stream8.cinerama.uz/1003/playlist.m3u8" },
-    { id: "milliy", code: "MLY", grad: "linear-gradient(135deg,#0D9488,#059669)", name: "Milliy TV", cat: "entertainment", catLabel: { uz: "Ko‘ngilochar", ru: "Развлекательный", en: "Entertainment" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream8.cinerama.uz/1014/playlist.m3u8" },
-    { id: "my5", code: "MY5", grad: "linear-gradient(135deg,#2563EB,#38BDF8)", name: "MY5 (Mening Yurtim)", cat: "entertainment", catLabel: { uz: "Ko‘ngilochar", ru: "Развлекательный", en: "Entertainment" }, maxQ: "576p SD", isFhd: false, url: "https://stream8.cinerama.uz/1217/playlist.m3u8" },
-    { id: "futbol-tv", code: "FTB", grad: "linear-gradient(135deg,#16A34A,#15803D)", name: "Futbol TV", cat: "sport", catLabel: { uz: "Sport", ru: "Спорт", en: "Sports" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream8.cinerama.uz/1010/playlist.m3u8" },
-    { id: "sport", code: "SPR", grad: "linear-gradient(135deg,#0369A1,#0EA5E9)", name: "Sport TV", cat: "sport", catLabel: { uz: "Sport", ru: "Спорт", en: "Sports" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream8.cinerama.uz/1004/playlist.m3u8" },
-    { id: "uzbekiston-24", code: "UZ24", grad: "linear-gradient(135deg,#DC2626,#991B1B)", name: "O‘zbekiston 24", cat: "news", catLabel: { uz: "Yangiliklar", ru: "Новости", en: "News" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream8.cinerama.uz/1011/playlist.m3u8" },
-    { id: "ozbekiston", code: "O‘ZB", grad: "linear-gradient(135deg,#0EA5E9,#1E3A8A)", name: "O‘zbekiston", cat: "tashkent", catLabel: { uz: "Toshkent & Asosiy", ru: "Ташкент и основные", en: "Tashkent & Main" }, maxQ: "576p SD", isFhd: false, url: "https://stream8.cinerama.uz/1001/playlist.m3u8" },
-    { id: "yoshlar", code: "YSH", grad: "linear-gradient(135deg,#F59E0B,#EA580C)", name: "Yoshlar", cat: "tashkent", catLabel: { uz: "Toshkent & Asosiy", ru: "Ташкент и основные", en: "Tashkent & Main" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream8.cinerama.uz/1002/playlist.m3u8" },
-    { id: "kinoteatr", code: "KINO", grad: "linear-gradient(135deg,#6D28D9,#312E81)", name: "Kinoteatr", cat: "music", catLabel: { uz: "Kino & Musiqa", ru: "Кино и музыка", en: "Movies & Music" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream8.cinerama.uz/1009/playlist.m3u8" },
-    { id: "uzreport", code: "UZR", grad: "linear-gradient(135deg,#1D4ED8,#0F172A)", name: "UzReport TV", cat: "news", catLabel: { uz: "Yangiliklar", ru: "Новости", en: "News" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream8.cinerama.uz/1015/playlist.m3u8" },
-    { id: "ftv", code: "FTV", grad: "linear-gradient(135deg,#DB2777,#7C3AED)", name: "FTV (Musiqa)", cat: "music", catLabel: { uz: "Kino & Musiqa", ru: "Кино и музыка", en: "Movies & Music" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream8.cinerama.uz/1018/playlist.m3u8" },
-    { id: "muz-tv", code: "MUZ", grad: "linear-gradient(135deg,#9333EA,#4F46E5)", name: "Muz TV", cat: "music", catLabel: { uz: "Kino & Musiqa", ru: "Кино и музыка", en: "Movies & Music" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream8.cinerama.uz/1063/playlist.m3u8" },
-    { id: "navo", code: "NAVO", grad: "linear-gradient(135deg,#EC4899,#F43F5E)", name: "Navo", cat: "music", catLabel: { uz: "Kino & Musiqa", ru: "Кино и музыка", en: "Movies & Music" }, maxQ: "576p SD", isFhd: false, url: "https://stream8.cinerama.uz/1008/playlist.m3u8" },
-    { id: "bolajon", code: "BOL", grad: "linear-gradient(135deg,#F97316,#EAB308)", name: "Bolajon", cat: "kids", catLabel: { uz: "Bolalar", ru: "Детский", en: "Kids" }, maxQ: "576p SD", isFhd: false, url: "https://stream8.cinerama.uz/1007/playlist.m3u8" },
-    { id: "aqlvoy", code: "AQL", grad: "linear-gradient(135deg,#06B6D4,#3B82F6)", name: "Aqlvoy", cat: "kids", catLabel: { uz: "Bolalar", ru: "Детский", en: "Kids" }, maxQ: "576p SD", isFhd: false, url: "https://stream8.cinerama.uz/1205/playlist.m3u8" },
-    { id: "dunyo-boylab", code: "DNY", grad: "linear-gradient(135deg,#0891B2,#0F766E)", name: "Dunyo bo‘ylab", cat: "tashkent", catLabel: { uz: "Toshkent & Asosiy", ru: "Ташкент и основные", en: "Tashkent & Main" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream8.cinerama.uz/1006/playlist.m3u8" },
-    { id: "ozbekiston-tarixi", code: "TAR", grad: "linear-gradient(135deg,#B45309,#78350F)", name: "O‘zbekiston Tarixi", cat: "tashkent", catLabel: { uz: "Toshkent & Asosiy", ru: "Ташкент и основные", en: "Tashkent & Main" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream8.cinerama.uz/1209/playlist.m3u8" },
-    { id: "madaniyat", code: "MAD", grad: "linear-gradient(135deg,#7E22CE,#6B21A8)", name: "Madaniyat va ma‘rifat", cat: "tashkent", catLabel: { uz: "Toshkent & Asosiy", ru: "Ташкент и основные", en: "Tashkent & Main" }, maxQ: "576p SD", isFhd: false, url: "https://stream8.cinerama.uz/1005/playlist.m3u8" },
-    { id: "mahalla", code: "MHL", grad: "linear-gradient(135deg,#059669,#10B981)", name: "Mahalla", cat: "tashkent", catLabel: { uz: "Toshkent & Asosiy", ru: "Ташкент и основные", en: "Tashkent & Main" }, maxQ: "576p SD", isFhd: false, url: "https://stream8.cinerama.uz/1013/playlist.m3u8" },
-    { id: "renessans", code: "REN", grad: "linear-gradient(135deg,#0284C7,#6366F1)", name: "Renessans TV", cat: "news", catLabel: { uz: "Yangiliklar", ru: "Новости", en: "News" }, maxQ: "576p SD", isFhd: false, url: "https://stream8.cinerama.uz/1221/playlist.m3u8" },
-    { id: "dasturxon", code: "DST", grad: "linear-gradient(135deg,#EA580C,#DC2626)", name: "Dasturxon TV", cat: "entertainment", catLabel: { uz: "Ko‘ngilochar", ru: "Развлекательный", en: "Entertainment" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream8.cinerama.uz/1206/playlist.m3u8" },
-    { id: "makon", code: "MKN", grad: "linear-gradient(135deg,#4F46E5,#0EA5E9)", name: "Makon TV", cat: "entertainment", catLabel: { uz: "Ko‘ngilochar", ru: "Развлекательный", en: "Entertainment" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream8.cinerama.uz/1497/playlist.m3u8" },
-    { id: "nurafshon", code: "NUR", grad: "linear-gradient(135deg,#0EA5E9,#2563EB)", name: "Nurafshon TV", cat: "regions", catLabel: { uz: "Hududiy", ru: "Региональный", en: "Regional" }, maxQ: "576p SD", isFhd: false, url: "https://stream8.cinerama.uz/1220/playlist.m3u8" },
-    { id: "taraqqiyot", code: "TRQ", grad: "linear-gradient(135deg,#0D9488,#0284C7)", name: "Taraqqiyot TV", cat: "regions", catLabel: { uz: "Hududiy", ru: "Региональный", en: "Regional" }, maxQ: "576p SD", isFhd: false, url: "https://stream8.cinerama.uz/1204/playlist.m3u8" },
-    { id: "fargona", code: "FAR", grad: "linear-gradient(135deg,#16A34A,#0D9488)", name: "Farg‘ona MTRK", cat: "regions", catLabel: { uz: "Hududiy", ru: "Региональный", en: "Regional" }, maxQ: "576p SD", isFhd: false, url: "https://stream8.cinerama.uz/1458/playlist.m3u8" },
-    { id: "navoiy", code: "NVY", grad: "linear-gradient(135deg,#D97706,#B45309)", name: "Navoiy MTRK", cat: "regions", catLabel: { uz: "Hududiy", ru: "Региональный", en: "Regional" }, maxQ: "576p SD", isFhd: false, url: "https://stream8.cinerama.uz/1460/playlist.m3u8" },
-    { id: "qaraqalpaqstan", code: "QQP", grad: "linear-gradient(135deg,#0369A1,#1E40AF)", name: "Qaraqalpaqstan", cat: "regions", catLabel: { uz: "Hududiy", ru: "Региональный", en: "Regional" }, maxQ: "576p SD", isFhd: false, url: "https://stream8.cinerama.uz/1467/playlist.m3u8" },
+    { id: "zor-tv", code: "ZO‘R", logo: "logos/zor-tv.png", grad: "linear-gradient(135deg,#7C3AED,#EC4899)", name: "Zo‘r TV", cat: "entertainment", catLabel: { uz: "Ko‘ngilochar", ru: "Развлекательный", en: "Entertainment" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1016/playlist.m3u8" },
+    { id: "sevimli", code: "SEV", logo: "logos/sevimli.png", grad: "linear-gradient(135deg,#E11D48,#F97316)", name: "Sevimli TV", cat: "entertainment", catLabel: { uz: "Ko‘ngilochar", ru: "Развлекательный", en: "Entertainment" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1017/playlist.m3u8" },
+    { id: "toshkent", code: "TOSH", logo: "logos/toshkent.png", grad: "linear-gradient(135deg,#0284C7,#1D4ED8)", name: "Toshkent", cat: "tashkent", catLabel: { uz: "Toshkent & Asosiy", ru: "Ташкент и основные", en: "Tashkent & Main" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1003/playlist.m3u8" },
+    { id: "milliy", code: "MLY", logo: "logos/milliy.png", grad: "linear-gradient(135deg,#0D9488,#059669)", name: "Milliy TV", cat: "entertainment", catLabel: { uz: "Ko‘ngilochar", ru: "Развлекательный", en: "Entertainment" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1014/playlist.m3u8" },
+    { id: "my5", code: "MY5", logo: "logos/my5.png", grad: "linear-gradient(135deg,#2563EB,#38BDF8)", name: "MY5 (Mening Yurtim)", cat: "entertainment", catLabel: { uz: "Ko‘ngilochar", ru: "Развлекательный", en: "Entertainment" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1217/playlist.m3u8" },
+    { id: "futbol-tv", code: "FTB", logo: "logos/futbol-tv.png", grad: "linear-gradient(135deg,#16A34A,#15803D)", name: "Futbol TV", cat: "sport", catLabel: { uz: "Sport", ru: "Спорт", en: "Sports" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1010/playlist.m3u8" },
+    { id: "sport", code: "SPR", logo: "logos/sport.png", grad: "linear-gradient(135deg,#0369A1,#0EA5E9)", name: "Sport TV", cat: "sport", catLabel: { uz: "Sport", ru: "Спорт", en: "Sports" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1004/playlist.m3u8" },
+    { id: "uzbekiston-24", code: "UZ24", logo: "logos/uzbekiston-24.png", grad: "linear-gradient(135deg,#DC2626,#991B1B)", name: "O‘zbekiston 24", cat: "news", catLabel: { uz: "Yangiliklar", ru: "Новости", en: "News" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1011/playlist.m3u8" },
+    { id: "ozbekiston", code: "O‘ZB", logo: "logos/ozbekiston.png", grad: "linear-gradient(135deg,#0EA5E9,#1E3A8A)", name: "O‘zbekiston", cat: "tashkent", catLabel: { uz: "Toshkent & Asosiy", ru: "Ташкент и основные", en: "Tashkent & Main" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1001/playlist.m3u8" },
+    { id: "yoshlar", code: "YSH", logo: "logos/yoshlar.png", grad: "linear-gradient(135deg,#F59E0B,#EA580C)", name: "Yoshlar", cat: "tashkent", catLabel: { uz: "Toshkent & Asosiy", ru: "Ташкент и основные", en: "Tashkent & Main" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1002/playlist.m3u8" },
+    { id: "kinoteatr", code: "KINO", logo: "logos/kinoteatr.png", grad: "linear-gradient(135deg,#6D28D9,#312E81)", name: "Kinoteatr", cat: "music", catLabel: { uz: "Kino & Musiqa", ru: "Кино и музыка", en: "Movies & Music" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1009/playlist.m3u8" },
+    { id: "uzreport", code: "UZR", logo: "logos/uzreport.jpg", grad: "linear-gradient(135deg,#1D4ED8,#0F172A)", name: "UzReport TV", cat: "news", catLabel: { uz: "Yangiliklar", ru: "Новости", en: "News" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1015/playlist.m3u8" },
+    { id: "ftv", code: "FTV", logo: "logos/ftv.jpg", grad: "linear-gradient(135deg,#DB2777,#7C3AED)", name: "FTV (Musiqa)", cat: "music", catLabel: { uz: "Kino & Musiqa", ru: "Кино и музыка", en: "Movies & Music" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1018/playlist.m3u8" },
+    { id: "muz-tv", code: "MUZ", logo: "logos/muz-tv.jpg", grad: "linear-gradient(135deg,#9333EA,#4F46E5)", name: "Muz TV", cat: "music", catLabel: { uz: "Kino & Musiqa", ru: "Кино и музыка", en: "Movies & Music" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1063/playlist.m3u8" },
+    { id: "navo", code: "NAVO", logo: "logos/navo.png", grad: "linear-gradient(135deg,#EC4899,#F43F5E)", name: "Navo", cat: "music", catLabel: { uz: "Kino & Musiqa", ru: "Кино и музыка", en: "Movies & Music" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1008/playlist.m3u8" },
+    { id: "bolajon", code: "BOL", logo: "logos/bolajon.png", grad: "linear-gradient(135deg,#F97316,#EAB308)", name: "Bolajon", cat: "kids", catLabel: { uz: "Bolalar", ru: "Детский", en: "Kids" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1007/playlist.m3u8" },
+    { id: "aqlvoy", code: "AQL", logo: "logos/aqlvoy.png", grad: "linear-gradient(135deg,#06B6D4,#3B82F6)", name: "Aqlvoy", cat: "kids", catLabel: { uz: "Bolalar", ru: "Детский", en: "Kids" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1205/playlist.m3u8" },
+    { id: "dunyo-boylab", code: "DNY", logo: "logos/dunyo-boylab.png", grad: "linear-gradient(135deg,#0891B2,#0F766E)", name: "Dunyo bo‘ylab", cat: "tashkent", catLabel: { uz: "Toshkent & Asosiy", ru: "Ташкент и основные", en: "Tashkent & Main" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1006/playlist.m3u8" },
+    { id: "ozbekiston-tarixi", code: "TAR", logo: "logos/ozbekiston-tarixi.png", grad: "linear-gradient(135deg,#B45309,#78350F)", name: "O‘zbekiston Tarixi", cat: "tashkent", catLabel: { uz: "Toshkent & Asosiy", ru: "Ташкент и основные", en: "Tashkent & Main" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1209/playlist.m3u8" },
+    { id: "madaniyat", code: "MAD", logo: "logos/madaniyat.png", grad: "linear-gradient(135deg,#7E22CE,#6B21A8)", name: "Madaniyat va ma‘rifat", cat: "tashkent", catLabel: { uz: "Toshkent & Asosiy", ru: "Ташкент и основные", en: "Tashkent & Main" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1005/playlist.m3u8" },
+    { id: "mahalla", code: "MHL", logo: "logos/mahalla.png", grad: "linear-gradient(135deg,#059669,#10B981)", name: "Mahalla", cat: "tashkent", catLabel: { uz: "Toshkent & Asosiy", ru: "Ташкент и основные", en: "Tashkent & Main" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1013/playlist.m3u8" },
+    { id: "renessans", code: "REN", logo: "logos/renessans.png", grad: "linear-gradient(135deg,#0284C7,#6366F1)", name: "Renessans TV", cat: "news", catLabel: { uz: "Yangiliklar", ru: "Новости", en: "News" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1221/playlist.m3u8" },
+    { id: "dasturxon", code: "DST", logo: "logos/dasturxon.jpg", grad: "linear-gradient(135deg,#EA580C,#DC2626)", name: "Dasturxon TV", cat: "entertainment", catLabel: { uz: "Ko‘ngilochar", ru: "Развлекательный", en: "Entertainment" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1206/playlist.m3u8" },
+    { id: "makon", code: "MKN", logo: "logos/makon.png", grad: "linear-gradient(135deg,#4F46E5,#0EA5E9)", name: "Makon TV", cat: "entertainment", catLabel: { uz: "Ko‘ngilochar", ru: "Развлекательный", en: "Entertainment" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1497/playlist.m3u8" },
+    { id: "nurafshon", code: "NUR", logo: "logos/nurafshon.jpg", grad: "linear-gradient(135deg,#0EA5E9,#2563EB)", name: "Nurafshon TV", cat: "regions", catLabel: { uz: "Hududiy", ru: "Региональный", en: "Regional" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1220/playlist.m3u8" },
+    { id: "taraqqiyot", code: "TRQ", logo: "logos/taraqqiyot.jpg", grad: "linear-gradient(135deg,#0D9488,#0284C7)", name: "Taraqqiyot TV", cat: "regions", catLabel: { uz: "Hududiy", ru: "Региональный", en: "Regional" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1204/playlist.m3u8" },
+    { id: "fargona", code: "FAR", logo: "logos/fargona.jpg", grad: "linear-gradient(135deg,#16A34A,#0D9488)", name: "Farg‘ona MTRK", cat: "regions", catLabel: { uz: "Hududiy", ru: "Региональный", en: "Regional" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1458/playlist.m3u8" },
+    { id: "navoiy", code: "NVY", logo: "logos/navoiy.png", grad: "linear-gradient(135deg,#D97706,#B45309)", name: "Navoiy MTRK", cat: "regions", catLabel: { uz: "Hududiy", ru: "Региональный", en: "Regional" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1460/playlist.m3u8" },
+    { id: "qaraqalpaqstan", code: "QQP", logo: "logos/qaraqalpaqstan.png", grad: "linear-gradient(135deg,#0369A1,#1E40AF)", name: "Qaraqalpaqstan", cat: "regions", catLabel: { uz: "Hududiy", ru: "Региональный", en: "Regional" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1467/playlist.m3u8" },
   ];
 
   const I18N = {
@@ -63,7 +63,10 @@
       cat_news: "Yangiliklar",
       cat_kids: "Bolalar",
       cat_regions: "Hududiy",
-      auto_q: "Avto",
+      auto_q: "Avto (Tez)",
+      max_hd: "Maksimal HD",
+      pip_btn: "Kichik oyna",
+      sleep_off: "Taymer",
       single_track: "Yagona oqim",
       count_fmt: (n) => `${n} ta jonli kanal`,
       empty_search: "Mos kanal topilmadi",
@@ -97,7 +100,10 @@
       cat_news: "Новости",
       cat_kids: "Детям",
       cat_regions: "Регионы",
-      auto_q: "Авто",
+      auto_q: "Авто (Быстро)",
+      max_hd: "Максимум HD",
+      pip_btn: "Мини-окно",
+      sleep_off: "Таймер",
       single_track: "Единый поток",
       count_fmt: (n) => `Каналов в эфире: ${n}`,
       empty_search: "Каналы не найдены",
@@ -131,7 +137,10 @@
       cat_news: "News",
       cat_kids: "Kids",
       cat_regions: "Regional",
-      auto_q: "Auto",
+      auto_q: "Auto (Fast)",
+      max_hd: "Max HD",
+      pip_btn: "Mini Window",
+      sleep_off: "Timer",
       single_track: "Single feed",
       count_fmt: (n) => `${n} live channels`,
       empty_search: "No matching channels",
@@ -168,6 +177,10 @@
   const volSlider = document.getElementById("vol-slider");
   const latencyModeBtn = document.getElementById("latency-mode-btn");
   const latencyModeLabel = document.getElementById("latency-mode-label");
+  const clarityBtn = document.getElementById("clarity-btn");
+  const pipBtn = document.getElementById("pip-btn");
+  const sleepBtn = document.getElementById("sleep-btn");
+  const sleepLabel = document.getElementById("sleep-label");
   const qualityBtn = document.getElementById("quality-btn");
   const qualityLabel = document.getElementById("quality-label");
   const qualityMenu = document.getElementById("quality-menu");
@@ -194,7 +207,10 @@
   let searchQuery = "";
   let currentChannel = CHANNELS[0];
   let hls = null;
-  let desiredHeight = -1; // -1 = auto highest
+  let desiredHeight = -1; // -1 = lock highest HD level, -2 = adaptive auto
+  let clarityBoost = localStorage.getItem("aero_tv_clarity") !== "off";
+  let sleepMins = 0;
+  let sleepTimerId = null;
   let hudHideTimer = null;
   let retryCount = 0;
   let lastTapTime = 0;
@@ -266,13 +282,21 @@
     }
   });
 
-  // Self-contained Studio Brand Badge Renderer (zero external image failures)
+  // Local Verified Channel Logo Image Renderer with Monogram Fallback
   function fillLogoBox(container, ch) {
     container.innerHTML = "";
-    container.style.background = ch.grad || "linear-gradient(135deg,#0284C7,#1E3A8A)";
-    const span = document.createElement("span");
-    span.textContent = ch.code || ch.name.replace(/‘/g, "").slice(0, 3).toUpperCase();
-    container.appendChild(span);
+    container.style.background = "#FFFFFF";
+    const img = document.createElement("img");
+    img.src = ch.logo;
+    img.alt = ch.name;
+    img.loading = "lazy";
+    img.onerror = () => {
+      container.innerHTML = "";
+      container.style.background = ch.grad || "linear-gradient(135deg,#0284C7,#1E3A8A)";
+      container.style.color = "#FFFFFF";
+      container.textContent = ch.code || ch.name.replace(/‘/g, "").slice(0, 3).toUpperCase();
+    };
+    container.appendChild(img);
   }
 
   // Channel Directory Filtering & Rendering
@@ -469,21 +493,33 @@
       hls.attachMedia(video);
 
       hls.on(window.Hls.Events.MANIFEST_PARSED, (_e, data) => {
-        // Pre-apply user desired resolution if available
-        if (desiredHeight > 0 && data.levels && data.levels.length > 1) {
-          const matchIdx = data.levels.findIndex((lv) => lv.height === desiredHeight);
-          if (matchIdx >= 0) hls.currentLevel = matchIdx;
-          else {
-            // Pick highest available level
-            let bestIdx = 0;
-            data.levels.forEach((lv, i) => {
-              if ((lv.height || 0) >= (data.levels[bestIdx].height || 0)) bestIdx = i;
-            });
+        if (data.levels && data.levels.length > 0) {
+          let bestIdx = 0;
+          data.levels.forEach((lv, i) => {
+            if ((lv.height || 0) >= (data.levels[bestIdx].height || 0)) bestIdx = i;
+          });
+          if (desiredHeight === -2) {
+            // Adaptive ABR mode requested manually by user
+            hls.currentLevel = -1;
+          } else if (desiredHeight > 0) {
+            const matchIdx = data.levels.findIndex((lv) => lv.height === desiredHeight);
+            hls.currentLevel = matchIdx >= 0 ? matchIdx : bestIdx;
+          } else {
+            // Force highest native resolution (1080p Full HD when available) immediately!
+            hls.startLevel = bestIdx;
             hls.currentLevel = bestIdx;
           }
         }
         renderQualityMenu();
         tryPlayVideo(fromUserGesture);
+      });
+
+      hls.on(window.Hls.Events.LEVEL_LOADED, (_e, data) => {
+        const u = data?.details?.url || "";
+        if (u.includes("/blocked/") && !ch.url.includes("tracks-v1a1")) {
+          const fallback = ch.url.replace("/playlist.m3u8", "/tracks-v1a1/mono.m3u8");
+          hls.loadSource(fallback);
+        }
       });
 
       hls.on(window.Hls.Events.LEVEL_SWITCHED, () => {
@@ -531,19 +567,35 @@
       return;
     }
 
-    const isAuto = hls.autoLevelEnabled;
+    const isAutoAbr = desiredHeight === -2 || hls.autoLevelEnabled;
+    const isForcedMax = desiredHeight === -1 && !isAutoAbr;
     const activeLvl = levels[hls.currentLevel] || levels[hls.loadLevel];
-    qualityLabel.textContent = isAuto
+    qualityLabel.textContent = isAutoAbr
       ? `${t("auto_q")}${activeLvl?.height ? ` (${activeLvl.height}p)` : ""}`
-      : `${activeLvl?.height || ""}p`;
+      : (activeLvl?.height ? `${activeLvl.height}p${activeLvl.height >= 1080 ? " FHD" : ""}` : t("max_hd"));
+
+    const maxBtn = document.createElement("button");
+    maxBtn.type = "button";
+    maxBtn.className = "quality-opt" + (isForcedMax ? " active" : "");
+    maxBtn.innerHTML = `<span>${t("max_hd")} (FHD)</span><span>${isForcedMax ? "✓" : ""}</span>`;
+    maxBtn.addEventListener("click", () => {
+      desiredHeight = -1;
+      let bestIdx = 0;
+      levels.forEach((lv, i) => {
+        if ((lv.height || 0) >= (levels[bestIdx].height || 0)) bestIdx = i;
+      });
+      hls.currentLevel = bestIdx;
+      qualityMenu.setAttribute("hidden", "");
+      renderQualityMenu();
+    });
+    qualityMenu.appendChild(maxBtn);
 
     const autoBtn = document.createElement("button");
     autoBtn.type = "button";
-    autoBtn.className = "quality-opt" + (isAuto ? " active" : "");
-    autoBtn.innerHTML = `<span>${t("auto_q")} (Maksimal HD)</span><span>✓</span>`;
-    if (!isAuto) autoBtn.lastChild.style.opacity = "0";
+    autoBtn.className = "quality-opt" + (isAutoAbr ? " active" : "");
+    autoBtn.innerHTML = `<span>${t("auto_q")}</span><span>${isAutoAbr ? "✓" : ""}</span>`;
     autoBtn.addEventListener("click", () => {
-      desiredHeight = -1;
+      desiredHeight = -2;
       hls.currentLevel = -1;
       qualityMenu.setAttribute("hidden", "");
       renderQualityMenu();
@@ -554,7 +606,7 @@
     const indexed = levels.map((lv, idx) => ({ lv, idx })).sort((a, b) => (b.lv.height || 0) - (a.lv.height || 0));
     indexed.forEach(({ lv, idx }) => {
       const h = lv.height || 0;
-      const isSelected = !isAuto && hls.currentLevel === idx;
+      const isSelected = !isAutoAbr && !isForcedMax && hls.currentLevel === idx;
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "quality-opt" + (isSelected ? " active" : "");
@@ -856,6 +908,46 @@
     const targetId = decodeURIComponent((hashMatch && hashMatch[1]) || paramMatch || "zor-tv");
     return CHANNELS.find((c) => c.id === targetId) || CHANNELS[0];
   }
+
+  // Clarity Boost (HD+), Picture-in-Picture (PiP), and Sleep Timer
+  stage.classList.toggle("is-clarity", clarityBoost);
+  clarityBtn?.classList.toggle("is-clarity-on", clarityBoost);
+  clarityBtn?.addEventListener("click", () => {
+    clarityBoost = !clarityBoost;
+    localStorage.setItem("aero_tv_clarity", clarityBoost ? "on" : "off");
+    stage.classList.toggle("is-clarity", clarityBoost);
+    clarityBtn.classList.toggle("is-clarity-on", clarityBoost);
+  });
+
+  if (pipBtn && !("pictureInPictureEnabled" in document)) {
+    pipBtn.style.display = "none";
+  }
+  pipBtn?.addEventListener("click", async () => {
+    try {
+      if (document.pictureInPictureElement) {
+        await document.exitPictureInPicture();
+      } else if (video.requestPictureInPicture) {
+        await video.requestPictureInPicture();
+      }
+    } catch (_) {}
+  });
+
+  const SLEEP_CYCLE = [0, 15, 30, 60];
+  sleepBtn?.addEventListener("click", () => {
+    clearTimeout(sleepTimerId);
+    const nextIdx = (SLEEP_CYCLE.indexOf(sleepMins) + 1) % SLEEP_CYCLE.length;
+    sleepMins = SLEEP_CYCLE[nextIdx];
+    sleepBtn.classList.toggle("is-timer-on", sleepMins > 0);
+    sleepLabel.textContent = sleepMins > 0 ? `${sleepMins}m` : t("sleep_off");
+    if (sleepMins > 0) {
+      sleepTimerId = setTimeout(() => {
+        video.pause();
+        sleepMins = 0;
+        sleepBtn.classList.remove("is-timer-on");
+        sleepLabel.textContent = t("sleep_off");
+      }, sleepMins * 60 * 1000);
+    }
+  });
 
   applyLang(lang);
   switchChannel(resolveInitialChannel(), false);

@@ -14,7 +14,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
 
-  <link rel="preconnect" href="https://stream8.cinerama.uz" crossorigin>
+  <link rel="preconnect" href="https://stream3.cinerama.uz" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -167,6 +167,20 @@
           </div>
 
           <div class="hud-controls-right">
+            <button type="button" class="ctrl-chip is-clarity-on" id="clarity-btn" title="Tiniq HD+ rang va ravshanlik">
+              <span>HD+</span>
+            </button>
+
+            <button type="button" class="ctrl-chip" id="pip-btn" title="Kichik suzuvchi oyna (Picture-in-Picture)" aria-label="Picture-in-Picture">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><rect x="12" y="12" width="8" height="6" rx="1" fill="currentColor" stroke="none"/></svg>
+              <span class="pip-txt" data-tv-i18n="pip_btn">Kichik oyna</span>
+            </button>
+
+            <button type="button" class="ctrl-chip" id="sleep-btn" title="Uyqu taymeri">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+              <span id="sleep-label" data-tv-i18n="sleep_off">Taymer</span>
+            </button>
+
             <button type="button" class="ctrl-chip" id="latency-mode-btn" title="Bufer rejimi">
               <span class="mode-dot"></span>
               <span id="latency-mode-label" data-tv-i18n="mode_fast">Tezkor</span>
@@ -175,7 +189,7 @@
             <div class="quality-wrap" id="quality-wrap">
               <button type="button" class="ctrl-chip" id="quality-btn" aria-expanded="false">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 1 1 0 4h-.09c-.658.003-1.25.396-1.51 1z"/></svg>
-                <span id="quality-label">Avto</span>
+                <span id="quality-label">Maksimal HD</span>
               </button>
               <div class="quality-menu" id="quality-menu" hidden></div>
             </div>
