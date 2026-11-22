@@ -70,9 +70,12 @@
       <nav class="nav-center" aria-label="Asosiy menyu">
         <a href="#features" class="nav-link" data-i18n="nav_features">Imkoniyatlar</a>
         <a href="#why-aero" class="nav-link" data-i18n="nav_why">Nega AeroGram?</a>
-        <a href="#security" class="nav-link" data-i18n="nav_security">Xavfsizlik</a>
-        <a href="#screenshots" class="nav-link" data-i18n="nav_screens">Skrinshotlar</a>
+        <a href="#more-aero" class="nav-link" data-i18n="nav_more">Taqqoslash & FAQ</a>
         <a href="#aero-download" class="nav-link" data-i18n="nav_apk">Yuklash</a>
+        <a href="tv/" class="nav-link-tv">
+          <span class="tv-dot-live" aria-hidden="true"></span>
+          <span data-i18n="nav_tv">Alohida TV uchun</span>
+        </a>
       </nav>
 
       <div class="nav-right">
@@ -113,9 +116,12 @@
     <div class="mobile-sheet" id="mobile-sheet" hidden>
       <a href="#features" data-i18n="nav_features">Imkoniyatlar</a>
       <a href="#why-aero" data-i18n="nav_why">Nega AeroGram?</a>
-      <a href="#security" data-i18n="nav_security">Xavfsizlik</a>
-      <a href="#screenshots" data-i18n="nav_screens">Skrinshotlar</a>
+      <a href="#more-aero" data-i18n="nav_more">Taqqoslash & FAQ</a>
       <a href="#aero-download" data-i18n="nav_apk">Yuklash</a>
+      <a href="tv/" class="mobile-tv-link">
+        <span class="tv-dot-live" aria-hidden="true"></span>
+        <span data-i18n="nav_tv">Alohida TV uchun</span>
+      </a>
       <a href="web/" class="btn-outline-pill btn-full" data-i18n="hero_web">AeroGram Web’da ochish</a>
       <button type="button" class="btn-nav-cta btn-full open-download" data-i18n="hero_cta">Hozir yuklab olish</button>
     </div>
@@ -147,6 +153,10 @@
           <div class="hero-btn-row">
             <button type="button" class="btn-white-pill open-download" data-i18n="hero_cta">Hozir yuklab olish</button>
             <a href="web/" class="btn-hero-web" data-i18n="hero_web">AeroGram’ni saytda ochish →</a>
+            <a href="tv/" class="btn-hero-tv">
+              <span class="tv-dot-live" aria-hidden="true"></span>
+              <span data-i18n="hero_tv">Alohida TV uchun →</span>
+            </a>
           </div>
         </div>
 
@@ -204,6 +214,23 @@
             </div>
             <h3 data-i18n="of5_t">O‘zbek Tili va Zamonaviy Dizayn</h3>
             <p data-i18n="of5_d">Yorug‘ va tungi mavzular, chiroyli tipografika hamda O‘zbekiston foydalanuvchilari uchun qulay interfeys.</p>
+          </article>
+
+          <article class="offer-card reveal">
+            <div class="outline-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 data-i18n="of6_t">Cheksiz Akkauntlar (∞)</h3>
+            <p data-i18n="of6_d">Bitta ilovada xohlagancha Telegram akkaunt ulang — Premium cheklovisiz, har biri mustaqil bildirishnomalar bilan ishlaydi.</p>
+          </article>
+
+          <article class="offer-card offer-card-tv reveal">
+            <div class="outline-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+            </div>
+            <h3 data-i18n="of7_t">Alohida TV uchun — Jonli Efir</h3>
+            <p data-i18n="of7_d">Zo‘r TV, Sevimli TV, Toshkent va 29 ta O‘zbekiston kanallarini telefonda ham, kompyuterda ham to‘liq ekranda tomosha qiling.</p>
+            <a href="tv/" class="offer-inline-link" data-i18n="of7_cta">TV bo‘limini ochish →</a>
           </article>
         </div>
       </div>
@@ -326,6 +353,68 @@
       </div>
     </section>
 
+    <!-- Section 3.5: Alohida TV uchun — Live Uzbekistan TV Spotlight -->
+    <section id="tv-spotlight" class="section section-light pt-0">
+      <div class="container">
+        <div class="tv-spotlight-card reveal">
+          <div class="tv-spot-left">
+            <span class="tv-spot-pill">
+              <span class="tv-dot-live" aria-hidden="true"></span>
+              <span data-i18n="tvs_pill">Alohida TV uchun • Jonli efir</span>
+            </span>
+            <h2 data-i18n="tvs_title">Toshkent va O‘zbekiston TV kanallari — to‘liq ekranda</h2>
+            <p data-i18n="tvs_desc">Zo‘r TV, Sevimli TV, Toshkent, Milliy TV, Futbol TV va boshqa sevimli kanallarni telefonda ham, katta ekranda ham qotishsiz jonli tomosha qiling.</p>
+            <div class="tv-spot-actions">
+              <a href="tv/" class="btn-white-pill" data-i18n="tvs_btn">TV bo‘limini ochish →</a>
+              <span class="tv-spot-note" data-i18n="tvs_note">29 ta jonli kanal • To‘liq ekran rejimi</span>
+            </div>
+          </div>
+
+          <div class="tv-spot-grid" aria-label="Mashhur TV kanallar">
+            <a href="tv/#channel=zor-tv" class="tv-ch-chip">
+              <span class="ch-chip-live"></span>
+              <div><strong>Zo‘r TV</strong><small>1080p FHD</small></div>
+            </a>
+            <a href="tv/#channel=sevimli" class="tv-ch-chip">
+              <span class="ch-chip-live"></span>
+              <div><strong>Sevimli TV</strong><small>1080p FHD</small></div>
+            </a>
+            <a href="tv/#channel=toshkent" class="tv-ch-chip">
+              <span class="ch-chip-live"></span>
+              <div><strong>Toshkent</strong><small>576p Jonli</small></div>
+            </a>
+            <a href="tv/#channel=milliy" class="tv-ch-chip">
+              <span class="ch-chip-live"></span>
+              <div><strong>Milliy TV</strong><small>1080p FHD</small></div>
+            </a>
+            <a href="tv/#channel=my5" class="tv-ch-chip">
+              <span class="ch-chip-live"></span>
+              <div><strong>MY5</strong><small>576p Jonli</small></div>
+            </a>
+            <a href="tv/#channel=futbol-tv" class="tv-ch-chip">
+              <span class="ch-chip-live"></span>
+              <div><strong>Futbol TV</strong><small>1080p FHD</small></div>
+            </a>
+            <a href="tv/#channel=sport" class="tv-ch-chip">
+              <span class="ch-chip-live"></span>
+              <div><strong>Sport TV</strong><small>1080p FHD</small></div>
+            </a>
+            <a href="tv/#channel=uzbekiston-24" class="tv-ch-chip">
+              <span class="ch-chip-live"></span>
+              <div><strong>O‘zbekiston 24</strong><small>1080p FHD</small></div>
+            </a>
+            <a href="tv/#channel=kinoteatr" class="tv-ch-chip">
+              <span class="ch-chip-live"></span>
+              <div><strong>Kinoteatr</strong><small>1080p FHD</small></div>
+            </a>
+            <a href="tv/" class="tv-ch-chip tv-ch-more">
+              <div><strong data-i18n="tvs_more">+20 ta kanal</strong><small data-i18n="tvs_all">Barchasini ko‘rish →</small></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Section 4: Editorial Studio Screenshots -->
     <section id="screenshots" class="section section-light">
       <div class="container">
@@ -365,6 +454,69 @@
                 <p data-i18n="sc3_d">Boshqaruv sizning qo‘lingizda — o‘zingizga moslang</p>
               </div>
             </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4.5: Comparison & FAQ ("Koproq narsalar") -->
+    <section id="more-aero" class="section section-light pt-0">
+      <div class="container">
+        <div class="more-grid">
+          <div class="compare-card reveal">
+            <span class="eyebrow-pill" data-i18n="cmp_pill">Taqqoslash</span>
+            <h2 data-i18n="cmp_title">Nima uchun AeroGram v1.4.2?</h2>
+            <p class="muted-copy" data-i18n="cmp_sub">Oddiy messenjer imkoniyatlaridan ko‘prog‘i — ortiqcha cheklovlarsiz.</p>
+            <div class="cmp-table">
+              <div class="cmp-row cmp-head">
+                <span data-i18n="cmp_col1">Imkoniyat</span>
+                <span data-i18n="cmp_col2">Oddiy Telegram</span>
+                <span>AeroGram v1.4.2</span>
+              </div>
+              <div class="cmp-row">
+                <span data-i18n="cmp_r1_k">Ulash mumkin bo‘lgan akkauntlar</span>
+                <span data-i18n="cmp_r1_v1">3–4 ta</span>
+                <strong data-i18n="cmp_r1_v2">Cheksiz (∞)</strong>
+              </div>
+              <div class="cmp-row">
+                <span data-i18n="cmp_r2_k">Telegram bilan yonma-yon o‘rnatish</span>
+                <span>—</span>
+                <strong data-i18n="cmp_yes">✓ Alohida ilova</strong>
+              </div>
+              <div class="cmp-row">
+                <span data-i18n="cmp_r3_k">Saytda Web + Alohida TV bo‘limi</span>
+                <span>—</span>
+                <strong data-i18n="cmp_tv_yes">✓ Saytda tayyor</strong>
+              </div>
+              <div class="cmp-row">
+                <span data-i18n="cmp_r4_k">O‘zbekcha qulay interfeys</span>
+                <span data-i18n="cmp_part">Qisman</span>
+                <strong data-i18n="cmp_full">✓ To‘liq moslashgan</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-card reveal">
+            <span class="eyebrow-pill" data-i18n="faq_pill">Ko‘p beriladigan savollar</span>
+            <h2 data-i18n="faq_title">Qisqacha ma’lumotlar</h2>
+            <div class="faq-list">
+              <details class="faq-item" open>
+                <summary data-i18n="faq1_q">AeroGram’ni o‘rnatsam eski Telegram va chatlarim o‘chmaydimi?</summary>
+                <p data-i18n="faq1_a">Yo‘q! AeroGram alohida paket sifatida rasmiy Telegram yonida parallel o‘rnatiladi. Barcha chatlaringiz, kanallaringiz va media fayllaringiz xavfsiz saqlanadi.</p>
+              </details>
+              <details class="faq-item">
+                <summary data-i18n="faq2_q">Nechta Telegram akkaunt ulash mumkin?</summary>
+                <p data-i18n="faq2_a">v1.4.2 versiyadan boshlab cheksiz (∞) miqdorda akkaunt ulash mumkin — Premium obuna talab qilinmaydi va har bir akkaunt alohida bildirishnoma oladi.</p>
+              </details>
+              <details class="faq-item">
+                <summary data-i18n="faq3_q">“Alohida TV uchun” bo‘limi telefonda ham katta ekranda ishlaydimi?</summary>
+                <p data-i18n="faq3_a">Ha! Saytdagi Alohida TV bo‘limi telefon, planshet va kompyuterga moslashgan. “To‘liq ekran” belgisini bossangiz, efir ekraningizni to‘liq egallaydi.</p>
+              </details>
+              <details class="faq-item">
+                <summary data-i18n="faq4_q">Oldingi AeroGram versiyasidan qanday yangilayman?</summary>
+                <p data-i18n="faq4_a">Yangi AeroGram.apk ni yuklab olib ustidan o‘rnating — barcha ulangan akkauntlaringiz va sozlamalaringiz joyida qoladi.</p>
+              </details>
+            </div>
           </div>
         </div>
       </div>

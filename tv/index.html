@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>AeroGram TV — Alohida TV uchun | Toshkent va O‘zbekiston Jonli Kanallari</title>
+  <meta name="description" content="AeroGram Alohida TV uchun: Zo‘r TV, Sevimli TV, Toshkent, Milliy TV, Futbol TV, Sport va 25+ O‘zbekiston kanallarini Full HD sifatida to‘liq ekranda jonli tomosha qiling.">
+  <meta name="theme-color" content="#071530">
+  <link rel="canonical" href="https://aerogram.website/tv/">
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://stream8.cinerama.uz" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="tv.css">
+</head>
+<body>
+  <!-- Compact Studio Navbar -->
+  <header class="tv-header">
+    <div class="tv-header-inner">
+      <div class="tv-header-left">
+        <a href="../" class="tv-brand" aria-label="AeroGram bosh sahifa">
+          <span class="tv-brand-logo">
+            <svg viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="aeroTvGrad" x1="14" y1="8" x2="114" y2="120" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#38BDF8"/>
+                  <stop offset="52%" stop-color="#0284C7"/>
+                  <stop offset="100%" stop-color="#1E3A8A"/>
+                </linearGradient>
+              </defs>
+              <circle cx="64" cy="64" r="64" fill="url(#aeroTvGrad)"/>
+              <circle cx="64" cy="64" r="42" fill="#FFFFFF" fill-opacity="0.06"/>
+              <path d="M64 29C66.9 29 69.5 30.7 70.8 33.4L93.8 83.2C95.6 87.1 92.1 91.3 87.9 90.2L68.2 85.1C65.4 84.4 62.6 84.4 59.8 85.1L40.1 90.2C35.9 91.3 32.4 87.1 34.2 83.2L57.2 33.4C58.5 30.7 61.1 29 64 29Z" fill="#FFFFFF"/>
+              <path d="M64 47L75.5 76.5L64 73.2L52.5 76.5L64 47Z" fill="#0284C7"/>
+              <path d="M52.5 76.5L64 73.2V84.6C62.6 84.6 61.2 84.8 59.8 85.1L46.5 88.5L52.5 76.5Z" fill="#38BDF8" fill-opacity="0.88"/>
+            </svg>
+          </span>
+          <span class="tv-brand-name">AeroGram</span>
+        </a>
+        <span class="tv-section-badge">
+          <span class="live-dot-sm"></span>
+          <span data-tv-i18n="badge_tv">Alohida TV uchun</span>
+        </span>
+      </div>
+
+      <div class="tv-header-actions">
+        <a href="../" class="tv-nav-btn" data-tv-i18n="nav_home">Bosh sahifa</a>
+        <a href="../web/" class="tv-nav-btn tv-nav-web" data-tv-i18n="nav_web">AeroGram Web</a>
+
+        <div class="tv-lang-wrap">
+          <button type="button" class="tv-lang-btn" id="tv-lang-btn" aria-label="Tilni tanlash" aria-expanded="false">
+            <span id="tv-lang-code">O‘Z</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="4 6 8 10 12 6"/></svg>
+          </button>
+          <div class="tv-lang-menu" id="tv-lang-menu" hidden>
+            <button type="button" class="tv-lang-opt active" data-lang="uz">O‘zbekcha</button>
+            <button type="button" class="tv-lang-opt" data-lang="ru">Русский</button>
+            <button type="button" class="tv-lang-opt" data-lang="en">English</button>
+          </div>
+        </div>
+
+        <button type="button" class="tv-icon-btn" id="tv-theme-btn" aria-label="Mavzuni almashtirish" title="Tun / Kun mavzusi">
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="tv-workspace">
+    <!-- Left / Primary Theater Stage -->
+    <section class="tv-stage-col" aria-label="Jonli TV pleyer">
+      <div class="player-stage" id="player-stage" tabindex="0">
+        <video id="tv-video" playsinline autoplay muted></video>
+
+        <!-- Center Loading / Unmute / Error States -->
+        <div class="stage-center-state" id="stage-spinner" hidden>
+          <div class="loader-ring"></div>
+          <span data-tv-i18n="loading_stream">Efirga ulanmoqda...</span>
+        </div>
+
+        <button type="button" class="unmute-floating" id="unmute-floating" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+          <span data-tv-i18n="tap_unmute">Ovozni yoqish uchun bosing</span>
+        </button>
+
+        <div class="stage-center-state is-error" id="stage-error" hidden>
+          <p id="stage-error-msg" data-tv-i18n="stream_error">Efir vaqtincha uzildi</p>
+          <button type="button" class="retry-btn" id="retry-btn" data-tv-i18n="retry_btn">Qayta ulanish</button>
+        </div>
+
+        <!-- Overlay Top HUD -->
+        <div class="hud-top">
+          <div class="hud-channel-info">
+            <div class="hud-logo-box" id="hud-logo-box"></div>
+            <div>
+              <div class="hud-title-row">
+                <h1 id="hud-channel-name">Zo‘r TV</h1>
+                <span class="hud-live-pill">
+                  <span class="live-dot-pulse"></span>
+                  <span data-tv-i18n="live_word">JONLI</span>
+                </span>
+              </div>
+              <div class="hud-meta-row">
+                <span id="hud-channel-cat">Ko‘ngilochar</span>
+                <span class="hud-sep">•</span>
+                <span id="hud-res-readout">HD Avto</span>
+                <span class="hud-sep">•</span>
+                <span id="hud-latency-readout" data-tv-i18n="low_delay">Tezkor efir</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hud-top-actions">
+            <button type="button" class="hud-btn-icon" id="prev-ch-btn" aria-label="Oldingi kanal" title="Oldingi kanal (↑)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button type="button" class="hud-btn-icon" id="next-ch-btn" aria-label="Keyingi kanal" title="Keyingi kanal (↓)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <button type="button" class="hud-btn-icon" id="fav-current-btn" aria-label="Sevimlilarga qo‘shish" title="Sevimli kanal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </button>
+            <button type="button" class="hud-btn-icon fs-drawer-toggle" id="fs-channels-toggle" aria-label="Kanallar ro‘yxati" title="Kanallar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Channel Drawer inside Fullscreen -->
+        <aside class="fs-channel-drawer" id="fs-channel-drawer" hidden>
+          <div class="fs-drawer-head">
+            <strong data-tv-i18n="channels_list">Kanallar</strong>
+            <button type="button" class="fs-drawer-close" id="fs-drawer-close" aria-label="Yopish">✕</button>
+          </div>
+          <div class="fs-drawer-list" id="fs-drawer-list"></div>
+        </aside>
+
+        <!-- Overlay Bottom Controls HUD -->
+        <div class="hud-bottom">
+          <div class="hud-controls-left">
+            <button type="button" class="ctrl-btn" id="play-pause-btn" aria-label="Ijro / Pauza" title="Space">
+              <svg class="ic-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+              <svg class="ic-play" viewBox="0 0 24 24" fill="currentColor" style="display:none"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+            </button>
+
+            <button type="button" class="live-edge-btn is-at-live" id="live-edge-btn" title="Jonli efirga qaytish">
+              <span class="live-dot-pulse"></span>
+              <span data-tv-i18n="live_word">JONLI</span>
+            </button>
+
+            <div class="vol-group">
+              <button type="button" class="ctrl-btn" id="mute-btn" aria-label="Ovoz" title="Ovoz (M)">
+                <svg class="ic-vol-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                <svg class="ic-vol-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+              </button>
+              <input type="range" class="vol-slider" id="vol-slider" min="0" max="1" step="0.05" value="0.9" aria-label="Ovoz balandligi">
+            </div>
+          </div>
+
+          <div class="hud-controls-right">
+            <button type="button" class="ctrl-chip" id="latency-mode-btn" title="Bufer rejimi">
+              <span class="mode-dot"></span>
+              <span id="latency-mode-label" data-tv-i18n="mode_fast">Tezkor</span>
+            </button>
+
+            <div class="quality-wrap" id="quality-wrap">
+              <button type="button" class="ctrl-chip" id="quality-btn" aria-expanded="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 1 1 0 4h-.09c-.658.003-1.25.396-1.51 1z"/></svg>
+                <span id="quality-label">Avto</span>
+              </button>
+              <div class="quality-menu" id="quality-menu" hidden></div>
+            </div>
+
+            <button type="button" class="fullscreen-cta-btn" id="fullscreen-btn" aria-label="Ekranni katta qilish" title="To‘liq ekran (F)">
+              <svg class="ic-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 3 21 3 21 9"/>
+                <polyline points="9 21 3 21 3 15"/>
+                <line x1="21" y1="3" x2="14" y2="10"/>
+                <line x1="3" y1="21" x2="10" y2="14"/>
+              </svg>
+              <svg class="ic-compress" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+                <polyline points="4 14 10 14 10 20"/>
+                <polyline points="20 10 14 10 14 4"/>
+                <line x1="14" y1="10" x2="21" y2="3"/>
+                <line x1="3" y1="21" x2="10" y2="14"/>
+              </svg>
+              <span id="fs-label" data-tv-i18n="fullscreen_btn">To‘liq ekran</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Current Channel Summary Card Below Player -->
+      <div class="now-playing-bar">
+        <div class="np-main">
+          <div class="np-title-wrap">
+            <h2 id="np-title">Zo‘r TV</h2>
+            <span class="np-badge" id="np-quality-badge">1080p Full HD</span>
+          </div>
+          <p id="np-desc" data-tv-i18n="np_hint">Ekran burchagidagi “To‘liq ekran” tugmasini bossangiz, video butun telefon yoki monitor ekranini egallaydi.</p>
+        </div>
+        <div class="np-actions">
+          <button type="button" class="np-fs-big" id="np-fs-big">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            <span data-tv-i18n="expand_now">Katta ekranda ko‘rish</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="tv-honesty-note" id="tv-honesty-note" data-tv-i18n="stream_spec_note">
+        Barcha kanallar to‘g‘ridan-to‘g‘ri HTTPS HLS orqali efirga uzatiladi: kanallarning asl manba sifati <strong>1080p Full HD</strong> va <strong>576p</strong> gacha bo‘lib, adaptiv rejim internet tezligingizga qarab qotishsiz eng yuqori aniqlikni tanlaydi.
+      </div>
+    </section>
+
+    <!-- Right / Bottom Channel Directory -->
+    <aside class="tv-channels-col" aria-label="TV kanallar ro‘yxati">
+      <div class="channels-head">
+        <div>
+          <h2 data-tv-i18n="channels_heading">O‘zbekiston & Toshkent kanallari</h2>
+          <span class="channels-count" id="channels-count">29 ta jonli kanal</span>
+        </div>
+      </div>
+
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="search" id="channel-search" placeholder="Kanal nomini yozing (Zo‘r TV, Sevimli, Toshkent)..." data-tv-placeholder="search_ph" autocomplete="off">
+      </div>
+
+      <div class="cat-pills" id="cat-pills" role="tablist">
+        <button type="button" class="cat-pill active" data-cat="all" data-tv-i18n="cat_all">Barchasi</button>
+        <button type="button" class="cat-pill" data-cat="fav" data-tv-i18n="cat_fav">★ Sevimli</button>
+        <button type="button" class="cat-pill" data-cat="tashkent" data-tv-i18n="cat_tashkent">Toshkent</button>
+        <button type="button" class="cat-pill" data-cat="entertainment" data-tv-i18n="cat_ent">Ko‘ngilochar</button>
+        <button type="button" class="cat-pill" data-cat="sport" data-tv-i18n="cat_sport">Sport</button>
+        <button type="button" class="cat-pill" data-cat="music" data-tv-i18n="cat_music">Kino & Musiqa</button>
+        <button type="button" class="cat-pill" data-cat="news" data-tv-i18n="cat_news">Yangiliklar</button>
+        <button type="button" class="cat-pill" data-cat="kids" data-tv-i18n="cat_kids">Bolalar</button>
+        <button type="button" class="cat-pill" data-cat="regions" data-tv-i18n="cat_regions">Hududiy</button>
+      </div>
+
+      <div class="channels-list" id="channels-list"></div>
+    </aside>
+  </main>
+
+  <script src="vendor/hls.min.js"></script>
+  <script src="tv.js"></script>
+</body>
+</html>
