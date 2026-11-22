@@ -533,4 +533,18 @@ replaceExact('src/util/localization/index.ts', [
   ],
 ]);
 
+// Ensure static sub-pages (Alohida TV uchun) & SEO files are staged in _site for Render Static Site builds
+const outSiteDir = path.join(siteDir, '_site');
+const tvSrcDir = path.join(siteDir, 'tv');
+if (fs.existsSync(tvSrcDir)) {
+  fs.cpSync(tvSrcDir, path.join(outSiteDir, 'tv'), { recursive: true });
+}
+for (const extraFile of ['robots.txt', 'sitemap.xml']) {
+  const srcPath = path.join(siteDir, extraFile);
+  if (fs.existsSync(srcPath)) {
+    fs.mkdirSync(outSiteDir, { recursive: true });
+    fs.copyFileSync(srcPath, path.join(outSiteDir, extraFile));
+  }
+}
+
 console.log(`AeroGram Web branding applied successfully in ${targetDir}`);
