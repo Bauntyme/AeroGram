@@ -662,6 +662,8 @@ html[data-era="2027-live"] .cap-unlocked { display: block; }
   .aero-santa-cap { top: -10px; left: -4px; width: 24px; height: 19px; }
   .capsule-2027-card { padding: 24px 18px; }
   .cap-deck-stage { padding: 16px; }
+  .cap-metric-row { grid-template-columns: 1fr; }
+  .cap-metric-box strong { font-size: 1rem; overflow-wrap: anywhere; }
 }
 
 @media (prefers-reduced-motion: reduce) {
