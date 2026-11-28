@@ -133,6 +133,11 @@
     }
   });
   document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      sheet?.setAttribute('hidden', '');
+      burger?.setAttribute('aria-expanded', 'false');
+      return;
+    }
     if (document.activeElement && ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
     if (e.key === 'ArrowRight') goToSlide(slideIdx + 1);
     if (e.key === 'ArrowLeft') goToSlide(slideIdx - 1);

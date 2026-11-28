@@ -684,6 +684,8 @@
     if (e.key === "Escape") {
       dlModal?.setAttribute("hidden", "");
       privModal?.setAttribute("hidden", "");
+      sheet?.setAttribute("hidden", "");
+      burger?.setAttribute("aria-expanded", "false");
     }
   });
 })();

@@ -1166,26 +1166,57 @@ button, input {
 @media (max-width: 640px) {
   .tv-header-inner {
     width: calc(100% - 20px);
-    height: 56px;
+    height: auto;
+    min-height: 56px;
+    padding: 8px 0;
+    flex-wrap: wrap;
+    row-gap: 8px;
   }
 
-  .tv-nav-web,
+  .tv-header-left {
+    flex: 1 1 auto;
+  }
+
   .tv-section-badge {
+    display: none;
+  }
+
+  .tv-header-actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tv-nav-web {
     display: none;
   }
 
   .tv-nav-btn {
     padding: 0 11px;
-    font-size: 0.8rem;
-    height: 34px;
+    font-size: 0.78rem;
+    height: 32px;
+  }
+
+  .tv-lang-wrap {
+    margin-left: auto;
   }
 
   .tv-lang-btn,
-  .tv-icon-btn {
-    height: 34px;
+  .tv-icon-btn,
+  .tv-fx-pill {
+    height: 32px;
   }
 
-  .tv-icon-btn { width: 34px; }
+  .tv-fx-pill {
+    padding: 0 8px;
+  }
+
+  .tv-fx-pill span {
+    display: none;
+  }
+
+  .tv-icon-btn { width: 32px; }
 
   .tv-workspace {
     width: calc(100% - 16px);
@@ -1199,7 +1230,7 @@ button, input {
 
   .hud-top,
   .hud-bottom {
-    padding: 9px 10px;
+    padding: 8px 9px;
     gap: 6px;
   }
 
@@ -1218,38 +1249,46 @@ button, input {
     font-size: 0.7rem;
   }
 
-  .tv-fx-pill {
-    height: 34px;
-    padding: 0 8px;
+  .vol-slider {
+    display: none;
   }
 
-  .tv-fx-pill span {
-    display: none;
+  .hud-controls-left,
+  .hud-controls-right {
+    gap: 5px;
+    min-width: 0;
   }
 
   .ctrl-btn,
   .hud-btn-icon {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
   }
 
   .live-edge-btn {
-    height: 32px;
-    padding: 0 9px;
-    font-size: 0.7rem;
+    height: 30px;
+    padding: 0 8px;
+    font-size: 0.68rem;
   }
 
   .ctrl-chip {
-    height: 32px;
-    padding: 0 9px;
-    font-size: 0.75rem;
+    height: 30px;
+    padding: 0 8px;
+    font-size: 0.72rem;
+    max-width: 108px;
+  }
+
+  #quality-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .fullscreen-cta-btn {
-    height: 32px;
+    height: 30px;
     padding: 0 10px;
-    font-size: 0.74rem;
+    font-size: 0.72rem;
     gap: 5px;
+    flex-shrink: 0;
   }
 
   .now-playing-bar {
