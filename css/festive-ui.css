@@ -1,114 +1,85 @@
-/* AeroGram 2027 Cosmic Prism Studio UI, Liquid Glass Buttons, Santa Cap -> 2027 Prism Crest, Tashkent 00:00 Clock & Era Metamorphosis */
+/* AeroGram 2027 — Human-Crafted Graphite & Sapphire UI, Bare Logo in 2027 & Tashkent 00:00 Clock */
 :root {
   --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
   --font-serif: 'Instrument Serif', Georgia, serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
 
-  --ny-cyan: #22D3EE;
-  --ny-indigo: #6366F1;
-  --ny-violet: #8B5CF6;
-  --ny-frost: #38BDF8;
-  --ny-ice: #BAE6FD;
+  --ny-sky: #38BDF8;
+  --ny-sapphire: #0EA5E9;
+  --ny-slate: #94A3B8;
 }
 
-/* Full-Site 00:00 UZT 2027 Cosmic Prism Metamorphosis */
+/* Automatic 00:00 UZT 2027 New Design Shift (Clean Dark Graphite & Sapphire) */
 html[data-era="2027-live"] {
-  --bg: #040613;
-  --bg-soft: #070B1E;
-  --surface: #0B112B;
-  --surface-soft: #10183B;
-  --border: rgba(148, 163, 184, 0.22);
+  --bg: #070B12;
+  --bg-soft: #0B111C;
+  --surface: #0F1726;
+  --surface-soft: #152035;
+  --border: rgba(255, 255, 255, 0.09);
   --ink: #F8FAFC;
   --ink-muted: #94A3B8;
-  --primary: #22D3EE;
-  --primary-deep: #6366F1;
-  --pill-bg: rgba(34, 211, 238, 0.16);
-  --pill-ink: #67E8F9;
-  --hero-bg: #040613;
-}
-
-html[data-era="2027-live"][data-aura="glacier"] {
-  --bg: #030A18;
-  --bg-soft: #051126;
-  --surface: #081834;
-  --surface-soft: #0D2044;
-  --primary: #38BDF8;
-  --primary-deep: #2563EB;
-  --pill-bg: rgba(56, 189, 248, 0.18);
-  --pill-ink: #BAE6FD;
-}
-
-html[data-era="2027-live"][data-aura="nebula"] {
-  --bg: #09051C;
-  --bg-soft: #0E0829;
-  --surface: #140D38;
-  --surface-soft: #1B124A;
-  --primary: #A855F7;
-  --primary-deep: #6366F1;
-  --pill-bg: rgba(168, 85, 247, 0.2);
-  --pill-ink: #E9D5FF;
+  --primary: #0EA5E9;
+  --primary-deep: #0284C7;
+  --pill-bg: rgba(14, 165, 233, 0.14);
+  --pill-ink: #38BDF8;
+  --hero-bg: #070B12;
 }
 
 body { font-family: var(--font-sans); }
 
-/* Smooth Swap Crossfade for Realistic 2027 Studio Imagery */
+/* Smooth Swap Crossfade for Studio Imagery */
 img[data-src-2027] {
-  transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.36s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
-img.is-swapping-2027 { opacity: 0.1; transform: scale(0.985); }
+img.is-swapping-2027 { opacity: 0.12; }
 
-/* 2027 Cosmic Prism Atmospheric Surfaces Sitewide */
+/* Subtle Calm 2027 Surface Atmosphere */
 html[data-era="2027-live"] .hero,
 html[data-era="2027-live"] .desk-hero {
   background:
-    radial-gradient(ellipse 72% 62% at 78% 24%, rgba(34, 211, 238, 0.2), transparent 64%),
-    radial-gradient(ellipse 56% 52% at 18% 82%, rgba(139, 92, 246, 0.24), transparent 68%),
-    radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.2), transparent 58%),
-    #040613 !important;
-}
-
-html[data-era="2027-live"][data-aura="glacier"] .hero,
-html[data-era="2027-live"][data-aura="glacier"] .desk-hero {
-  background:
-    radial-gradient(ellipse 72% 62% at 78% 24%, rgba(56, 189, 248, 0.24), transparent 64%),
-    radial-gradient(ellipse 56% 52% at 18% 82%, rgba(37, 99, 235, 0.24), transparent 68%),
-    #030A18 !important;
-}
-
-html[data-era="2027-live"][data-aura="nebula"] .hero,
-html[data-era="2027-live"][data-aura="nebula"] .desk-hero {
-  background:
-    radial-gradient(ellipse 72% 62% at 78% 24%, rgba(168, 85, 247, 0.26), transparent 64%),
-    radial-gradient(ellipse 56% 52% at 18% 82%, rgba(99, 102, 241, 0.24), transparent 68%),
-    #09051C !important;
+    radial-gradient(ellipse 68% 54% at 78% 24%, rgba(14, 165, 233, 0.16), transparent 64%),
+    radial-gradient(ellipse 52% 48% at 18% 82%, rgba(2, 132, 199, 0.12), transparent 68%),
+    #070B12 !important;
 }
 
 html[data-era="2027-live"] .nav-pill {
-  background: rgba(8, 12, 32, 0.78);
-  border-color: rgba(34, 211, 238, 0.28);
-  box-shadow: 0 14px 40px rgba(99, 102, 241, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: rgba(11, 17, 28, 0.88);
+  border-color: rgba(56, 189, 248, 0.22);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 html[data-era="2027-live"] .hero-stage-shell {
-  border-color: rgba(139, 92, 246, 0.42);
-  box-shadow: 0 34px 90px rgba(34, 211, 238, 0.22), 0 0 64px rgba(139, 92, 246, 0.18);
+  border-color: rgba(56, 189, 248, 0.24);
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.56);
 }
 
 html[data-era="2027-live"] .bento-card,
 html[data-era="2027-live"] .compare-card,
 html[data-era="2027-live"] .shot-card,
 html[data-era="2027-live"] .faq-acc-item {
-  border-color: rgba(99, 102, 241, 0.26);
-  box-shadow: 0 16px 40px rgba(2, 4, 16, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 32px rgba(2, 6, 23, 0.28);
 }
 
 html[data-era="2027-live"] .tv-spotlight-card,
 html[data-era="2027-live"] .cta-banner {
-  border-color: rgba(34, 211, 238, 0.32);
+  border-color: rgba(56, 189, 248, 0.24);
   background:
-    radial-gradient(ellipse 70% 60% at 85% 20%, rgba(34, 211, 238, 0.18), transparent 60%),
-    radial-gradient(ellipse 60% 60% at 15% 80%, rgba(139, 92, 246, 0.2), transparent 62%),
-    #070B1E !important;
+    radial-gradient(ellipse 65% 58% at 85% 20%, rgba(14, 165, 233, 0.14), transparent 62%),
+    #0B1220 !important;
+}
+
+/* Gentle 00:00 Direct Transition Motion (No Overlay Blocker) */
+@keyframes aero2027Settle {
+  0% { opacity: 0.72; transform: translate3d(0, 10px, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+body.era-2027-entering .hero-title,
+body.era-2027-entering .desk-hero-title,
+body.era-2027-entering .hero-stage-shell,
+body.era-2027-entering .capsule-2027-card {
+  animation: aero2027Settle 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* Top Reading Progress Bar */
@@ -116,21 +87,17 @@ html[data-era="2027-live"] .cta-banner {
   position: fixed;
   top: 0;
   left: 0;
-  height: 2.5px;
+  height: 2px;
   width: 100%;
   transform-origin: left center;
   transform: scaleX(0);
-  background: linear-gradient(90deg, #38BDF8 0%, #6366F1 50%, #A855F7 100%);
+  background: linear-gradient(90deg, #38BDF8 0%, #0EA5E9 100%);
   z-index: 250;
   pointer-events: none;
   will-change: transform;
 }
 
-html[data-era="2027-live"] #aero-scroll-bar {
-  background: linear-gradient(90deg, #22D3EE 0%, #8B5CF6 52%, #38BDF8 100%);
-}
-
-/* Ultra-Light Offscreen-Sprite Canvas (Auto-paused while TV plays) */
+/* Ultra-Light Sprite Canvas (Pauses while TV video plays) */
 #aero-snow-canvas {
   position: fixed;
   inset: 0;
@@ -148,7 +115,7 @@ body.is-tv-playing #aero-snow-canvas {
   pointer-events: none !important;
 }
 
-/* Top-Left Logo Ornament: Santa Cap (Pre-2027) -> Cosmic Prism Crest (At 00:00) */
+/* Top-Left Logo: Santa Cap before 00:00 -> Nothing on Top in 2027! */
 .brand-logo,
 .tv-brand-logo {
   position: relative;
@@ -157,8 +124,7 @@ body.is-tv-playing #aero-snow-canvas {
 
 .brand-logo-festive::after { display: none !important; content: none !important; }
 
-.aero-santa-cap,
-.aero-prism-2027 {
+.aero-santa-cap {
   position: absolute;
   top: -12px;
   left: -6px;
@@ -168,29 +134,18 @@ body.is-tv-playing #aero-snow-canvas {
   z-index: 5;
   transform: rotate(-13deg);
   transform-origin: 72% 85%;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
-  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.42));
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.22s ease;
 }
 
-.aero-prism-2027 {
-  top: -13px;
-  left: 3px;
-  width: 24px;
-  height: 24px;
-  transform: rotate(0deg);
-  display: none;
-  filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.65));
+html[data-era="2027-live"] .aero-santa-cap {
+  display: none !important;
 }
-
-html[data-era="2027-live"] .aero-santa-cap { display: none; }
-html[data-era="2027-live"] .aero-prism-2027 { display: block; }
 
 .brand:hover .aero-santa-cap,
-.tv-brand:hover .aero-santa-cap { transform: rotate(-5deg) scale(1.07); }
-.brand:hover .aero-prism-2027,
-.tv-brand:hover .aero-prism-2027 { transform: translateY(-2px) scale(1.08); }
+.tv-brand:hover .aero-santa-cap { transform: rotate(-5deg) scale(1.06); }
 
-/* Editorial Display Italic Flourish */
+/* Editorial Serif Flourish */
 .serif-accent {
   font-family: var(--font-serif);
   font-style: italic;
@@ -201,22 +156,11 @@ html[data-era="2027-live"] .aero-prism-2027 { display: block; }
   color: #BAE6FD;
 }
 
-html[data-era="2027-live"] .serif-accent {
-  background: linear-gradient(120deg, #A5F3FC 10%, #C4B5FD 90%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+html[data-era="2027-live"] .serif-accent { color: #7DD3FC; }
 [data-theme="light"] .section-light .serif-accent { color: var(--primary-deep, #0284C7); }
 [data-theme="dark"] .section-light .serif-accent { color: #7DD3FC; }
-html[data-era="2027-live"] .section-light .serif-accent {
-  background: linear-gradient(120deg, #67E8F9, #A78BFA);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
-/* Sitewide Liquid-Glass & Titanium Button Upgrade (Pre-2027 + Post-2027) */
+/* Tactile Human-Crafted Studio Buttons */
 .btn-nav-cta,
 .btn-white-pill,
 .btn-dark-pill,
@@ -227,46 +171,14 @@ html[data-era="2027-live"] .section-light .serif-accent {
 .btn-hero-tv,
 .tv-nav-btn,
 .np-fs-big,
-.fullscreen-cta-btn,
-.cinema-trigger-btn {
-  position: relative;
-  overflow: hidden;
-  border-radius: 14px !important;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.24),
-    0 8px 24px rgba(2, 6, 23, 0.26);
+.fullscreen-cta-btn {
+  border-radius: 12px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 4px 14px rgba(2, 6, 23, 0.22);
   transition:
-    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.24s ease,
-    border-color 0.22s ease,
-    background 0.24s ease;
-}
-
-.btn-nav-cta::after,
-.btn-white-pill::after,
-.btn-dark-pill::after,
-.btn-hero-laptop::after,
-.btn-hero-web::after,
-.btn-hero-tv::after,
-.cinema-trigger-btn::after {
-  content: "";
-  position: absolute;
-  inset: -40% auto -40% -65%;
-  width: 48%;
-  background: linear-gradient(110deg, transparent, rgba(255, 255, 255, 0.28), transparent);
-  transform: translateX(-120%) skewX(-18deg);
-  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-  pointer-events: none;
-}
-
-.btn-nav-cta:hover::after,
-.btn-white-pill:hover::after,
-.btn-dark-pill:hover::after,
-.btn-hero-laptop:hover::after,
-.btn-hero-web:hover::after,
-.btn-hero-tv:hover::after,
-.cinema-trigger-btn:hover::after {
-  transform: translateX(360%) skewX(-18deg);
+    transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
 }
 
 .btn-nav-cta:hover,
@@ -275,11 +187,11 @@ html[data-era="2027-live"] .section-light .serif-accent {
 .btn-hero-laptop:hover,
 .btn-hero-web:hover,
 .btn-hero-tv:hover,
-.cinema-trigger-btn:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.32),
-    0 14px 32px rgba(34, 211, 238, 0.2);
+.tv-nav-btn:hover,
+.np-fs-big:hover,
+.fullscreen-cta-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 10px 24px rgba(14, 165, 233, 0.16);
 }
 
 .btn-nav-cta:active,
@@ -290,37 +202,30 @@ html[data-era="2027-live"] .section-light .serif-accent {
 .btn-hero-web:active,
 .btn-hero-tv:active,
 .tv-nav-btn:active,
-.fullscreen-cta-btn:active,
-.cinema-trigger-btn:active {
-  transform: translateY(1px) scale(0.982) !important;
+.np-fs-big:active,
+.fullscreen-cta-btn:active {
+  transform: translateY(1px) scale(0.985) !important;
 }
 
 html[data-era="2027-live"] .btn-nav-cta {
-  background: linear-gradient(135deg, #22D3EE, #6366F1 62%, #8B5CF6);
-  color: #030712;
-  font-weight: 800;
+  background: #0EA5E9;
+  color: #FFFFFF;
+  font-weight: 700;
 }
 
 html[data-era="2027-live"] .btn-white-pill {
-  background: linear-gradient(135deg, #FFFFFF 0%, #E0F2FE 55%, #EDE9FE 100%);
-  color: #06091A;
-  box-shadow: 0 14px 36px rgba(34, 211, 238, 0.24), inset 0 1px 0 #FFFFFF;
+  background: #FFFFFF;
+  color: #0B111C;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.14);
 }
 
 html[data-era="2027-live"] .btn-dark-pill {
-  background: linear-gradient(135deg, #1E293B, #312E81);
-  border: 1px solid rgba(34, 211, 238, 0.34);
+  background: #162238;
+  border: 1px solid rgba(56, 189, 248, 0.26);
   color: #F8FAFC;
 }
 
-html[data-era="2027-live"] .btn-hero-web,
-html[data-era="2027-live"] .btn-hero-tv,
-html[data-era="2027-live"] .btn-hero-laptop {
-  border-color: rgba(139, 92, 246, 0.42);
-  background: rgba(17, 24, 58, 0.72);
-}
-
-/* Festive FX Toggle */
+/* FX Toggle Pill */
 .ny-fx-toggle {
   display: inline-flex;
   align-items: center;
@@ -328,9 +233,9 @@ html[data-era="2027-live"] .btn-hero-laptop {
   gap: 6px;
   height: 38px;
   padding: 0 11px;
-  border-radius: 12px;
-  border: 1px solid rgba(56, 189, 248, 0.34);
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.14), rgba(99, 102, 241, 0.12));
+  border-radius: 11px;
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  background: rgba(14, 165, 233, 0.1);
   color: #BAE6FD;
   font-family: var(--font-sans);
   font-size: 0.78rem;
@@ -340,12 +245,12 @@ html[data-era="2027-live"] .btn-hero-laptop {
   transition: transform 0.18s ease, border-color 0.2s ease, opacity 0.2s ease;
 }
 
-[data-theme="light"] .ny-fx-toggle { color: #0369A1; border-color: rgba(14, 165, 233, 0.38); }
-.ny-fx-toggle:hover { transform: translateY(-1px); border-color: rgba(34, 211, 238, 0.7); }
+[data-theme="light"] .ny-fx-toggle { color: #0369A1; border-color: rgba(14, 165, 233, 0.34); }
+.ny-fx-toggle:hover { transform: translateY(-1px); border-color: rgba(56, 189, 248, 0.65); }
 .ny-fx-toggle svg { width: 15px; height: 15px; flex-shrink: 0; }
 html[data-ny-fx="off"] .ny-fx-toggle { opacity: 0.56; filter: grayscale(0.75); }
 
-/* Precision Uzbekistan (UTC+5) 2027 Horological Countdown Capsule */
+/* Precision Uzbekistan (UTC+5) 2027 Countdown Capsule */
 .ny-countdown-mount { margin-bottom: 18px; }
 
 .ny-countdown-bar {
@@ -354,10 +259,10 @@ html[data-ny-fx="off"] .ny-fx-toggle { opacity: 0.56; filter: grayscale(0.75); }
   align-items: center;
   gap: 12px 16px;
   padding: 10px 14px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(10, 16, 40, 0.92), rgba(16, 26, 62, 0.88));
-  border: 1px solid rgba(56, 189, 248, 0.34);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09), 0 14px 34px rgba(2, 6, 23, 0.36);
+  border-radius: 14px;
+  background: rgba(13, 21, 38, 0.92);
+  border: 1px solid rgba(56, 189, 248, 0.24);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 10px 28px rgba(2, 6, 23, 0.28);
   color: #F8FAFC;
   max-width: 100%;
 }
@@ -370,7 +275,7 @@ html[data-ny-fx="off"] .ny-fx-toggle { opacity: 0.56; filter: grayscale(0.75); }
   gap: 7px;
   font-size: 0.79rem;
   font-weight: 700;
-  color: #A5F3FC;
+  color: #BAE6FD;
   letter-spacing: -0.01em;
 }
 
@@ -379,7 +284,7 @@ html[data-ny-fx="off"] .ny-fx-toggle { opacity: 0.56; filter: grayscale(0.75); }
   height: 7px;
   border-radius: 50%;
   background: #38BDF8;
-  box-shadow: 0 0 8px rgba(56, 189, 248, 0.95);
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.9);
   flex-shrink: 0;
 }
 
@@ -397,9 +302,9 @@ html[data-ny-fx="off"] .ny-fx-toggle { opacity: 0.56; filter: grayscale(0.75); }
   align-items: center;
   padding: 2px 7px;
   border-radius: 6px;
-  background: rgba(99, 102, 241, 0.2);
-  border: 1px solid rgba(129, 140, 248, 0.34);
-  color: #C7D2FE;
+  background: rgba(14, 165, 233, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.24);
+  color: #7DD3FC;
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 700;
@@ -411,10 +316,9 @@ html[data-ny-fx="off"] .ny-fx-toggle { opacity: 0.56; filter: grayscale(0.75); }
   min-width: 44px;
   padding: 5px 6px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   text-align: center;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .ny-cd-val {
@@ -445,13 +349,8 @@ html[data-ny-fx="off"] .ny-fx-toggle { opacity: 0.56; filter: grayscale(0.75); }
 }
 
 .ny-countdown-bar.is-arrived {
-  border-color: rgba(34, 211, 238, 0.56);
-  background: linear-gradient(135deg, rgba(10, 18, 48, 0.94), rgba(30, 27, 75, 0.92), rgba(14, 116, 144, 0.42));
-}
-
-.ny-countdown-bar.is-arrived .ny-cd-dot {
-  background: #22D3EE;
-  box-shadow: 0 0 12px rgba(34, 211, 238, 1);
+  border-color: rgba(56, 189, 248, 0.42);
+  background: linear-gradient(135deg, rgba(13, 21, 38, 0.96), rgba(16, 30, 56, 0.94));
 }
 
 .ny-arrived-badge {
@@ -460,13 +359,12 @@ html[data-ny-fx="off"] .ny-fx-toggle { opacity: 0.56; filter: grayscale(0.75); }
   gap: 8px;
   padding: 7px 12px;
   border-radius: 10px;
-  background: linear-gradient(135deg, rgba(34, 211, 238, 0.22), rgba(139, 92, 246, 0.24));
-  border: 1px solid rgba(34, 211, 238, 0.52);
-  color: #CFFAFE;
+  background: rgba(14, 165, 233, 0.16);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #BAE6FD;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  cursor: pointer;
 }
 
 /* Compact TV Strip */
@@ -476,36 +374,31 @@ html[data-ny-fx="off"] .ny-fx-toggle { opacity: 0.56; filter: grayscale(0.75); }
 [data-theme="light"] .ny-countdown-mount.is-compact .ny-countdown-bar {
   background: #FFFFFF;
   color: #0F172A;
-  border-color: rgba(56, 189, 248, 0.45);
+  border-color: rgba(14, 165, 233, 0.36);
   box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
 }
 [data-theme="light"] .ny-countdown-mount.is-compact .ny-cd-title-row { color: #0284C7; }
 [data-theme="light"] .ny-countdown-mount.is-compact .ny-cd-sub { color: #475569; }
-[data-theme="light"] .ny-countdown-mount.is-compact .ny-uz-live-clock { color: #4338CA; background: #EEF2FF; }
+[data-theme="light"] .ny-countdown-mount.is-compact .ny-uz-live-clock { color: #0369A1; background: #E0F2FE; border-color: #BAE6FD; }
 [data-theme="light"] .ny-countdown-mount.is-compact .ny-cd-unit { background: #F1F5F9; border-color: #CBD5E1; }
 [data-theme="light"] .ny-countdown-mount.is-compact .ny-cd-val { color: #0F172A; }
 [data-theme="light"] .ny-countdown-mount.is-compact .ny-cd-lbl { color: #0284C7; }
+[data-theme="light"] .ny-countdown-mount.is-compact .ny-arrived-badge { background: #E0F2FE; color: #0369A1; border-color: #7DD3FC; }
 
-/* Exclusive 2027 Spatial Platform Hub (#capsule-2027) */
+/* AeroGram 2027 New Design Hub (#capsule-2027) */
 .capsule-2027-card {
   position: relative;
-  border-radius: 30px;
-  padding: 40px 44px;
-  background:
-    radial-gradient(ellipse 68% 60% at 88% 15%, rgba(56, 189, 248, 0.14), transparent 60%),
-    radial-gradient(ellipse 55% 55% at 10% 85%, rgba(139, 92, 246, 0.14), transparent 65%),
-    var(--surface);
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 26px;
+  padding: 36px 40px;
+  background: var(--surface);
+  border: 1px solid rgba(56, 189, 248, 0.22);
   box-shadow: var(--shadow-card);
   overflow: hidden;
 }
 
 html[data-era="2027-live"] .capsule-2027-card {
-  border-color: rgba(34, 211, 238, 0.42);
-  background:
-    radial-gradient(ellipse 70% 62% at 85% 15%, rgba(34, 211, 238, 0.18), transparent 62%),
-    radial-gradient(ellipse 58% 58% at 12% 85%, rgba(139, 92, 246, 0.22), transparent 65%),
-    #060A1E;
+  border-color: rgba(56, 189, 248, 0.3);
+  background: linear-gradient(155deg, #0D1422 0%, #09101C 100%);
   color: #F8FAFC;
 }
 
@@ -524,11 +417,11 @@ html[data-era="2027-live"] .cap-unlocked { display: block; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 14px;
+  padding: 6px 13px;
   border-radius: 9999px;
-  background: rgba(34, 211, 238, 0.14);
-  border: 1px solid rgba(34, 211, 238, 0.38);
-  color: #67E8F9;
+  background: rgba(14, 165, 233, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #7DD3FC;
   font-size: 0.8rem;
   font-weight: 700;
   margin-bottom: 14px;
@@ -536,7 +429,7 @@ html[data-era="2027-live"] .cap-unlocked { display: block; }
 
 .cap-locked-grid h2,
 .cap-unlocked-head h2 {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: clamp(1.7rem, 2.9vw, 2.35rem);
   margin-bottom: 12px;
 }
 
@@ -551,7 +444,7 @@ html[data-era="2027-live"] .cap-unlocked { display: block; }
   align-items: center;
   gap: 12px;
   padding: 13px 15px;
-  border-radius: 16px;
+  border-radius: 14px;
   background: var(--surface-soft);
   border: 1px solid var(--border);
 }
@@ -559,8 +452,8 @@ html[data-era="2027-live"] .cap-unlocked { display: block; }
 .cap-t-ic {
   width: 36px;
   height: 36px;
-  border-radius: 11px;
-  background: rgba(56, 189, 248, 0.16);
+  border-radius: 10px;
+  background: rgba(14, 165, 233, 0.14);
   color: #38BDF8;
   display: inline-flex;
   align-items: center;
@@ -571,107 +464,60 @@ html[data-era="2027-live"] .cap-unlocked { display: block; }
 .cap-teaser-item strong { display: block; font-size: 0.92rem; }
 .cap-teaser-item small { display: block; font-size: 0.78rem; color: var(--ink-muted); }
 
-/* Unlocked Interactive 2027 Spatial Platform Deck */
+/* Unlocked New Design Highlights Grid */
 .cap-unlocked-head {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   gap: 20px;
   flex-wrap: wrap;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
-.cap-aura-bar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.cap-aura-btn,
-.cinema-trigger-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  height: 40px;
-  padding: 0 15px;
-  border-radius: 12px;
-  border: 1px solid rgba(148, 163, 184, 0.24);
-  background: rgba(255, 255, 255, 0.06);
-  color: #F8FAFC;
-  font-family: inherit;
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.cap-aura-btn.active {
-  border-color: #22D3EE;
-  background: rgba(34, 211, 238, 0.18);
-  color: #CFFAFE;
-}
-
-.cinema-trigger-btn {
-  border-color: rgba(139, 92, 246, 0.56);
-  background: linear-gradient(135deg, rgba(34, 211, 238, 0.22), rgba(99, 102, 241, 0.34));
-  color: #FFFFFF;
-  font-weight: 700;
-}
-
-.cap-aura-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-/* Interactive Spatial Tabs & Stage */
 .cap-deck-tabs {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .cap-tab-btn {
   padding: 9px 16px;
-  border-radius: 12px;
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  background: rgba(15, 23, 42, 0.55);
+  border-radius: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
   color: #CBD5E1;
   font-family: inherit;
   font-size: 0.84rem;
   font-weight: 600;
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.18s;
+  transition: border-color 0.18s, background 0.18s, color 0.18s;
 }
 
-.cap-tab-btn:hover { transform: translateY(-1px); border-color: rgba(34, 211, 238, 0.45); }
+.cap-tab-btn:hover { border-color: rgba(56, 189, 248, 0.45); color: #FFFFFF; }
 .cap-tab-btn.active {
-  background: linear-gradient(135deg, rgba(34, 211, 238, 0.2), rgba(99, 102, 241, 0.24));
-  border-color: #22D3EE;
+  background: rgba(14, 165, 233, 0.18);
+  border-color: #38BDF8;
   color: #FFFFFF;
 }
 
 .cap-deck-stage {
   display: grid;
-  grid-template-columns: 1.08fr 0.92fr;
+  grid-template-columns: 1fr 1.05fr;
   gap: 24px;
   align-items: center;
-  padding: 24px;
-  border-radius: 22px;
-  background: rgba(4, 7, 20, 0.74);
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  margin-bottom: 22px;
+  padding: 22px;
+  border-radius: 18px;
+  background: rgba(7, 11, 18, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 20px;
 }
 
 .cap-deck-visual {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 20px;
-  border-radius: 18px;
-  background: radial-gradient(circle at 80% 15%, rgba(34, 211, 238, 0.16), transparent 65%), #090F29;
-  border: 1px solid rgba(56, 189, 248, 0.24);
+  padding: 18px;
+  border-radius: 14px;
+  background: #0B1220;
+  border: 1px solid rgba(56, 189, 248, 0.18);
 }
 
 .cap-metric-row {
@@ -683,15 +529,15 @@ html[data-era="2027-live"] .cap-unlocked { display: block; }
 .cap-metric-box {
   padding: 12px 14px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(148, 163, 184, 0.14);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .cap-metric-box strong {
   display: block;
   font-family: var(--font-mono);
-  font-size: 1.15rem;
-  color: #22D3EE;
+  font-size: 1.12rem;
+  color: #38BDF8;
 }
 
 .cap-metric-box span {
@@ -700,8 +546,8 @@ html[data-era="2027-live"] .cap-unlocked { display: block; }
 }
 
 .cap-deck-copy h3 {
-  font-size: 1.38rem;
-  margin-bottom: 10px;
+  font-size: 1.32rem;
+  margin-bottom: 8px;
   color: #FFFFFF;
 }
 
@@ -719,12 +565,12 @@ html[data-era="2027-live"] .cap-unlocked { display: block; }
 
 .cap-future-tile {
   padding: 16px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.cap-future-tile strong { display: block; font-size: 0.94rem; color: #67E8F9; margin-bottom: 4px; }
+.cap-future-tile strong { display: block; font-size: 0.94rem; color: #7DD3FC; margin-bottom: 4px; }
 .cap-future-tile p { font-size: 0.82rem; color: #CBD5E1; line-height: 1.45; }
 
 /* Interactive Catenary Holiday Garland */
@@ -790,7 +636,7 @@ html[data-era="2027-live"] .cap-unlocked { display: block; }
 @keyframes aeroMarquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
 
 .faq-acc-item { border-radius: 16px; background: var(--surface-soft); border: 1px solid var(--border); overflow: hidden; }
-.faq-acc-item.is-open { border-color: rgba(34, 211, 238, 0.42); }
+.faq-acc-item.is-open { border-color: rgba(14, 165, 233, 0.42); }
 .faq-acc-trigger { width: 100%; border: none; background: transparent; color: var(--ink); padding: 15px 18px; display: flex; align-items: center; justify-content: space-between; gap: 14px; text-align: left; font-family: inherit; font-size: 0.95rem; font-weight: 600; cursor: pointer; }
 .faq-acc-plus { width: 24px; height: 24px; border-radius: 8px; background: var(--pill-bg); color: var(--pill-ink); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.24s ease, background 0.2s ease; }
 .faq-acc-item.is-open .faq-acc-plus { transform: rotate(45deg); background: var(--primary); color: #FFFFFF; }
@@ -813,7 +659,7 @@ html[data-era="2027-live"] .cap-unlocked { display: block; }
   .ny-countdown-bar { width: 100%; padding: 9px 11px; gap: 9px 10px; }
   .ny-cd-unit { min-width: 40px; padding: 4px 5px; }
   .ny-cd-val { font-size: 0.88rem; }
-  .aero-santa-cap, .aero-prism-2027 { top: -10px; left: -4px; width: 24px; height: 19px; }
+  .aero-santa-cap { top: -10px; left: -4px; width: 24px; height: 19px; }
   .capsule-2027-card { padding: 24px 18px; }
   .cap-deck-stage { padding: 16px; }
 }

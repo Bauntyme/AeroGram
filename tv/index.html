@@ -20,7 +20,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../css/festive-ui.css">
-  <link rel="stylesheet" href="../css/cinema-2027.css">
   <link rel="stylesheet" href="tv.css">
 </head>
 <body>
@@ -232,14 +231,26 @@
 
       <!-- Current Channel Summary Card Below Player -->
       <div class="now-playing-bar">
-        <div class="np-main">
-          <div class="np-title-wrap">
-            <h2 id="np-title">Zo‘r TV</h2>
-            <span class="np-badge mono-metric" id="np-quality-badge">1080p Full HD</span>
+        <div class="np-channel-lead">
+          <div class="np-logo-box" id="np-logo"></div>
+          <div class="np-main">
+            <div class="np-title-wrap">
+              <h2 id="np-title">Zo‘r TV</h2>
+              <span class="np-badge mono-metric" id="np-quality-badge">1080p Full HD</span>
+              <span class="np-cat" id="np-cat">Ko‘ngilochar</span>
+            </div>
+            <p id="np-desc" data-tv-i18n="np_hint">Ekran burchagidagi “To‘liq ekran” tugmasini bossangiz, video butun telefon yoki monitor ekranini egallaydi.</p>
           </div>
-          <p id="np-desc" data-tv-i18n="np_hint">Ekran burchagidagi “To‘liq ekran” tugmasini bossangiz, video butun telefon yoki monitor ekranini egallaydi.</p>
         </div>
         <div class="np-actions">
+          <button type="button" class="np-zap-btn" id="np-prev-btn" aria-label="Oldingi kanal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+            <span data-tv-i18n="prev_short">Oldingi</span>
+          </button>
+          <button type="button" class="np-zap-btn" id="np-next-btn" aria-label="Keyingi kanal">
+            <span data-tv-i18n="next_short">Keyingi</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
           <button type="button" class="np-fs-big" id="np-fs-big">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
             <span data-tv-i18n="expand_now">Katta ekranda ko‘rish</span>
@@ -256,14 +267,22 @@
     <aside class="tv-channels-col" aria-label="TV kanallar ro‘yxati">
       <div class="channels-head">
         <div>
-          <h2 data-tv-i18n="channels_heading">O‘zbekiston & Toshkent kanallari</h2>
-          <span class="channels-count" id="channels-count">29 ta jonli kanal</span>
+          <h2 data-tv-i18n="channels_heading">O‘zbekiston & Jahon TV kanallari</h2>
+          <span class="channels-count" id="channels-count">46 ta jonli kanal</span>
+        </div>
+        <div class="view-switch" role="group" aria-label="Ko‘rinish rejimi">
+          <button type="button" class="view-btn active" id="view-list-btn" aria-label="Ro‘yxat ko‘rinishi" title="Ro‘yxat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>
+          </button>
+          <button type="button" class="view-btn" id="view-grid-btn" aria-label="Katak ko‘rinishi" title="Kataklar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          </button>
         </div>
       </div>
 
       <div class="search-box">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <input type="search" id="channel-search" placeholder="Kanal nomini yozing (Zo‘r TV, Sevimli, Toshkent)..." data-tv-placeholder="search_ph" autocomplete="off">
+        <input type="search" id="channel-search" placeholder="Kanal nomini yozing (Zo‘r TV, BIZ TV, Sport)..." data-tv-placeholder="search_ph" autocomplete="off">
       </div>
 
       <div class="cat-pills" id="cat-pills" role="tablist">
@@ -274,6 +293,7 @@
         <button type="button" class="cat-pill" data-cat="sport" data-tv-i18n="cat_sport">Sport</button>
         <button type="button" class="cat-pill" data-cat="music" data-tv-i18n="cat_music">Kino & Musiqa</button>
         <button type="button" class="cat-pill" data-cat="news" data-tv-i18n="cat_news">Yangiliklar</button>
+        <button type="button" class="cat-pill" data-cat="doc" data-tv-i18n="cat_doc">Tabiat & Fan</button>
         <button type="button" class="cat-pill" data-cat="kids" data-tv-i18n="cat_kids">Bolalar</button>
         <button type="button" class="cat-pill" data-cat="regions" data-tv-i18n="cat_regions">Hududiy</button>
       </div>
@@ -283,8 +303,6 @@
   </main>
 
   <script src="vendor/hls.min.js"></script>
-  <script src="../js/vendor/three.min.js" defer></script>
-  <script src="../js/cinema-2027.js" defer></script>
   <script src="../js/festive-motion.js" defer></script>
   <script src="tv.js"></script>
 </body>

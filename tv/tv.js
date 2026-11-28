@@ -31,6 +31,23 @@
     { id: "fargona", code: "FAR", logo: "logos/fargona.jpg", grad: "linear-gradient(135deg,#16A34A,#0D9488)", name: "Farg‘ona MTRK", cat: "regions", catLabel: { uz: "Hududiy", ru: "Региональный", en: "Regional" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1458/playlist.m3u8" },
     { id: "navoiy", code: "NVY", logo: "logos/navoiy.png", grad: "linear-gradient(135deg,#D97706,#B45309)", name: "Navoiy MTRK", cat: "regions", catLabel: { uz: "Hududiy", ru: "Региональный", en: "Regional" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1460/playlist.m3u8" },
     { id: "qaraqalpaqstan", code: "QQP", logo: "logos/qaraqalpaqstan.png", grad: "linear-gradient(135deg,#0369A1,#1E40AF)", name: "Qaraqalpaqstan", cat: "regions", catLabel: { uz: "Hududiy", ru: "Региональный", en: "Regional" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1467/playlist.m3u8" },
+    { id: "biz-tv", code: "BIZ", logo: "logos/biz-tv.png", grad: "linear-gradient(135deg,#0EA5E9,#0284C7)", name: "BIZ TV", cat: "entertainment", catLabel: { uz: "Ko‘ngilochar", ru: "Развлекательный", en: "Entertainment" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1211/playlist.m3u8" },
+    { id: "biz-cinema", code: "BIZC", logo: "logos/biz-cinema.png", grad: "linear-gradient(135deg,#4F46E5,#0EA5E9)", name: "BIZ Cinema", cat: "music", catLabel: { uz: "Kino & Musiqa", ru: "Кино и музыка", en: "Movies & Music" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1213/playlist.m3u8" },
+    { id: "biz-music", code: "BIZM", logo: "logos/biz-music.jpg", grad: "linear-gradient(135deg,#EC4899,#BE185D)", name: "BIZ Music", cat: "music", catLabel: { uz: "Kino & Musiqa", ru: "Кино и музыка", en: "Movies & Music" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1212/playlist.m3u8" },
+    { id: "kinopremyera", code: "PREM", logo: "logos/kinopremyera.png", grad: "linear-gradient(135deg,#DC2626,#7F1D1D)", name: "Kinopremyera", cat: "music", catLabel: { uz: "Kino & Musiqa", ru: "Кино и музыка", en: "Movies & Music" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1207/playlist.m3u8" },
+    { id: "viju-action", code: "ACT", logo: "logos/viju-action.png", grad: "linear-gradient(135deg,#EA580C,#9A3412)", name: "viju TV1000 Action", cat: "music", catLabel: { uz: "Kino & Musiqa", ru: "Кино и музыка", en: "Movies & Music" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1225/playlist.m3u8" },
+    { id: "kinohit", code: "KHIT", logo: "logos/kinohit.png", grad: "linear-gradient(135deg,#4338CA,#1E1B4B)", name: "KinoHit", cat: "music", catLabel: { uz: "Kino & Musiqa", ru: "Кино и музыка", en: "Movies & Music" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1055/playlist.m3u8" },
+    { id: "dorama", code: "DORM", logo: "logos/dorama.png", grad: "linear-gradient(135deg,#DB2777,#831843)", name: "Dorama", cat: "entertainment", catLabel: { uz: "Ko‘ngilochar", ru: "Развлекательный", en: "Entertainment" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1273/playlist.m3u8" },
+    { id: "viju-sport", code: "VSPT", logo: "logos/viju-sport.png", grad: "linear-gradient(135deg,#059669,#064E3B)", name: "viju+ Sport", cat: "sport", catLabel: { uz: "Sport", ru: "Спорт", en: "Sports" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1229/playlist.m3u8" },
+    { id: "mma-tv", code: "MMA", logo: "logos/mma-tv.png", grad: "linear-gradient(135deg,#DC2626,#18181B)", name: "MMA-TV", cat: "sport", catLabel: { uz: "Sport", ru: "Спорт", en: "Sports" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1226/playlist.m3u8" },
+    { id: "euronews", code: "EURO", logo: "logos/euronews.png", grad: "linear-gradient(135deg,#0284C7,#0F172A)", name: "Euronews", cat: "news", catLabel: { uz: "Yangiliklar", ru: "Новости", en: "News" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1024/playlist.m3u8" },
+    { id: "bbc-news", code: "BBC", logo: "logos/bbc-news.png", grad: "linear-gradient(135deg,#B91C1C,#7F1D1D)", name: "BBC News", cat: "news", catLabel: { uz: "Yangiliklar", ru: "Новости", en: "News" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1251/playlist.m3u8" },
+    { id: "mir-24", code: "MIR", logo: "logos/mir-24.png", grad: "linear-gradient(135deg,#16A34A,#14532D)", name: "Mir 24", cat: "news", catLabel: { uz: "Yangiliklar", ru: "Новости", en: "News" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1219/playlist.m3u8" },
+    { id: "viju-nature", code: "NATR", logo: "logos/viju-nature.png", grad: "linear-gradient(135deg,#059669,#14532D)", name: "viju Nature", cat: "doc", catLabel: { uz: "Tabiat & Fan", ru: "Природа и Наука", en: "Nature & Science" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1228/playlist.m3u8" },
+    { id: "da-vinci", code: "DVNC", logo: "logos/da-vinci.png", grad: "linear-gradient(135deg,#0284C7,#0C4A6E)", name: "Da Vinci", cat: "doc", catLabel: { uz: "Tabiat & Fan", ru: "Природа и Наука", en: "Nature & Science" }, maxQ: "1080p FHD", isFhd: true, url: "https://stream3.cinerama.uz/1231/playlist.m3u8" },
+    { id: "mult", code: "MULT", logo: "logos/mult.png", grad: "linear-gradient(135deg,#2563EB,#1E3A8A)", name: "Mult", cat: "kids", catLabel: { uz: "Bolalar", ru: "Детский", en: "Kids" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1246/playlist.m3u8" },
+    { id: "ru-tv", code: "RUTV", logo: "logos/ru-tv.png", grad: "linear-gradient(135deg,#7C3AED,#4C1D95)", name: "RU.TV", cat: "music", catLabel: { uz: "Kino & Musiqa", ru: "Кино и музыка", en: "Movies & Music" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1202/playlist.m3u8" },
+    { id: "trt-muzik", code: "TRTM", logo: "logos/trt-muzik.png", grad: "linear-gradient(135deg,#0369A1,#082F49)", name: "TRT Muzik", cat: "music", catLabel: { uz: "Kino & Musiqa", ru: "Кино и музыка", en: "Movies & Music" }, maxQ: "576p SD", isFhd: false, url: "https://stream3.cinerama.uz/1208/playlist.m3u8" },
   ];
 
   const I18N = {
@@ -51,10 +68,12 @@
       fullscreen_btn: "To‘liq ekran",
       exit_fullscreen_btn: "Kichraytirish",
       expand_now: "Katta ekranda ko‘rish",
+      prev_short: "Oldingi",
+      next_short: "Keyingi",
       np_hint: "Burchakdagi “To‘liq ekran” tugmasini bossangiz, video butun telefon yoki monitor ekranini egallaydi.",
       stream_spec_note: "Barcha kanallar to‘g‘ridan-to‘g‘ri HTTPS HLS orqali efirga uzatiladi: kanallarning asl manba sifati <strong>1080p Full HD</strong> va <strong>576p</strong> gacha bo‘lib, adaptiv rejim internet tezligingizga qarab qotishsiz eng yuqori aniqlikni tanlaydi.",
-      channels_heading: "O‘zbekiston & Toshkent kanallari",
-      search_ph: "Kanal nomini yozing (Zo‘r TV, Sevimli, Toshkent)...",
+      channels_heading: "O‘zbekiston & Jahon TV kanallari",
+      search_ph: "Kanal nomini yozing (Zo‘r TV, BIZ TV, Sport)...",
       cat_all: "Barchasi",
       cat_fav: "★ Sevimli",
       cat_tashkent: "Toshkent",
@@ -62,6 +81,7 @@
       cat_sport: "Sport",
       cat_music: "Kino & Musiqa",
       cat_news: "Yangiliklar",
+      cat_doc: "Tabiat & Fan",
       cat_kids: "Bolalar",
       cat_regions: "Hududiy",
       auto_q: "Avto (Tez)",
@@ -89,10 +109,12 @@
       fullscreen_btn: "На весь экран",
       exit_fullscreen_btn: "Свернуть",
       expand_now: "Открыть во весь экран",
+      prev_short: "Назад",
+      next_short: "Далее",
       np_hint: "Нажмите «На весь экран», чтобы развернуть трансляцию на весь экран телефона или монитора.",
       stream_spec_note: "Все каналы передаются напрямую через HTTPS HLS: оригинальное качество вещания достигает <strong>1080p Full HD</strong> (и <strong>576p</strong> для части каналов), а адаптивный поток держит стабильную картинку без зависаний.",
-      channels_heading: "Каналы Узбекистана и Ташкента",
-      search_ph: "Поиск канала (Zo‘r TV, Sevimli, Toshkent)...",
+      channels_heading: "Каналы Узбекистана и Мира",
+      search_ph: "Поиск канала (Zo‘r TV, BIZ TV, Sport)...",
       cat_all: "Все",
       cat_fav: "★ Избранное",
       cat_tashkent: "Ташкент",
@@ -100,6 +122,7 @@
       cat_sport: "Спорт",
       cat_music: "Кино и Музыка",
       cat_news: "Новости",
+      cat_doc: "Наука и Природа",
       cat_kids: "Детям",
       cat_regions: "Регионы",
       auto_q: "Авто (Быстро)",
@@ -127,10 +150,12 @@
       fullscreen_btn: "Fullscreen",
       exit_fullscreen_btn: "Exit Fullscreen",
       expand_now: "Watch Fullscreen",
+      prev_short: "Prev",
+      next_short: "Next",
       np_hint: "Tap the Fullscreen icon to expand video seamlessly across your entire phone or desktop display.",
       stream_spec_note: "All channels stream directly over HTTPS HLS with adaptive quality up to each broadcaster’s native <strong>1080p Full HD</strong> (or <strong>576p</strong>) feed for smooth playback.",
-      channels_heading: "Uzbekistan & Tashkent TV Channels",
-      search_ph: "Search channel (Zo‘r TV, Sevimli, Toshkent)...",
+      channels_heading: "Uzbekistan & International TV",
+      search_ph: "Search channel (Zo‘r TV, BIZ TV, Sport)...",
       cat_all: "All",
       cat_fav: "★ Favorites",
       cat_tashkent: "Tashkent",
@@ -138,6 +163,7 @@
       cat_sport: "Sports",
       cat_music: "Movies & Music",
       cat_news: "News",
+      cat_doc: "Science & Nature",
       cat_kids: "Kids",
       cat_regions: "Regional",
       auto_q: "Auto (Fast)",
@@ -163,8 +189,14 @@
   const hudChannelCat = document.getElementById("hud-channel-cat");
   const hudResReadout = document.getElementById("hud-res-readout");
   const hudLatencyReadout = document.getElementById("hud-latency-readout");
+  const npLogo = document.getElementById("np-logo");
   const npTitle = document.getElementById("np-title");
   const npQualityBadge = document.getElementById("np-quality-badge");
+  const npCat = document.getElementById("np-cat");
+  const npPrevBtn = document.getElementById("np-prev-btn");
+  const npNextBtn = document.getElementById("np-next-btn");
+  const viewListBtn = document.getElementById("view-list-btn");
+  const viewGridBtn = document.getElementById("view-grid-btn");
 
   const prevChBtn = document.getElementById("prev-ch-btn");
   const nextChBtn = document.getElementById("next-ch-btn");
@@ -206,6 +238,7 @@
   if (!I18N[lang]) lang = "uz";
   let latencyMode = localStorage.getItem("aero_tv_mode") || "fast"; // 'fast' | 'stable'
   let favorites = new Set(JSON.parse(localStorage.getItem("aero_tv_favs") || "[]"));
+  let viewMode = localStorage.getItem("aero_tv_view") === "grid" ? "grid" : "list";
   let activeCategory = "all";
   let searchQuery = "";
   let currentChannel = CHANNELS[0];
@@ -316,10 +349,49 @@
     });
   }
 
+  function syncViewButtons() {
+    channelsList.classList.toggle("is-grid", viewMode === "grid");
+    viewListBtn?.classList.toggle("active", viewMode === "list");
+    viewGridBtn?.classList.toggle("active", viewMode === "grid");
+  }
+  syncViewButtons();
+
+  viewListBtn?.addEventListener("click", () => {
+    viewMode = "list";
+    localStorage.setItem("aero_tv_view", viewMode);
+    syncViewButtons();
+  });
+  viewGridBtn?.addEventListener("click", () => {
+    viewMode = "grid";
+    localStorage.setItem("aero_tv_view", viewMode);
+    syncViewButtons();
+  });
+
+  function toggleFavoriteById(id) {
+    if (favorites.has(id)) favorites.delete(id);
+    else favorites.add(id);
+    localStorage.setItem("aero_tv_favs", JSON.stringify(Array.from(favorites)));
+    updateChannelHudMeta();
+    renderChannels();
+  }
+
   function renderChannels() {
     const list = getFilteredChannels();
     channelsCount.textContent = I18N[lang].count_fmt(list.length);
     channelsList.innerHTML = "";
+
+    // Update live category counts in cat-pills
+    catPills.querySelectorAll(".cat-pill").forEach((pill) => {
+      const cat = pill.dataset.cat;
+      const cnt = cat === "all" ? CHANNELS.length : cat === "fav" ? favorites.size : CHANNELS.filter((c) => c.cat === cat).length;
+      let badge = pill.querySelector(".cat-num");
+      if (!badge) {
+        badge = document.createElement("span");
+        badge.className = "cat-num";
+        pill.appendChild(badge);
+      }
+      badge.textContent = ` ${cnt}`;
+    });
 
     if (list.length === 0) {
       const emp = document.createElement("div");
@@ -343,7 +415,7 @@
       info.className = "ch-info";
       const nameEl = document.createElement("div");
       nameEl.className = "ch-name";
-      nameEl.textContent = (favorites.has(ch.id) ? "★ " : "") + ch.name;
+      nameEl.textContent = ch.name;
 
       const sub = document.createElement("div");
       sub.className = "ch-sub";
@@ -355,11 +427,21 @@
       sub.append(catSpan, qSpan);
       info.append(nameEl, sub);
 
+      const favBtn = document.createElement("span");
+      favBtn.className = "ch-fav-toggle" + (favorites.has(ch.id) ? " is-fav" : "");
+      favBtn.setAttribute("role", "button");
+      favBtn.setAttribute("aria-label", "Sevimli");
+      favBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+      favBtn.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        toggleFavoriteById(ch.id);
+      });
+
       const eq = document.createElement("div");
       eq.className = "ch-eq";
       eq.innerHTML = "<span></span><span></span><span></span>";
 
-      btn.append(logo, info, eq);
+      btn.append(logo, info, favBtn, eq);
       btn.addEventListener("click", () => switchChannel(ch, true));
       channelsList.appendChild(btn);
     });
@@ -393,9 +475,11 @@
   // Update HUD Meta + Zero-Filter Cinema Ambilight Halo
   function updateChannelHudMeta() {
     fillLogoBox(hudLogoBox, currentChannel);
+    if (npLogo) fillLogoBox(npLogo, currentChannel);
     hudChannelName.textContent = currentChannel.name;
     hudChannelCat.textContent = currentChannel.catLabel[lang] || currentChannel.catLabel.uz;
     npTitle.textContent = currentChannel.name;
+    if (npCat) npCat.textContent = currentChannel.catLabel[lang] || currentChannel.catLabel.uz;
     npQualityBadge.textContent = currentChannel.maxQ;
     favCurrentBtn.classList.toggle("is-fav", favorites.has(currentChannel.id));
     const ambi = document.getElementById("stage-ambilight");
@@ -757,14 +841,10 @@
   }
   prevChBtn.addEventListener("click", () => stepChannel(-1));
   nextChBtn.addEventListener("click", () => stepChannel(1));
+  npPrevBtn?.addEventListener("click", () => stepChannel(-1));
+  npNextBtn?.addEventListener("click", () => stepChannel(1));
 
-  favCurrentBtn.addEventListener("click", () => {
-    if (favorites.has(currentChannel.id)) favorites.delete(currentChannel.id);
-    else favorites.add(currentChannel.id);
-    localStorage.setItem("aero_tv_favs", JSON.stringify(Array.from(favorites)));
-    updateChannelHudMeta();
-    renderChannels();
-  });
+  favCurrentBtn.addEventListener("click", () => toggleFavoriteById(currentChannel.id));
 
   // Search & Category Tabs
   searchInput.addEventListener("input", () => {
@@ -919,8 +999,16 @@
     }
   });
 
-  // Boot from URL Hash (?channel= or #channel=)
+  // Boot from URL Hash (?channel=, #channel=, or category hash like #sport, #music, #news, #doc)
   function resolveInitialChannel() {
+    const cleanHash = location.hash.replace(/^#/, "");
+    const knownCats = ["tashkent", "entertainment", "sport", "music", "news", "doc", "kids", "regions"];
+    if (knownCats.includes(cleanHash)) {
+      activeCategory = cleanHash;
+      catPills.querySelectorAll(".cat-pill").forEach((p) => p.classList.toggle("active", p.dataset.cat === cleanHash));
+      const firstMatch = CHANNELS.find((c) => c.cat === cleanHash);
+      if (firstMatch) return firstMatch;
+    }
     const hashMatch = location.hash.match(/channel=([^&]+)/);
     const paramMatch = new URLSearchParams(location.search).get("channel");
     const targetId = decodeURIComponent((hashMatch && hashMatch[1]) || paramMatch || "zor-tv");

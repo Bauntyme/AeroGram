@@ -815,7 +815,7 @@ button, input {
 /* Now Playing Info Bar */
 .now-playing-bar {
   margin-top: 14px;
-  padding: 18px 20px;
+  padding: 16px 18px;
   border-radius: var(--radius);
   background: var(--surface);
   border: 1px solid var(--border);
@@ -823,6 +823,75 @@ button, input {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+}
+
+.np-channel-lead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  flex: 1;
+}
+
+.np-logo-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
+  background: #FFFFFF;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+}
+
+.np-logo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.np-cat {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.np-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.np-zap-btn {
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: border-color 0.16s, background 0.16s;
+}
+
+.np-zap-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary-bright);
+}
+
+.np-zap-btn svg {
+  width: 15px;
+  height: 15px;
 }
 
 .np-title-wrap {
@@ -911,10 +980,51 @@ button, input {
   max-height: calc(100vh - 102px);
 }
 
-.channels-head,
+.channels-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
 .search-box,
 .cat-pills {
   flex-shrink: 0;
+}
+
+.view-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px;
+  border-radius: 11px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.view-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--ink-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.view-btn svg { width: 15px; height: 15px; }
+.view-btn.active { background: rgba(14, 165, 233, 0.18); color: #38BDF8; }
+[data-theme="light"] .view-btn.active { background: #E0F2FE; color: #0284C7; }
+
+.cat-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  opacity: 0.72;
 }
 
 .channels-head h2 {
@@ -1001,10 +1111,32 @@ button, input {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding-right: 2px;
+  padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.25) transparent;
+}
+
+.channels-list.is-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+}
+
+.channels-list.is-grid .ch-card {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 11px;
+  gap: 8px;
+}
+
+.channels-list.is-grid .ch-fav-toggle {
+  position: absolute;
+  top: 9px;
+  right: 9px;
 }
 
 .ch-card {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 11px;
@@ -1018,6 +1150,24 @@ button, input {
   width: 100%;
   color: var(--ink);
 }
+
+.ch-fav-toggle {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-muted);
+  opacity: 0.52;
+  flex-shrink: 0;
+  transition: opacity 0.16s, color 0.16s, background 0.16s;
+}
+
+.ch-fav-toggle svg { width: 14px; height: 14px; }
+.ch-fav-toggle:hover { opacity: 1; background: rgba(255, 255, 255, 0.06); }
+.ch-fav-toggle.is-fav { opacity: 1; color: #FACC15; }
+.ch-fav-toggle.is-fav svg { fill: #FACC15; }
 
 .ch-card:hover {
   border-color: rgba(56, 189, 248, 0.35);
@@ -1283,6 +1433,11 @@ button, input {
     width: 100%;
   }
 
+  .np-zap-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
   .np-fs-big {
     width: 100%;
     justify-content: center;
@@ -1290,6 +1445,10 @@ button, input {
 
   .channels-list {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .channels-list.is-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

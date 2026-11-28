@@ -6,7 +6,7 @@
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   const isMobile = window.innerWidth < 768;
 
-  // 1. Holiday / Atmosphere FX Preference
+  // 1. Snow & Light FX Preference
   let fxEnabled = localStorage.getItem("aero_ny_fx") !== "off";
   root.setAttribute("data-ny-fx", fxEnabled ? "on" : "off");
 
@@ -27,7 +27,7 @@
   });
   syncFxButtons();
 
-  // 2. Santa Cap (Pre-00:00) -> Faceted Cosmic Prism 2027 Emblem (Post-00:00)
+  // 2. Top-Left Logo: Santa Cap before 00:00 -> Clean bare logo icon when 2027 arrives
   const SANTA_SVG = `<svg class="aero-santa-cap" viewBox="0 0 64 52" fill="none" aria-hidden="true">
     <path d="M12 36C13 17 26 5 46 8C53 9 58 14 57 20C52 17 44 17 38 22C34 26 37 32 41 36H12Z" fill="#DC2626"/>
     <path d="M12 36C16 24 27 14 41 11C34 15 26 24 23 36H12Z" fill="#EF4444"/>
@@ -35,16 +35,8 @@
     <circle cx="56" cy="20" r="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
   </svg>`;
 
-  const PRISM_2027_SVG = `<svg class="aero-prism-2027" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-    <path d="M24 4L40 20L24 44L8 20L24 4Z" fill="url(#prismCore)" stroke="#E0F2FE" stroke-width="1.6" stroke-linejoin="round"/>
-    <path d="M24 4L40 20H24V4Z" fill="#22D3EE" fill-opacity="0.45"/>
-    <path d="M24 20H40L24 44V20Z" fill="#8B5CF6" fill-opacity="0.5"/>
-    <defs><linearGradient id="prismCore" x1="8" y1="6" x2="38" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#22D3EE"/><stop offset="0.55" stop-color="#6366F1"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs>
-  </svg>`;
-
   document.querySelectorAll(".brand-logo, .tv-brand-logo").forEach((el) => {
     if (!el.querySelector(".aero-santa-cap")) el.insertAdjacentHTML("beforeend", SANTA_SVG);
-    if (!el.querySelector(".aero-prism-2027")) el.insertAdjacentHTML("beforeend", PRISM_2027_SVG);
   });
 
   // 3. Reading Progress Bar
@@ -63,7 +55,7 @@
   window.addEventListener("resize", updateScrollBar, { passive: true });
   updateScrollBar();
 
-  // 4. Sprite-Cached Snowfall -> Rising 2027 Cosmic Prism Stardust & Bursts (Pauses on TV video play)
+  // 4. Lightweight Sprite Canvas (Snowfall before 00:00 -> Subtle Sapphire Sparks after 00:00; pauses on TV play)
   let snowCanvas = document.getElementById("aero-snow-canvas");
   if (!snowCanvas) {
     snowCanvas = document.createElement("canvas");
@@ -90,35 +82,34 @@
     c.height = 24;
     const g = c.getContext("2d");
     const col =
-      kind === "cyan" ? (isLight ? "14, 165, 233" : "34, 211, 238")
-      : kind === "violet" ? (isLight ? "109, 40, 217" : "139, 92, 246")
-      : kind === "indigo" ? "99, 102, 241"
-      : isLight ? "56, 189, 248" : "224, 242, 254";
+      kind === "sky" ? (isLight ? "2, 132, 199" : "56, 189, 248")
+      : kind === "sapphire" ? "14, 165, 233"
+      : isLight ? "56, 189, 248" : "226, 232, 240";
 
     if (kind === "dot") {
-      g.fillStyle = `rgba(${col}, 0.65)`;
+      g.fillStyle = `rgba(${col}, 0.58)`;
       g.beginPath();
-      g.arc(12, 12, 2.1, 0, Math.PI * 2);
+      g.arc(12, 12, 2.0, 0, Math.PI * 2);
       g.fill();
     } else if (kind === "flake") {
-      g.strokeStyle = `rgba(${col}, 0.72)`;
-      g.lineWidth = 1.25;
+      g.strokeStyle = `rgba(${col}, 0.65)`;
+      g.lineWidth = 1.2;
       g.lineCap = "round";
       g.translate(12, 12);
       for (let i = 0; i < 3; i++) {
         const a = (i * Math.PI) / 3;
         g.beginPath();
-        g.moveTo(-Math.cos(a) * 5.2, -Math.sin(a) * 5.2);
-        g.lineTo(Math.cos(a) * 5.2, Math.sin(a) * 5.2);
+        g.moveTo(-Math.cos(a) * 5.0, -Math.sin(a) * 5.0);
+        g.lineTo(Math.cos(a) * 5.0, Math.sin(a) * 5.0);
         g.stroke();
       }
     } else {
-      const grad = g.createRadialGradient(12, 12, 0, 12, 12, 9);
-      grad.addColorStop(0, `rgba(${col}, 0.68)`);
+      const grad = g.createRadialGradient(12, 12, 0, 12, 12, 8);
+      grad.addColorStop(0, `rgba(${col}, 0.55)`);
       grad.addColorStop(1, `rgba(${col}, 0)`);
       g.fillStyle = grad;
       g.beginPath();
-      g.arc(12, 12, 9, 0, Math.PI * 2);
+      g.arc(12, 12, 8, 0, Math.PI * 2);
       g.fill();
     }
     return c;
@@ -126,19 +117,19 @@
 
   function rebuildSprites() {
     const isLight = root.getAttribute("data-theme") === "light";
-    sprites = [makeSprite("dot", isLight), makeSprite("flake", isLight), makeSprite("cyan", isLight)];
-    eraSprites = [makeSprite("cyan", isLight), makeSprite("violet", isLight), makeSprite("indigo", isLight)];
+    sprites = [makeSprite("dot", isLight), makeSprite("flake", isLight), makeSprite("sky", isLight)];
+    eraSprites = [makeSprite("sky", isLight), makeSprite("sapphire", isLight), makeSprite("dot", isLight)];
   }
 
   function spawnFlake(randomY) {
     const r = Math.random();
-    const sIdx = r < 0.52 ? 0 : r < 0.84 ? 1 : 2;
+    const sIdx = r < 0.54 ? 0 : r < 0.85 ? 1 : 2;
     return {
       sIdx,
       x: Math.random() * (sWidth || window.innerWidth),
       y: randomY ? Math.random() * (sHeight || window.innerHeight) : -24,
-      vy: sIdx === 0 ? 0.45 + Math.random() * 0.4 : sIdx === 1 ? 0.7 + Math.random() * 0.5 : 0.95 + Math.random() * 0.5,
-      vx: (Math.random() - 0.35) * 0.24,
+      vy: sIdx === 0 ? 0.42 + Math.random() * 0.36 : sIdx === 1 ? 0.65 + Math.random() * 0.45 : 0.85 + Math.random() * 0.45,
+      vx: (Math.random() - 0.35) * 0.22,
       phase: Math.random() * Math.PI * 2,
     };
   }
@@ -167,7 +158,7 @@
     sHeight = window.innerHeight;
     snowCanvas.width = sWidth;
     snowCanvas.height = sHeight;
-    const count = sWidth < 768 ? 14 : 26;
+    const count = sWidth < 768 ? 12 : 24;
     flakes = Array.from({ length: count }, () => spawnFlake(true));
     rebuildSprites();
   }
@@ -190,9 +181,9 @@
     sCtx.clearRect(0, 0, sWidth, sHeight);
     for (let i = 0; i < flakes.length; i++) {
       const f = flakes[i];
-      const wind = Math.sin(tickTime + f.phase) * 0.25;
+      const wind = Math.sin(tickTime + f.phase) * 0.22;
       f.x += f.vx + wind;
-      f.y += is2027 ? -f.vy * 0.85 : f.vy;
+      f.y += is2027 ? -f.vy * 0.72 : f.vy;
 
       if (is2027 && f.y < -24) {
         flakes[i] = spawnFlake(false);
@@ -213,7 +204,7 @@
         p.vy += 0.07;
         p.x += p.vx;
         p.y += p.vy;
-        p.life -= 0.015;
+        p.life -= 0.016;
         if (p.life <= 0) {
           burstParticles.splice(i, 1);
         } else {
@@ -237,21 +228,20 @@
     if (reducedMotion || isTvVideoPlaying()) return;
     const spots = [
       [sWidth * 0.28, sHeight * 0.28, 0],
-      [sWidth * 0.72, sHeight * 0.24, 340],
-      [sWidth * 0.50, sHeight * 0.34, 720],
+      [sWidth * 0.72, sHeight * 0.25, 320],
     ];
     spots.forEach(([cx, cy, delay], sIdx) => {
       setTimeout(() => {
-        const perBurst = isMobile ? 16 : 24;
+        const perBurst = isMobile ? 14 : 20;
         for (let i = 0; i < perBurst; i++) {
           const angle = (i / perBurst) * Math.PI * 2 + (Math.random() - 0.5) * 0.25;
-          const spd = 2.0 + Math.random() * 4.4;
+          const spd = 1.8 + Math.random() * 3.8;
           burstParticles.push({
             sIdx: (i + sIdx) % 3,
             x: cx,
             y: cy,
             vx: Math.cos(angle) * spd,
-            vy: Math.sin(angle) * spd - 1.8,
+            vy: Math.sin(angle) * spd - 1.5,
             life: 1,
           });
         }
@@ -266,8 +256,8 @@
   resizeSnow();
   startSnowLoop();
 
-  // 5. Event-Driven Cosmic Catenary Bulbs (0% idle CPU)
-  const BULB_COLORS = ["#22D3EE", "#6366F1", "#8B5CF6", "#38BDF8", "#A5B4FC"];
+  // 5. Event-Driven Holiday Garland Physics (Zero idle CPU)
+  const BULB_COLORS = ["#38BDF8", "#0EA5E9", "#F43F5E", "#10B981", "#E2E8F0"];
   const bulbSprings = [];
   let bulbRaf = 0;
   let bulbWakeUntil = 0;
@@ -353,13 +343,13 @@
     slot.appendChild(svg);
   });
 
-  // 6. Lightweight 3D Card Tilt & Magnetic Buttons
+  // 6. Lightweight Card Tilt & Magnetic Buttons
   if (finePointer && !reducedMotion && !isMobile) {
     document.querySelectorAll("[data-tilt]").forEach((card) => {
       card.addEventListener("pointermove", (e) => {
         const rect = card.getBoundingClientRect();
-        const rx = (0.5 - (e.clientY - rect.top) / rect.height) * 4.2;
-        const ry = ((e.clientX - rect.left) / rect.width - 0.5) * 5.2;
+        const rx = (0.5 - (e.clientY - rect.top) / rect.height) * 4.0;
+        const ry = ((e.clientX - rect.left) / rect.width - 0.5) * 4.8;
         card.style.transform = `perspective(920px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateY(-2px)`;
       });
       card.addEventListener("pointerleave", () => { card.style.transform = ""; });
@@ -367,8 +357,8 @@
     document.querySelectorAll("[data-magnetic]").forEach((btn) => {
       btn.addEventListener("pointermove", (e) => {
         const rect = btn.getBoundingClientRect();
-        const dx = (e.clientX - (rect.left + rect.width / 2)) * 0.14;
-        const dy = (e.clientY - (rect.top + rect.height / 2)) * 0.18;
+        const dx = (e.clientX - (rect.left + rect.width / 2)) * 0.12;
+        const dy = (e.clientY - (rect.top + rect.height / 2)) * 0.16;
         btn.style.transform = `translate3d(${dx.toFixed(1)}px, ${dy.toFixed(1)}px, 0)`;
       });
       btn.addEventListener("pointerleave", () => { btn.style.transform = ""; });
@@ -385,12 +375,11 @@
     });
   });
 
-  // 8. Precision Tashkent UTC+5 2027 Countdown -> 40s 3D WebGL + Voice Keynote -> Full-Site Transformation
+  // 8. Tashkent UTC+5 2027 Clock -> Clean Automatic Yangi Dizayn Shift (Zero 3D film blocker)
   const REAL_2027_UTC = Date.UTC(2026, 11, 31, 19, 0, 0);
   const params = new URLSearchParams(window.location.search);
   const demoCdSec = parseInt(params.get("countdown") || "0", 10);
   const force2027 = params.get("ny2027") === "1";
-  const forceCinema = params.get("cinema2027") === "1";
 
   let serverOffsetMs = 0;
   try {
@@ -414,95 +403,113 @@
 
   const CD_I18N = {
     uz: {
-      pre_title: "Toshkent 00:00 • 2027 Katta Update’gacha",
-      pre_sub: "00:00 da 40 soniyalik 3D taqdimot va mutlaqo yangi Cosmic Prism sayt ochiladi",
-      live_title: "2027-Yil Kirib Keldi! • Katta Update Faol",
-      live_sub: "Yangi 2027 Cosmic Prism interfeysi, studiya rasmlari va fazoviy panel ochildi",
-      live_badge: "▶ 2027 3D FILM (40s)",
+      pre_title: "Toshkent 00:00 • 2027 Yangi Dizayngacha",
+      pre_sub: "00:00 da yangi dizayn, studiya rasmlari va qulay interfeys avtomatik ochiladi",
+      live_title: "2027-Yil Kirib Keldi • Yangi Dizayn Faol",
+      live_sub: "Yangilangan interfeys, 46 ta jonli TV kanali va studiya rasmlari ishga tushdi",
+      live_badge: "2027 • YANGI DIZAYN",
       d: "KUN", h: "SOAT", m: "DAQ", s: "SON",
-      hero_chip_2027: "AeroGram 2027 • Fazoviy Avlod",
-      hero_title_2027: "2027 bilan <em class=\"serif-accent\">Yangi</em><br>Fazoviy Muloqot",
-      desk_title_2027: "2027 Noutbuklar uchun<br><em class=\"serif-accent\">Mukammal</em> AeroGram",
+      hero_chip_2027: "AeroGram 2027 • Yangi Dizayn",
+      hero_title_2027: "2027 bilan <em class=\"serif-accent\">Yangi</em><br>Qulay Muloqot",
+      desk_title_2027: "Noutbuklar uchun <em class=\"serif-accent\">Yangi</em><br>AeroGram 2027",
       deck: [
         {
-          m1_v: "0.08 s", m1_l: "Android ↔ Windows sinxron",
-          m2_v: "∞ profil", m2_l: "Cheksiz akkaunt uyasi",
-          t: "Yagona Fazoviy Ekotizim",
-          d: "Telefon va Windows noutbukingiz o‘rtasida fayllar, chatlar va faol sessiyalar real vaqtda birlashadi."
+          m1_v: "PIN & Biometriya", m1_l: "Yashirin Maxfiy Seyf",
+          m2_v: "∞ Profil", m2_l: "Cheksiz akkauntlar",
+          t: "Toza Suhbatlar va Maxfiy Seyf",
+          d: "Kerakli chatlarni umumiy ro‘yxatdan bekitib qo‘ying — ular faqat qidiruvga PIN kodingizni kiritganingizda ko‘rinadi.",
+          cta: "Ilovani yuklab olish ↓",
+          href: "#aero-download"
         },
         {
-          m1_v: "PIN + Bio", m1_l: "Ko‘rinmas seyf qulfi",
-          m2_v: "Ghost Blur", m2_l: "Bir tugma bilan xiralashish",
-          t: "Maxfiy Seyf 2.0 & Ko‘rinmas Qalqon",
-          d: "Eng muhim yozishmalaringiz umumiy ro‘yxatdan yashiriladi — faqat qidiruvga PIN yozilgandagina ochiladi."
+          m1_v: "46 kanal", m1_l: "Toshkent & Sport HD",
+          m2_v: "1080p FHD", m2_l: "Reklamasiz jonli efir",
+          t: "46 ta Jonli TV Kanali — Yangi Pleyerda",
+          d: "Zo‘r TV, Sevimli, Sport, Futbol TV hamda BIZ TV, BIZ Cinema, viju+ Sport, Euronews va BBC News bitta qulay oynada.",
+          cta: "TV bo‘limini ochish (46 kanal) →",
+          href: "tv/"
         },
         {
-          m1_v: "29+ kanal", m1_l: "Full HD jonli TV efir",
-          m2_v: "60 FPS", m2_l: "Yengil Liquid Motion",
-          t: "29+ Hamjamiyat va Jonli TV Markazi",
-          d: "O‘zbekistonning barcha yetakchi kanallari va sevimli hamjamiyatlar reklamasiz bitta platformada."
+          m1_v: "Windows 10/11", m1_l: "Setup.exe & Portable",
+          m2_v: "Ctrl+Shift+H", m2_l: "Tezkor seyf tugmasi",
+          t: "Windows Noutbuk va Ish Stoli Uchun",
+          d: "Bir nechta ish va shaxsiy profillarni katta ekranda yuriting, Ghost Blur bilan chat nomlarini xiralashtiring.",
+          cta: "Laptop uchun sahifani ko‘rish →",
+          href: "desktop/"
         }
       ]
     },
     ru: {
-      pre_title: "Ташкент 00:00 • До Большого 2027 Update",
-      pre_sub: "Ровно в 00:00 запустится 40-сек 3D-презентация и полностью новый сайт 2027",
-      live_title: "С Новым 2027 Годом! • Grand Update Активен",
-      live_sub: "Активирован интерфейс Cosmic Prism, новые фото и платформа 2027",
-      live_badge: "▶ 2027 3D ФИЛЬМ (40с)",
+      pre_title: "Ташкент 00:00 • До Нового Дизайна 2027",
+      pre_sub: "В 00:00 автоматически включатся новый облик сайта и свежие фото 2027",
+      live_title: "С Новым 2027 Годом • Новый Дизайн Активен",
+      live_sub: "Обновлённый интерфейс, 46 ТВ-каналов и новые фото уже работают",
+      live_badge: "2027 • НОВЫЙ ДИЗАЙН",
       d: "ДНИ", h: "ЧАС", m: "МИН", s: "СЕК",
-      hero_chip_2027: "AeroGram 2027 • Новая Архитектура",
-      hero_title_2027: "Новый 2027 год —<br><em class=\"serif-accent\">Космический</em> Уровень",
-      desk_title_2027: "Новый 2027 AeroGram<br><em class=\"serif-accent\">для</em> Ноутбука и ПК",
+      hero_chip_2027: "AeroGram 2027 • Новый Дизайн",
+      hero_title_2027: "Новый 2027 — <em class=\"serif-accent\">Удобный</em><br>и Чистый Обмен",
+      desk_title_2027: "Обновлённый AeroGram<br><em class=\"serif-accent\">для</em> Ноутбука 2027",
       deck: [
         {
-          m1_v: "0.08 с", m1_l: "Синхрон Android ↔ Windows",
-          m2_v: "∞ аккаунты", m2_l: "Безлимитное переключение",
-          t: "Единая Пространственная Экосистема",
-          d: "Смартфон и ноутбук работают как одно устройство — диалоги и файлы синхронизируются мгновенно."
+          m1_v: "PIN + Вход", m1_l: "Скрытый Секретный Сейф",
+          m2_v: "∞ Аккаунтов", m2_l: "Без ограничений",
+          t: "Удобные Чаты и Секретный Сейф",
+          d: "Скрывайте личные переписки из общего списка и поиска — они открываются только по вашему PIN-коду.",
+          cta: "Скачать AeroGram ↓",
+          href: "#aero-download"
         },
         {
-          m1_v: "PIN + Био", m1_l: "Невидимый Сейф 2.0",
-          m2_v: "Ghost Blur", m2_l: "Мгновенная приватность",
-          t: "Секретный Сейф 2.0",
-          d: "Важные чаты полностью скрыты из общего списка и открываются только по вашему PIN-коду в поиске."
+          m1_v: "46 каналов", m1_l: "Узбекистан, Кино и Спорт",
+          m2_v: "1080p FHD", m2_l: "Прямой эфир без пауз",
+          t: "46 Прямых ТВ-Каналов в Новом Плеере",
+          d: "Zo‘r TV, Sevimli, Спорт, Футбол ТВ, а также BIZ TV, BIZ Cinema, viju+ Sport, Euronews и BBC News.",
+          cta: "Открыть ТВ раздел (46 каналов) →",
+          href: "tv/"
         },
         {
-          m1_v: "29+ каналов", m1_l: "Прямой Full HD эфир",
-          m2_v: "60 FPS", m2_l: "Лёгкий Liquid Motion",
-          t: "29+ каналов и Платформа 2027",
-          d: "Любимые сообщества и прямое телевидение Узбекистана на телефоне и ПК без задержек."
+          m1_v: "Windows 10/11", m1_l: "Setup.exe и Portable",
+          m2_v: "Ctrl+Shift+H", m2_l: "Быстрое скрытие сейфа",
+          t: "Специальная Сборка для Ноутбуков",
+          d: "Ведите десятки аккаунтов в одном окне, используйте размытие чатов Ghost Blur и горячие клавиши.",
+          cta: "Страница для ноутбука →",
+          href: "desktop/"
         }
       ]
     },
     en: {
-      pre_title: "Tashkent 00:00 • Countdown to 2027 Grand Update",
-      pre_sub: "At 00:00 UZT a 40s 3D keynote film & Cosmic Prism 2027 redesign launch automatically",
-      live_title: "Welcome to 2027! • Cosmic Prism Edition Live",
-      live_sub: "2027 Cosmic Prism UI, new studio photography & spatial hub are now unlocked",
-      live_badge: "▶ 2027 3D FILM (40s)",
+      pre_title: "Tashkent 00:00 • Countdown to 2027 New Design",
+      pre_sub: "At 00:00 UZT the clean 2027 interface, studio photography, and TV upgrade go live",
+      live_title: "Welcome to 2027 • New Design Live",
+      live_sub: "Refined 2027 interface, 46 live TV channels, and new photos are active",
+      live_badge: "2027 • NEW DESIGN",
       d: "DAYS", h: "HRS", m: "MIN", s: "SEC",
-      hero_chip_2027: "AeroGram 2027 • Spatial Architecture",
-      hero_title_2027: "Step Into <em class=\"serif-accent\">2027</em><br>Without Limits",
+      hero_chip_2027: "AeroGram 2027 • New Design",
+      hero_title_2027: "A Cleaner <em class=\"serif-accent\">New</em><br>Design for 2027",
       desk_title_2027: "AeroGram 2027 <em class=\"serif-accent\">Built</em><br>for Windows Laptops",
       deck: [
         {
-          m1_v: "0.08s", m1_l: "Android ↔ Windows Handoff",
-          m2_v: "∞ slots", m2_l: "Unlimited account workspace",
-          t: "Unified Spatial Architecture",
-          d: "Messages, channels, and active work threads glide instantaneously between mobile and Windows Desktop."
+          m1_v: "PIN & Lock", m1_l: "Hidden Secret Vault",
+          m2_v: "∞ Profiles", m2_l: "Unlimited accounts",
+          t: "Focused Messaging & Stealth Vault",
+          d: "Hide private chats from the main list and search results — reveal them only when you type your PIN.",
+          cta: "Download AeroGram ↓",
+          href: "#aero-download"
         },
         {
-          m1_v: "PIN + Bio", m1_l: "Stealth Vault 2.0 Shield",
-          m2_v: "Ghost Blur", m2_l: "One-keyscreen privacy",
-          t: "Zero-Trace Secret Vault",
-          d: "Conceal sensitive threads completely from search and main lists — revealable solely via PIN entry."
+          m1_v: "46 channels", m1_l: "Uzbekistan, Sports & Cinema",
+          m2_v: "1080p FHD", m2_l: "Smooth live playback",
+          t: "46 Live TV Channels in a Redesigned Player",
+          d: "Stream Zo‘r TV, Sevimli, Sport, Futbol TV plus BIZ TV, BIZ Cinema, viju+ Sport, Euronews, and BBC News.",
+          cta: "Open Live TV (46 channels) →",
+          href: "tv/"
         },
         {
-          m1_v: "29+ TV", m1_l: "Live Full HD Broadcast",
-          m2_v: "60 FPS", m2_l: "GPU-tuned Liquid Motion",
-          t: "29+ Live Channels & Creator Engine",
-          d: "High-bitrate Uzbekistan TV channels and redesigned community spaces engineered for silky smoothness."
+          m1_v: "Windows 10/11", m1_l: "Setup.exe & Portable",
+          m2_v: "Ctrl+Shift+H", m2_l: "Quick vault shortcut",
+          t: "Dedicated Windows Laptop Edition",
+          d: "Manage work and personal accounts side-by-side with Ghost Blur privacy and tray controls.",
+          cta: "Explore Desktop page →",
+          href: "desktop/"
         }
       ]
     }
@@ -530,7 +537,7 @@
   }
 
   let activeDeckIdx = 0;
-  function renderSpatialDeck(idx) {
+  function renderUpdateTabs(idx) {
     activeDeckIdx = idx;
     const deckData = (CD_I18N[getLang()] || CD_I18N.uz).deck;
     const item = deckData[idx] || deckData[0];
@@ -543,22 +550,29 @@
     const m2l = document.getElementById("deck-m2-l");
     const dt = document.getElementById("deck-title");
     const dd = document.getElementById("deck-desc");
+    const dc = document.getElementById("deck-cta");
     if (m1v) m1v.textContent = item.m1_v;
     if (m1l) m1l.textContent = item.m1_l;
     if (m2v) m2v.textContent = item.m2_v;
     if (m2l) m2l.textContent = item.m2_l;
     if (dt) dt.textContent = item.t;
     if (dd) dd.textContent = item.d;
+    if (dc) {
+      dc.textContent = item.cta;
+      dc.setAttribute("href", item.href);
+    }
   }
 
   let swappedImages = false;
-  function apply2027Metamorphosis() {
+  function apply2027Metamorphosis(withSettleAnim) {
     const tr = CD_I18N[getLang()];
-    if (root.getAttribute("data-era") !== "2027-live") {
+    const wasLive = root.getAttribute("data-era") === "2027-live";
+    if (!wasLive) {
       root.setAttribute("data-era", "2027-live");
-    }
-    if (!root.getAttribute("data-aura")) {
-      root.setAttribute("data-aura", "prism");
+      if (withSettleAnim && !reducedMotion) {
+        document.body.classList.add("era-2027-entering");
+        setTimeout(() => document.body.classList.remove("era-2027-entering"), 900);
+      }
     }
 
     if (!swappedImages) {
@@ -570,7 +584,7 @@
         setTimeout(() => {
           img.setAttribute("src", nextSrc);
           img.classList.remove("is-swapping-2027");
-        }, 160);
+        }, 140);
       });
     }
 
@@ -581,27 +595,7 @@
     const deskH1 = document.querySelector(".desk-hero h1[data-desk-i18n]");
     if (deskH1) deskH1.innerHTML = tr.desk_title_2027;
 
-    renderSpatialDeck(activeDeckIdx);
-  }
-
-  let cinemaLaunched = false;
-  function launch2027Keynote(fromUserReplay) {
-    if (window.AeroCinema2027 && typeof window.AeroCinema2027.play === "function") {
-      if (!fromUserReplay && cinemaLaunched) return;
-      cinemaLaunched = true;
-      window.AeroCinema2027.play({
-        onBeforeReveal: () => {
-          apply2027Metamorphosis();
-        },
-        onComplete: () => {
-          apply2027Metamorphosis();
-          trigger2027Fireworks();
-        }
-      });
-    } else {
-      apply2027Metamorphosis();
-      trigger2027Fireworks();
-    }
+    if (document.getElementById("deck-title")) renderUpdateTabs(activeDeckIdx);
   }
 
   let hasTriggeredArrival = false;
@@ -623,7 +617,7 @@
                   <span class="ny-uz-live-clock">${uzClock}</span>
                 </div>
               </div>
-              <button type="button" class="ny-arrived-badge" data-replay-cinema>${tr.live_badge}</button>
+              <span class="ny-arrived-badge">${tr.live_badge}</span>
             </div>`
           : `<div class="ny-countdown-bar" data-mode="pre" data-lang="${curLang}">
               <div class="ny-cd-meta">
@@ -665,26 +659,14 @@
     const nowUtcMs = Date.now() + (demoCdSec > 0 ? 0 : serverOffsetMs);
     const diffMs = effectiveTargetUtc - nowUtcMs;
     const uzClock = getTashkentClockStr(nowUtcMs);
-    if (diffMs <= 20000 || demoCdSec > 0 || force2027 || forceCinema) preload2027Images();
-
-    if (forceCinema && !cinemaLaunched) {
-      apply2027Metamorphosis();
-      renderCountdown(true, "00", "00", "00", "00", uzClock);
-      launch2027Keynote(false);
-      return;
-    }
+    if (diffMs <= 20000 || demoCdSec > 0 || force2027) preload2027Images();
 
     if (diffMs <= 0) {
       renderCountdown(true, "00", "00", "00", "00", uzClock);
+      apply2027Metamorphosis(!hasTriggeredArrival);
       if (!hasTriggeredArrival) {
         hasTriggeredArrival = true;
-        if (force2027) {
-          apply2027Metamorphosis();
-          trigger2027Fireworks();
-        } else {
-          // 00:00 UZT exact arrival or ?countdown=N reaching zero -> launch 40s 3D WebGL Keynote!
-          launch2027Keynote(false);
-        }
+        trigger2027Fireworks();
       }
       return;
     }
@@ -697,26 +679,15 @@
     renderCountdown(false, pad2(days), pad2(hrs), pad2(mins), pad2(secs), uzClock);
   }
 
-  // 9. Interactive 2027 Cosmic Prism Spatial Deck Controls
+  // 9. Interactive 2027 Update Highlights Tab Switcher
   document.addEventListener("click", (e) => {
-    const auraBtn = e.target.closest(".cap-aura-btn");
-    if (auraBtn) {
-      const aura = auraBtn.dataset.auraSet || "prism";
-      root.setAttribute("data-aura", aura);
-      document.querySelectorAll(".cap-aura-btn").forEach((b) => b.classList.toggle("active", b === auraBtn));
-      return;
-    }
     const tabBtn = e.target.closest(".cap-tab-btn");
     if (tabBtn) {
-      renderSpatialDeck(Number(tabBtn.dataset.deckTab || 0));
-      return;
-    }
-    if (e.target.closest("[data-replay-cinema]")) {
-      launch2027Keynote(true);
+      renderUpdateTabs(Number(tabBtn.dataset.deckTab || 0));
     }
   });
 
-  if (document.getElementById("deck-title")) renderSpatialDeck(0);
+  if (document.getElementById("deck-title")) renderUpdateTabs(0);
 
   if (cdMounts.length > 0) {
     tick2027Clock();
@@ -724,7 +695,7 @@
     new MutationObserver(() => {
       setTimeout(() => {
         tick2027Clock();
-        if (root.getAttribute("data-era") === "2027-live") apply2027Metamorphosis();
+        if (root.getAttribute("data-era") === "2027-live") apply2027Metamorphosis(false);
       }, 0);
     }).observe(root, { attributes: true, attributeFilter: ["lang"] });
   }
@@ -733,6 +704,5 @@
     syncFxButtons,
     isFxEnabled: () => fxEnabled,
     tick2027Clock,
-    playKeynote: () => launch2027Keynote(true),
   };
 })();
