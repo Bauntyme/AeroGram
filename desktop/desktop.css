@@ -573,6 +573,37 @@ button.lp-s-row:hover { border-color: rgba(56, 189, 248, 0.5); background: rgba(
   color: #ffffff;
 }
 
+/* Dedicated Portable Edition Strip */
+.portable-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  padding: 28px 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-card);
+}
+
+.portable-copy {
+  max-width: 720px;
+}
+
+.portable-copy .eyebrow-pill {
+  margin-bottom: 10px;
+}
+
+.portable-copy h3 {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+}
+
+.portable-dl-link {
+  flex-shrink: 0;
+}
+
 @media (max-width: 1020px) {
   .desk-hero-grid,
   .car-slide { grid-template-columns: 1fr; }

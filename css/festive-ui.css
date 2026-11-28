@@ -1,4 +1,4 @@
-/* AeroGram 2027 Human-Crafted Design Tokens, Festive Atmosphere & Motion Primitives */
+/* AeroGram 2027 Dark Obsidian Studio Design System, Santa Brand Cap, Countdown & Light FX */
 :root {
   --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
   --font-serif: 'Instrument Serif', Georgia, serif;
@@ -11,22 +11,17 @@
   --ny-berry: #F43F5E;
 }
 
+html[data-era="2027-live"] {
+  --primary: #10B981;
+  --primary-deep: #059669;
+  --ny-gold: #FBBF24;
+}
+
 body {
   font-family: var(--font-sans);
 }
 
-/* Tactile Micro-Grain Overlay for Physical Studio Depth */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 94;
-  pointer-events: none;
-  opacity: 0.024;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* Top Reading Scroll Progress Rail */
+/* Top Reading Progress Bar */
 #aero-scroll-bar {
   position: fixed;
   top: 0;
@@ -36,13 +31,12 @@ body::after {
   transform-origin: left center;
   transform: scaleX(0);
   background: linear-gradient(90deg, #F59E0B 0%, #38BDF8 50%, #10B981 100%);
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.55);
   z-index: 250;
   pointer-events: none;
   will-change: transform;
 }
 
-/* Full-Viewport 3-Layer Depth-of-Field Snow Canvas */
+/* Ultra-Light Offscreen-Sprite Snow Canvas (Zero-lag on mobile & auto-paused on TV video play) */
 #aero-snow-canvas {
   position: fixed;
   inset: 0;
@@ -50,13 +44,45 @@ body::after {
   height: 100%;
   z-index: 95;
   pointer-events: none;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.3s ease;
 }
 
 html[data-ny-fx="off"] #aero-snow-canvas,
-html[data-ny-fx="off"] .ny-garland-slot {
+html[data-ny-fx="off"] .ny-garland-slot,
+body.is-tv-playing #aero-snow-canvas {
   opacity: 0 !important;
   pointer-events: none !important;
+}
+
+/* Santa Hat ("Qalpoqcha") perched on top-left AeroGram Logo */
+.brand-logo,
+.tv-brand-logo {
+  position: relative;
+  overflow: visible !important;
+}
+
+.brand-logo-festive::after {
+  display: none !important;
+  content: none !important;
+}
+
+.aero-santa-cap {
+  position: absolute;
+  top: -12px;
+  left: -6px;
+  width: 29px;
+  height: 23px;
+  pointer-events: none;
+  z-index: 5;
+  transform: rotate(-13deg);
+  transform-origin: 72% 85%;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.38));
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.brand:hover .aero-santa-cap,
+.tv-brand:hover .aero-santa-cap {
+  transform: rotate(-5deg) scale(1.07);
 }
 
 /* Editorial Display Italic Flourish */
@@ -70,7 +96,11 @@ html[data-ny-fx="off"] .ny-garland-slot {
   color: #BAE6FD;
 }
 
-.section-light .serif-accent {
+html[data-era="2027-live"] .serif-accent {
+  color: #FDE68A;
+}
+
+[data-theme="light"] .section-light .serif-accent {
   color: var(--primary-deep, #0284C7);
 }
 
@@ -78,103 +108,281 @@ html[data-ny-fx="off"] .ny-garland-slot {
   color: #7DD3FC;
 }
 
-.ny-gold-accent {
-  background: linear-gradient(120deg, #FDE68A 0%, #F59E0B 55%, #FDBA74 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* Sculpted Studio UI Buttons (Replacing generic pill clutter) */
+.btn-nav-cta,
+.btn-white-pill,
+.btn-dark-pill,
+.btn-outline-pill,
+.btn-nav-web,
+.btn-hero-laptop,
+.btn-hero-web,
+.btn-hero-tv,
+.tv-nav-btn,
+.np-fs-big,
+.fullscreen-cta-btn {
+  border-radius: 14px !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 6px 18px rgba(2, 6, 23, 0.2);
+  transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
-/* Holiday Snow Toggle Button in Navbars */
+.btn-nav-cta:active,
+.btn-white-pill:active,
+.btn-dark-pill:active,
+.btn-outline-pill:active,
+.btn-hero-laptop:active,
+.btn-hero-web:active,
+.btn-hero-tv:active,
+.tv-nav-btn:active,
+.fullscreen-cta-btn:active {
+  transform: translateY(1px) scale(0.985) !important;
+}
+
+/* Sculpted Nav Toggle Button */
 .ny-fx-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  height: 40px;
+  height: 38px;
   padding: 0 11px;
-  border-radius: 9999px;
+  border-radius: 12px;
   border: 1px solid rgba(245, 158, 11, 0.35);
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(56, 189, 248, 0.1));
-  color: #B45309;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.14), rgba(56, 189, 248, 0.1));
+  color: #FDE68A;
   font-family: var(--font-sans);
   font-size: 0.78rem;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
   flex-shrink: 0;
+  transition: transform 0.18s ease, border-color 0.2s ease, opacity 0.2s ease;
 }
 
-[data-theme="dark"] .ny-fx-toggle {
-  color: #FDE68A;
-  border-color: rgba(253, 230, 138, 0.28);
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.16), rgba(56, 189, 248, 0.12));
+[data-theme="light"] .ny-fx-toggle {
+  color: #B45309;
+  border-color: rgba(245, 158, 11, 0.42);
 }
 
 .ny-fx-toggle:hover {
   transform: translateY(-1px);
-  border-color: rgba(245, 158, 11, 0.7);
+  border-color: rgba(245, 158, 11, 0.72);
 }
 
 .ny-fx-toggle svg {
   width: 15px;
   height: 15px;
   flex-shrink: 0;
-  animation: nySlowSpin 14s linear infinite;
 }
 
 html[data-ny-fx="off"] .ny-fx-toggle {
-  opacity: 0.62;
+  opacity: 0.56;
   filter: grayscale(0.75);
 }
 
-html[data-ny-fx="off"] .ny-fx-toggle svg {
-  animation: none;
+/* Uzbekistan 2027 Horological Countdown Capsule + Auto-Update State */
+.ny-countdown-mount {
+  margin-bottom: 18px;
 }
 
-@keyframes nySlowSpin {
-  to { transform: rotate(360deg); }
+.ny-countdown-bar {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  padding: 10px 14px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.88), rgba(19, 30, 52, 0.86));
+  border: 1px solid rgba(245, 158, 11, 0.34);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 30px rgba(2, 6, 23, 0.32);
+  color: #F8FAFC;
+  max-width: 100%;
 }
 
-/* Interactive Catenary Holiday Light Strand */
+[data-theme="light"] .section-light .ny-countdown-bar {
+  background: #FFFFFF;
+  color: #0F172A;
+}
+
+.ny-cd-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.ny-cd-title-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.79rem;
+  font-weight: 700;
+  color: #FDE68A;
+  letter-spacing: -0.01em;
+}
+
+[data-theme="light"] .tv-countdown-shell .ny-cd-title-row {
+  color: #B45309;
+}
+
+.ny-cd-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #F59E0B;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.9);
+  flex-shrink: 0;
+}
+
+.ny-cd-sub {
+  font-size: 0.72rem;
+  color: #94A3B8;
+  line-height: 1.3;
+}
+
+[data-theme="light"] .tv-countdown-shell .ny-cd-sub {
+  color: #475569;
+}
+
+.ny-cd-tiles {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ny-cd-unit {
+  min-width: 44px;
+  padding: 5px 6px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  text-align: center;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] .tv-countdown-shell .ny-cd-bar-light .ny-cd-unit,
+[data-theme="light"] .tv-countdown-shell .ny-cd-unit {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+}
+
+.ny-cd-val {
+  display: block;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.96rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #FFFFFF;
+}
+
+[data-theme="light"] .tv-countdown-shell .ny-cd-val {
+  color: #0F172A;
+}
+
+.ny-cd-lbl {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #7DD3FC;
+  margin-top: 2px;
+  text-transform: uppercase;
+}
+
+[data-theme="light"] .tv-countdown-shell .ny-cd-lbl {
+  color: #0284C7;
+}
+
+.ny-cd-unit.is-tick .ny-cd-val {
+  animation: nyTickPop 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes nyTickPop {
+  0% { transform: translate3d(0, -3px, 0); opacity: 0.65; }
+  100% { transform: translate3d(0, 0, 0); opacity: 1; }
+}
+
+/* 00:00 Automatic 2027 Transformation State */
+.ny-countdown-bar.is-arrived {
+  border-color: rgba(16, 185, 129, 0.55);
+  background: linear-gradient(135deg, rgba(6, 78, 59, 0.9), rgba(15, 23, 42, 0.92), rgba(180, 83, 9, 0.38));
+}
+
+.ny-countdown-bar.is-arrived .ny-cd-dot {
+  background: #10B981;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.95);
+}
+
+.ny-arrived-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(52, 211, 153, 0.48);
+  color: #A7F3D0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* Compact TV Workspace Countdown Strip */
+.ny-countdown-mount.is-compact {
+  width: min(1440px, calc(100% - 32px));
+  margin: 12px auto 0;
+}
+
+.ny-countdown-mount.is-compact .ny-countdown-bar {
+  width: 100%;
+  justify-content: space-between;
+  padding: 8px 14px;
+}
+
+[data-theme="light"] .ny-countdown-mount.is-compact .ny-countdown-bar {
+  background: #FFFFFF;
+  color: #0F172A;
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="light"] .ny-countdown-mount.is-compact .ny-cd-title-row {
+  color: #B45309;
+}
+
+[data-theme="light"] .ny-countdown-mount.is-compact .ny-cd-sub {
+  color: #475569;
+}
+
+[data-theme="light"] .ny-countdown-mount.is-compact .ny-cd-unit {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+}
+
+[data-theme="light"] .ny-countdown-mount.is-compact .ny-cd-val {
+  color: #0F172A;
+}
+
+[data-theme="light"] .ny-countdown-mount.is-compact .ny-cd-lbl {
+  color: #0284C7;
+}
+
+/* Interactive Catenary Holiday Garland */
 .ny-garland-slot {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 68px;
+  height: 64px;
   z-index: 6;
   pointer-events: auto;
   overflow: visible;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.3s ease;
 }
 
-.ny-garland-svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-  overflow: visible;
-}
-
-.ny-wire {
-  fill: none;
-  stroke: rgba(148, 163, 184, 0.38);
-  stroke-width: 1.5;
-}
-
-.ny-bulb-group {
-  cursor: pointer;
-  transform-box: fill-box;
-  transform-origin: 50% 0%;
-}
-
-.ny-bulb-core {
-  transition: filter 0.25s ease, opacity 0.25s ease;
-}
-
-.ny-bulb-group.is-Lit .ny-bulb-core {
-  filter: drop-shadow(0 0 11px currentColor);
-}
+.ny-garland-svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.ny-wire { fill: none; stroke: rgba(148, 163, 184, 0.34); stroke-width: 1.4; }
+.ny-bulb-group { cursor: pointer; transform-box: fill-box; transform-origin: 50% 0%; }
+.ny-bulb-group.is-Lit .ny-bulb-core { filter: drop-shadow(0 0 9px currentColor); }
 
 /* Tactile Monospace Keycap */
 .aero-kbd {
@@ -189,32 +397,29 @@ html[data-ny-fx="off"] .ny-fx-toggle svg {
   font-size: 0.74rem;
   font-weight: 600;
   line-height: 1;
+  background: #1E293B;
+  color: #F8FAFC;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: transform 0.14s ease, border-color 0.14s ease;
+}
+
+[data-theme="light"] .aero-kbd {
   background: rgba(255, 255, 255, 0.92);
   color: #0F172A;
-  border: 1px solid rgba(148, 163, 184, 0.48);
+  border-color: rgba(148, 163, 184, 0.48);
   box-shadow: 0 2px 0 rgba(15, 23, 42, 0.16), inset 0 1px 0 #FFFFFF;
-  transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
 }
 
 .hero .aero-kbd,
-.desk-hero .aero-kbd,
-.is-dark-surface .aero-kbd {
+.desk-hero .aero-kbd {
   background: rgba(15, 23, 42, 0.92);
   color: #E2E8F0;
   border-color: rgba(148, 163, 184, 0.35);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.14);
-}
-
-[data-theme="dark"] .aero-kbd {
-  background: #1E293B;
-  color: #F8FAFC;
-  border-color: rgba(148, 163, 184, 0.28);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .aero-kbd.is-pressed {
   transform: translateY(2px);
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(0, 0, 0, 0.25);
   border-color: #38BDF8;
   color: #38BDF8;
 }
@@ -224,45 +429,13 @@ html[data-ny-fx="off"] .ny-fx-toggle svg {
   font-variant-numeric: tabular-nums;
 }
 
-/* 3D Perspective Tilt + Radial Cursor Specular Highlight */
+/* Lightweight 3D Card Tilt (Fine Pointer Desktop Only) */
 [data-tilt] {
   position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease, box-shadow 0.25s ease;
-  will-change: transform;
+  transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.24s ease, box-shadow 0.24s ease;
 }
 
-[data-tilt]::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  opacity: 0;
-  background: radial-gradient(
-    420px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(56, 189, 248, 0.14),
-    rgba(245, 158, 11, 0.06) 40%,
-    transparent 70%
-  );
-  transition: opacity 0.28s ease;
-  z-index: 1;
-}
-
-[data-tilt]:hover::before {
-  opacity: 1;
-}
-
-[data-tilt] > * {
-  position: relative;
-  z-index: 2;
-}
-
-/* Magnetic CTA Spring Transition */
-[data-magnetic] {
-  transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, background 0.25s ease;
-  will-change: transform;
-}
+[data-tilt] > * { position: relative; z-index: 2; }
 
 /* Infinite Kinetic Channel Marquee */
 .marquee-viewport {
@@ -278,12 +451,10 @@ html[data-ny-fx="off"] .ny-fx-toggle svg {
   display: flex;
   gap: 12px;
   width: max-content;
-  animation: aeroMarquee 34s linear infinite;
+  animation: aeroMarquee 36s linear infinite;
 }
 
-.marquee-viewport:hover .marquee-track {
-  animation-play-state: paused;
-}
+.marquee-viewport:hover .marquee-track { animation-play-state: paused; }
 
 @keyframes aeroMarquee {
   0% { transform: translate3d(0, 0, 0); }
@@ -296,12 +467,10 @@ html[data-ny-fx="off"] .ny-fx-toggle svg {
   background: var(--surface-soft);
   border: 1px solid var(--border);
   overflow: hidden;
-  transition: border-color 0.22s ease, background 0.22s ease;
+  transition: border-color 0.2s ease;
 }
 
-.faq-acc-item.is-open {
-  border-color: rgba(14, 165, 233, 0.38);
-}
+.faq-acc-item.is-open { border-color: rgba(14, 165, 233, 0.42); }
 
 .faq-acc-trigger {
   width: 100%;
@@ -323,14 +492,14 @@ html[data-ny-fx="off"] .ny-fx-toggle svg {
 .faq-acc-plus {
   width: 24px;
   height: 24px;
-  border-radius: 50%;
+  border-radius: 8px;
   background: var(--pill-bg);
   color: var(--pill-ink);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), background 0.2s ease;
+  transition: transform 0.24s ease, background 0.2s ease;
 }
 
 .faq-acc-item.is-open .faq-acc-plus {
@@ -342,61 +511,28 @@ html[data-ny-fx="off"] .ny-fx-toggle svg {
 .faq-acc-panel {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: grid-template-rows 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.faq-acc-item.is-open .faq-acc-panel {
-  grid-template-rows: 1fr;
+.faq-acc-item.is-open .faq-acc-panel { grid-template-rows: 1fr; }
+.faq-acc-inner { overflow: hidden; }
+.faq-acc-inner p { padding: 0 18px 16px; font-size: 0.9rem; color: var(--ink-muted); line-height: 1.58; }
+
+@keyframes aeroFloatA { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-7px); } }
+@keyframes aeroFloatB { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(6px); } }
+@keyframes aeroEq { 0%, 100% { height: 4px; } 50% { height: 15px; } }
+@keyframes aeroScanLaser { 0% { top: 8%; opacity: 0.3; } 50% { top: 84%; opacity: 1; } 100% { top: 8%; opacity: 0.3; } }
+
+@media (max-width: 640px) {
+  .ny-countdown-mount.is-compact { width: calc(100% - 16px); margin-top: 8px; }
+  .ny-countdown-bar { width: 100%; padding: 9px 11px; gap: 9px 10px; }
+  .ny-cd-unit { min-width: 40px; padding: 4px 5px; }
+  .ny-cd-val { font-size: 0.88rem; }
+  .aero-santa-cap { top: -10px; left: -5px; width: 25px; height: 20px; }
 }
 
-.faq-acc-inner {
-  overflow: hidden;
-}
-
-.faq-acc-inner p {
-  padding: 0 18px 16px;
-  font-size: 0.9rem;
-  color: var(--ink-muted);
-  line-height: 1.58;
-}
-
-/* Staggered Levitation & Live Equalizer Keyframes */
-@keyframes aeroFloatA {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-9px); }
-}
-
-@keyframes aeroFloatB {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(7px); }
-}
-
-@keyframes aeroEq {
-  0%, 100% { height: 4px; }
-  50% { height: 15px; }
-}
-
-@keyframes aeroScanLaser {
-  0% { top: 8%; opacity: 0.25; }
-  50% { top: 84%; opacity: 1; }
-  100% { top: 8%; opacity: 0.25; }
-}
-
-/* Reduced Motion Respect */
 @media (prefers-reduced-motion: reduce) {
-  #aero-snow-canvas,
-  .ny-fx-toggle svg,
-  .marquee-track {
-    animation: none !important;
-  }
-  .marquee-viewport {
-    overflow-x: auto;
-    -webkit-mask-image: none;
-    mask-image: none;
-  }
-  [data-tilt],
-  [data-magnetic],
-  .faq-acc-panel {
-    transition: none !important;
-  }
+  #aero-snow-canvas, .marquee-track { animation: none !important; }
+  .marquee-viewport { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  [data-tilt], [data-magnetic], .faq-acc-panel { transition: none !important; }
 }

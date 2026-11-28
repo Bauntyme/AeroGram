@@ -1,16 +1,14 @@
 (function () {
   'use strict';
 
-  // 1. Sync Theme
+  // 1. Sync Theme (Default: Dark Mode)
   const themeBtn = document.getElementById('desk-theme-toggle');
-  const savedTheme = localStorage.getItem('aero_theme_v2');
-  if (savedTheme === 'dark' || savedTheme === 'light') {
-    document.documentElement.setAttribute('data-theme', savedTheme);
-  }
+  const savedTheme = localStorage.getItem('aero_theme_v3');
+  document.documentElement.setAttribute('data-theme', savedTheme === 'light' ? 'light' : 'dark');
   themeBtn?.addEventListener('click', () => {
     const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('aero_theme_v2', next);
+    localStorage.setItem('aero_theme_v3', next);
   });
 
   // 2. Mobile Sheet
@@ -156,7 +154,11 @@
       hero_title: 'Noutbuk va Kompyuter uchun<br><em class="serif-accent">Qulay</em> va Maxfiy AeroGram',
       hero_desc: 'Katta ekranda bir vaqtda o‘nlab akkauntlarni boshqaring, muhim suhbatlarni Maxfiy Seyfga yashiring va yangilangan Studio sozlamalaridan foydalaning.',
       btn_setup: 'AeroGram-Setup.exe yuklash (152.9 MB)',
-      btn_portable: 'Portable .exe (143.9 MB)',
+      btn_guide: 'Qo‘llanmani ko‘rish ↓',
+      port_pill: 'Qo‘shimcha • Fleshka & Ruxsatsiz Kompyuterlar uchun',
+      port_title: 'O‘rnatmasdan ishlaydigan Portable (.exe) kerakmi?',
+      port_desc: 'Shaxsiy noutbuk uchun yuqoridagi asosiy Setup.exe tavsiya etiladi. Ishxona yoki fleshkadan o‘rnatmasdan ishlatmoqchi bo‘lsangiz, ko‘chma AeroGram-Desktop.exe versiyasidan foydalaning.',
+      port_btn: 'Portable .exe yuklash (143.9 MB)',
       sp1_k: 'O‘rnatgich (.exe)',
       sp1_v: 'Windows 10/11 • 152.9 MB',
       sp2_k: 'Maxfiy Seyf',
@@ -233,7 +235,11 @@
       hero_title: 'Удобный и Секретный AeroGram<br><em class="serif-accent">для</em> Ноутбука и ПК',
       hero_desc: 'Ведите десятки аккаунтов на большом экране, прячьте важные переписки в Секретный сейф и настраивайте клиент в обновлённой панели Studio.',
       btn_setup: 'Скачать AeroGram-Setup.exe (152.9 MB)',
-      btn_portable: 'Portable .exe (143.9 MB)',
+      btn_guide: 'Смотреть инструкцию ↓',
+      port_pill: 'Дополнительно • Для флешки и рабочих ПК',
+      port_title: 'Нужна переносная версия Portable (.exe) без установки?',
+      port_desc: 'Для личного ноутбука рекомендуется основной Setup.exe выше. Если нужно запускать с флешки без установки прав администратора, скачайте портативный AeroGram-Desktop.exe.',
+      port_btn: 'Скачать Portable .exe (143.9 MB)',
       sp1_k: 'Установщик (.exe)',
       sp1_v: 'Windows 10/11 • 152.9 MB',
       sp2_k: 'Секретный сейф',
@@ -310,7 +316,11 @@
       hero_title: 'Fast & Private AeroGram<br><em class="serif-accent">Built</em> for Windows Laptops',
       hero_desc: 'Run unlimited Telegram accounts on your big screen, tuck private chats inside the stealth Secret Vault, and customize everything in the redesigned Studio settings.',
       btn_setup: 'Download AeroGram-Setup.exe (152.9 MB)',
-      btn_portable: 'Portable .exe (143.9 MB)',
+      btn_guide: 'View Walkthrough ↓',
+      port_pill: 'Optional • USB Drive & Locked Work PCs',
+      port_title: 'Need no-install Portable (.exe)?',
+      port_desc: 'For everyday personal laptops, use the main Setup.exe above. If you need to launch AeroGram straight from a USB stick without installing, grab Portable AeroGram-Desktop.exe.',
+      port_btn: 'Download Portable .exe (143.9 MB)',
       sp1_k: 'Windows (.exe)',
       sp1_v: 'Windows 10/11 • 152.9 MB',
       sp2_k: 'Secret Vault',

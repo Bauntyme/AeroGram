@@ -218,13 +218,13 @@
   let retryCount = 0;
   let lastTapTime = 0;
 
-  // Theme Init
-  const savedTheme = localStorage.getItem("aero_theme_v2");
+  // Theme Init (Default: Dark Mode)
+  const savedTheme = localStorage.getItem("aero_theme_v3");
   document.documentElement.setAttribute("data-theme", savedTheme === "light" ? "light" : "dark");
   themeBtn.addEventListener("click", () => {
     const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem("aero_theme_v2", next);
+    localStorage.setItem("aero_theme_v3", next);
   });
 
   // Translations
@@ -293,6 +293,7 @@
     img.src = ch.logo;
     img.alt = ch.name;
     img.loading = "lazy";
+    img.decoding = "async";
     img.onerror = () => {
       container.innerHTML = "";
       container.style.background = ch.grad || "linear-gradient(135deg,#0284C7,#1E3A8A)";
@@ -383,7 +384,13 @@
     });
   }
 
-  // Update HUD Meta + Cinema Ambilight Halo
+  function hexToRgba(hex, alpha) {
+    const clean = hex.replace("#", "");
+    const n = parseInt(clean, 16);
+    return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${alpha})`;
+  }
+
+  // Update HUD Meta + Zero-Filter Cinema Ambilight Halo
   function updateChannelHudMeta() {
     fillLogoBox(hudLogoBox, currentChannel);
     hudChannelName.textContent = currentChannel.name;
@@ -393,7 +400,11 @@
     favCurrentBtn.classList.toggle("is-fav", favorites.has(currentChannel.id));
     const ambi = document.getElementById("stage-ambilight");
     if (ambi && currentChannel.grad) {
-      ambi.style.background = currentChannel.grad;
+      const hexes = currentChannel.grad.match(/#[0-9a-fA-F]{6}/g);
+      if (hexes && hexes.length >= 2) {
+        ambi.style.setProperty("--ambi-c1", hexToRgba(hexes[0], 0.28));
+        ambi.style.setProperty("--ambi-c2", hexToRgba(hexes[1], 0.11));
+      }
     }
     updateLiveResolutionReadout();
   }

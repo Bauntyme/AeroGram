@@ -1,64 +1,7 @@
 (function () {
   "use strict";
 
-  // 1. Subtle Hero Particle Drift
-  const canvas = document.getElementById("hero-mist");
-  if (canvas) {
-    const ctx = canvas.getContext("2d");
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let w = 0;
-    let h = 0;
-    let dots = [];
-
-    function resize() {
-      const r = canvas.parentElement.getBoundingClientRect();
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = r.width;
-      h = r.height;
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-      const count = Math.min(80, Math.max(32, Math.floor(w / 18)));
-      dots = Array.from({ length: count }, (_, i) => {
-        const band = i / count;
-        return {
-          x: band * w + (Math.random() - 0.5) * 80,
-          y: h * 0.72 - band * h * 0.48 + (Math.random() - 0.5) * 180,
-          r: 1.0 + Math.random() * 2.0,
-          a: 0.14 + Math.random() * 0.34,
-          vx: 0.12 + Math.random() * 0.18,
-          vy: (Math.random() - 0.5) * 0.08,
-        };
-      });
-    }
-
-    function tick() {
-      ctx.clearRect(0, 0, w, h);
-      for (let i = 0; i < dots.length; i++) {
-        const d = dots[i];
-        d.x += d.vx;
-        d.y += d.vy;
-        if (d.x > w + 20) {
-          d.x = -20;
-          d.y = h * 0.72 + (Math.random() - 0.5) * 220;
-        }
-        ctx.beginPath();
-        ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(125, 211, 252, ${d.a})`;
-        ctx.fill();
-      }
-      if (!reduced && !document.hidden) {
-        requestAnimationFrame(tick);
-      }
-    }
-
-    window.addEventListener("resize", resize);
-    resize();
-    tick();
-  }
-
-  // 2. Blur-to-Sharp Scroll Reveal
+  // 1. Scroll Reveal
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -92,16 +35,14 @@
   window.addEventListener("scroll", updateActiveNav, { passive: true });
   updateActiveNav();
 
-  // 4. Floating Theme Switcher
+  // 3. Floating Theme Switcher (Default: Dark Mode)
   const themeBtn = document.getElementById("theme-toggle");
-  const savedTheme = localStorage.getItem("aero_theme_v2");
-  if (savedTheme === "dark" || savedTheme === "light") {
-    document.documentElement.setAttribute("data-theme", savedTheme);
-  }
+  const savedTheme = localStorage.getItem("aero_theme_v3");
+  document.documentElement.setAttribute("data-theme", savedTheme === "light" ? "light" : "dark");
   themeBtn?.addEventListener("click", () => {
     const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem("aero_theme_v2", next);
+    localStorage.setItem("aero_theme_v3", next);
   });
 
   // 5. Mobile Drawer

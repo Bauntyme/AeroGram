@@ -17,15 +17,15 @@
 }
 
 [data-theme="dark"] {
-  --bg-page: #090D16;
-  --surface: #121826;
-  --surface-soft: #172032;
-  --border: rgba(255, 255, 255, 0.09);
+  --bg-page: #070B14;
+  --surface: #0E1525;
+  --surface-soft: #131C30;
+  --border: rgba(148, 163, 184, 0.14);
   --ink: #F8FAFC;
   --ink-muted: #94A3B8;
   --pill-bg: rgba(14, 165, 233, 0.16);
   --pill-ink: #38BDF8;
-  --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.38);
 }
 
 * {
@@ -1671,18 +1671,16 @@ a {
 .offer-inline-link { display: inline-flex; align-items: center; margin-top: 12px; font-size: 0.9rem; font-weight: 600; color: #0284C7; }
 [data-theme="dark"] .offer-inline-link { color: #38BDF8; }
 
-/* Reveal Transitions */
+/* Lightweight Smooth Scroll Reveal (No expensive blur filter on phones) */
 .reveal {
   opacity: 0;
-  filter: blur(8px);
-  transform: translateY(20px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.visible {
   opacity: 1;
-  filter: blur(0);
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
 
 /* Responsive Breakpoints */
