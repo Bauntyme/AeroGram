@@ -350,7 +350,8 @@ button, input {
 
 .hud-bottom {
   bottom: 0;
-  padding: 18px 18px 16px;
+  padding: 16px 14px 14px;
+  gap: 8px;
   background: linear-gradient(0deg, rgba(2, 6, 14, 0.92) 0%, rgba(2, 6, 14, 0.45) 60%, rgba(2, 6, 14, 0) 100%);
 }
 
@@ -580,7 +581,7 @@ button, input {
 .hud-controls-right {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .ctrl-btn {
@@ -637,23 +638,23 @@ button, input {
 }
 
 .vol-slider {
-  width: 78px;
+  width: 60px;
   accent-color: #38BDF8;
   cursor: pointer;
 }
 
 .ctrl-chip {
-  height: 38px;
-  padding: 0 12px;
+  height: 36px;
+  padding: 0 10px;
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(15, 23, 42, 0.72);
   color: #F8FAFC;
-  font-size: 0.82rem;
+  font-size: 0.77rem;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -718,21 +719,22 @@ button, input {
 
 /* Big Clear Fullscreen Button */
 .fullscreen-cta-btn {
-  height: 40px;
-  padding: 0 15px;
+  height: 36px;
+  padding: 0 12px;
   border-radius: 9999px;
   border: 1px solid rgba(56, 189, 248, 0.65);
   background: linear-gradient(135deg, #0284C7, #0EA5E9);
   color: #FFFFFF;
-  font-size: 0.84rem;
+  font-size: 0.78rem;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   cursor: pointer;
   box-shadow: 0 6px 18px rgba(14, 165, 233, 0.35);
   transition: transform 0.16s ease, box-shadow 0.16s ease;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .fullscreen-cta-btn:hover {
@@ -1450,6 +1452,10 @@ button, input {
   .channels-list.is-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+@media (max-width: 1280px) {
+  .pip-txt { display: none; }
 }
 
 @media (max-width: 760px) {
