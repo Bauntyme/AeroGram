@@ -192,7 +192,7 @@
         <div class="hero-stage-col reveal">
           <div class="hero-stage-shell">
             <div class="hero-aurora-ring" aria-hidden="true"></div>
-            <img src="assets/images/hero-hand.jpg" alt="Qo‘lda ushlab turilgan AeroGram ilovasi" class="hero-hand-img">
+            <img src="assets/images/hero-hand.jpg" data-src-2027="assets/images/2027/hero-2027.jpg" alt="Qo‘lda ushlab turilgan AeroGram ilovasi" class="hero-hand-img">
 
             <!-- Floating Card 1: Stealth Vault Pill -->
             <div class="hero-float-card hf-vault" aria-hidden="true">
@@ -382,6 +382,87 @@
       </div>
     </section>
 
+    <!-- Section 1.8: Exclusive 2027 Time Capsule (Locked until 01.01.2027 00:00 UZT, Auto-Unlocks at Midnight!) -->
+    <section id="capsule-2027" class="section section-light pt-0">
+      <div class="container">
+        <div class="capsule-2027-card reveal">
+          <!-- State A: Before 00:00 UZT -->
+          <div class="cap-locked">
+            <div class="cap-locked-grid">
+              <div>
+                <span class="cap-pill" data-i18n="cap_pill_locked">Yopiq 2027 Kapsulasi • 00:00 da ochiladi</span>
+                <h2 data-i18n="cap_title_locked">2027 kirishi bilan butun sayt yangi qiyofaga kiradi</h2>
+                <p class="muted-copy" data-i18n="cap_desc_locked">Toshkent vaqti bilan 01.01.2027 soat 00:00 da yangi 2027 oltin-zumrad dizayn, studiya rasmlari, 2027 Tabriknoma yaratuvchisi va Aurora boshqaruvi avtomatik ishga tushadi.</p>
+              </div>
+              <div class="cap-teaser-list">
+                <div class="cap-teaser-item">
+                  <span class="cap-t-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></span>
+                  <div><strong data-i18n="cap_f1_t">Yangi 2027 Dizayn & Rasmlar</strong><small data-i18n="cap_f1_s">Sayt rasmlari va mavzusi avtomatik almashadi</small></div>
+                </div>
+                <div class="cap-teaser-item">
+                  <span class="cap-t-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>
+                  <div><strong data-i18n="cap_f2_t">2027 Shaxsiy Tabriknoma Studiyasi</strong><small data-i18n="cap_f2_s">Ism yozib bayram kartasini PNG yuklab olish</small></div>
+                </div>
+                <div class="cap-teaser-item">
+                  <span class="cap-t-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+                  <div><strong data-i18n="cap_f3_t">Qirollik Aurora & Yangi Yil Sadosi</strong><small data-i18n="cap_f3_s">Jonli rang palitrasi va bayram mushaklari</small></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- State B: Automatically Unlocked at 00:00 UZT -->
+          <div class="cap-unlocked">
+            <div class="cap-unlocked-head">
+              <div>
+                <span class="cap-pill" data-i18n="cap_pill_open">2027-Yil Xush Kelibsiz! • Maxsus Hub Ochildi</span>
+                <h2 data-i18n="cap_title_open">AeroGram 2027 Innovatsion Studiyasi</h2>
+              </div>
+              <div class="cap-aura-bar">
+                <button type="button" class="cap-aura-btn active" data-aura-set="emerald"><span class="cap-aura-dot" style="background:#10B981"></span><span data-i18n="aura_em">Zumrad</span></button>
+                <button type="button" class="cap-aura-btn" data-aura-set="gold"><span class="cap-aura-dot" style="background:#F59E0B"></span><span data-i18n="aura_gd">Oltin</span></button>
+                <button type="button" class="cap-aura-btn" data-aura-set="royal"><span class="cap-aura-dot" style="background:#6366F1"></span><span data-i18n="aura_ry">Qirollik</span></button>
+                <button type="button" class="cap-chime-btn" id="chime2027-btn" data-i18n="chime_btn">Bayram sadosi</button>
+              </div>
+            </div>
+
+            <div class="cap-studio-grid">
+              <div class="cap-studio-controls">
+                <div class="cap-field">
+                  <label for="card2027-name" data-i18n="card_label">Tabriknoma egasi ismi</label>
+                  <input type="text" id="card2027-name" maxlength="28" value="Aziz Do‘st" placeholder="Ism kiriting..." data-i18n-ph="card_ph">
+                </div>
+                <div class="cap-palettes">
+                  <button type="button" class="cap-pal-btn active" data-pal="emerald" data-i18n="aura_em">Zumrad</button>
+                  <button type="button" class="cap-pal-btn" data-pal="gold" data-i18n="aura_gd">Oltin</button>
+                  <button type="button" class="cap-pal-btn" data-pal="royal" data-i18n="aura_ry">Qirollik</button>
+                </div>
+                <button type="button" class="btn-white-pill" id="card2027-dl" data-i18n="card_dl">2027 Tabriknomani yuklash (PNG)</button>
+              </div>
+              <div class="cap-canvas-wrap">
+                <canvas id="card2027-canvas" width="960" height="500"></canvas>
+              </div>
+            </div>
+
+            <div class="cap-future-row">
+              <div class="cap-future-tile">
+                <strong data-i18n="fut1_t">Yashirin Seyf 2.0</strong>
+                <p data-i18n="fut1_d">Barmoq izi va PIN asosida ko‘rinmas dialoglar himoyasi.</p>
+              </div>
+              <div class="cap-future-tile">
+                <strong data-i18n="fut2_t">Desktop & Mobile Hamkorligi</strong>
+                <p data-i18n="fut2_d">Telefondan noutbukka soniya ichida fayl va sessiya uzatish.</p>
+              </div>
+              <div class="cap-future-tile">
+                <strong data-i18n="fut3_t">Full HD Jonli TV</strong>
+                <p data-i18n="fut3_d">29 ta O‘zbekiston kanallari kechikishsiz va reklamasiz efirda.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Section 2: Why AeroGram? Bento Grid -->
     <section id="why-aero" class="section section-light pt-0">
       <div class="container">
@@ -399,7 +480,7 @@
               <p data-i18n="bt1_d">Rasmiy Telegram bazasiga asoslangan muntazam sifat va tezlik yangilanishlari.</p>
             </div>
             <div class="bento-media">
-              <img src="assets/images/bento-update.jpg" alt="Doim yangi versiya">
+              <img src="assets/images/bento-update.jpg" data-src-2027="assets/images/2027/bento-2027.jpg" alt="Doim yangi versiya">
             </div>
           </div>
         </div>
@@ -584,7 +665,7 @@
         <div class="shot-stack">
           <article class="shot-card reveal">
             <div class="shot-frame shot-wide">
-              <img src="assets/images/showcase-wide.jpg" alt="AeroGram kanallar va tezkor interfeys">
+              <img src="assets/images/showcase-wide.jpg" data-src-2027="assets/images/2027/showcase-2027.jpg" alt="AeroGram kanallar va tezkor interfeys">
             </div>
             <div class="shot-meta">
               <h3 data-i18n="sc1_t">Oddiy, Tez, Ishonchli</h3>
