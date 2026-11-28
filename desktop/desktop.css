@@ -601,7 +601,13 @@ button.lp-s-row:hover { border-color: rgba(56, 189, 248, 0.5); background: rgba(
 }
 
 .portable-dl-link {
-  flex-shrink: 0;
+  flex-shrink: 1;
+  max-width: 100%;
+  height: auto;
+  min-height: 46px;
+  padding: 11px 18px;
+  white-space: normal;
+  text-align: center;
 }
 
 @media (max-width: 1020px) {
@@ -617,4 +623,6 @@ button.lp-s-row:hover { border-color: rgba(56, 189, 248, 0.5); background: rgba(
   .rail-add { margin-top: 0; margin-left: auto; }
   .carousel-shell { padding: 20px; }
   .car-slide { padding: 18px; }
+  .portable-card { padding: 22px 18px; gap: 16px; }
+  .portable-dl-link { width: 100%; font-size: 0.84rem; padding: 11px 14px; }
 }
