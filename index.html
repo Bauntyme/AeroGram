@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>AeroGram — Tez va Qulay Messenjer</title>
-  <meta name="description" content="AeroGram — tez, ishonchli va qulay zamonaviy messenjer. Sifatli aloqa, kuchli shifrlash va cheksiz bulut imkoniyatlari bilan.">
-  <meta name="keywords" content="AeroGram, messenjer, Android ilova, tez muloqot, shifrlangan aloqa">
+  <title>AeroGram — Tez va Qulay Messenjer • 2027 Nashri</title>
+  <meta name="description" content="AeroGram — tez, ishonchli va qulay zamonaviy messenjer. Maxfiy chatlar seyfi, cheksiz akkauntlar, Windows desktop va O‘zbekiston jonli TV kanallari.">
+  <meta name="keywords" content="AeroGram, messenjer, Android ilova, Windows desktop, maxfiy chatlar, tez muloqot">
   <meta name="author" content="AeroGram">
-  <meta name="theme-color" content="#0EA5E9">
+  <meta name="theme-color" content="#071530">
   <link rel="canonical" href="https://aerogram.website/">
 
   <!-- Favicons & App Icons -->
@@ -35,12 +35,13 @@
   <meta name="twitter:description" content="Yengil, tezkor va qulay zamonaviy messenjer.">
   <meta name="twitter:image" content="https://aerogram.website/assets/og-image.png">
 
-  <!-- Typography -->
+  <!-- Editorial Human Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/festive-ui.css">
 </head>
 <body>
 
@@ -48,7 +49,7 @@
   <header class="floating-nav" id="navbar">
     <div class="nav-pill">
       <a href="#top" class="brand" aria-label="AeroGram bosh sahifa">
-        <span class="brand-logo">
+        <span class="brand-logo brand-logo-festive">
           <svg viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
               <linearGradient id="aeroPillGrad" x1="14" y1="8" x2="114" y2="120" gradientUnits="userSpaceOnUse">
@@ -72,7 +73,7 @@
         <a href="#more-aero" class="nav-link" data-i18n="nav_more">Taqqoslash & FAQ</a>
         <a href="#aero-download" class="nav-link" data-i18n="nav_apk">Yuklash</a>
         <a href="desktop/" class="nav-link-laptop">
-          <span aria-hidden="true">💻</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
           <span data-i18n="nav_laptop">Laptop uchun</span>
         </a>
         <a href="tv/" class="nav-link-tv">
@@ -82,6 +83,17 @@
       </nav>
 
       <div class="nav-right">
+        <button type="button" class="ny-fx-toggle" aria-pressed="true" aria-label="Qishki effektlarni yoqish/o‘chirish" title="Qor va Yangi Yil bezaklari">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true">
+            <line x1="12" y1="2" x2="12" y2="22"/>
+            <line x1="3.34" y1="7" x2="20.66" y2="17"/>
+            <line x1="20.66" y1="7" x2="3.34" y2="17"/>
+            <polyline points="9 4.5 12 7 15 4.5"/>
+            <polyline points="9 19.5 12 17 15 19.5"/>
+          </svg>
+          <span class="mono-metric">2027</span>
+        </button>
+
         <div class="lang-dropdown" id="lang-dropdown">
           <button type="button" class="lang-trigger" id="lang-trigger" aria-expanded="false" aria-label="Tilni tanlash">
             <span class="flag-slot" id="current-flag">
@@ -107,7 +119,7 @@
         </div>
 
         <a href="web/" class="btn-nav-web" data-i18n="nav_web">Saytda ochish</a>
-        <button type="button" class="btn-nav-cta open-download" data-i18n="nav_download">Yuklab olish</button>
+        <button type="button" class="btn-nav-cta open-download" data-magnetic data-i18n="nav_download">Yuklab olish</button>
 
         <button type="button" class="mobile-burger" id="mobile-burger" aria-label="Menyuni ochish" aria-expanded="false">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
@@ -121,7 +133,7 @@
       <a href="#more-aero" data-i18n="nav_more">Taqqoslash & FAQ</a>
       <a href="#aero-download" data-i18n="nav_apk">Yuklash</a>
       <a href="desktop/" class="mobile-laptop-link">
-        <span aria-hidden="true">💻</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
         <span data-i18n="nav_laptop">Laptop uchun</span>
       </a>
       <a href="tv/" class="mobile-tv-link">
@@ -136,12 +148,18 @@
   <main id="top">
     <!-- Hero -->
     <section class="hero">
+      <div class="ny-garland-slot" aria-hidden="true"></div>
       <canvas id="hero-mist" aria-hidden="true"></canvas>
+
       <div class="container hero-grid">
         <div class="hero-content reveal">
-          <div class="hero-chip"><span class="hero-chip-dot"></span> <span data-i18n="hero_chip">AeroGram • Android, Laptop & Web</span></div>
-          <h1 data-i18n="hero_title">Yengil, Tez va<br>Ishonchli Muloqot</h1>
-          <p class="hero-sub" data-i18n="hero_desc">Yaqinlaringiz va hamkasblaringiz bilan yuqori tezlikda xabar almashing, tiniq ovozli va video qo‘ng‘iroqlar qiling.</p>
+          <div class="hero-chip">
+            <span class="hero-chip-dot"></span>
+            <span data-i18n="hero_chip">2027 Yangi Yil Nashri • v1.5.0</span>
+          </div>
+
+          <h1 data-i18n="hero_title">Yengil, Tez va<br><em class="serif-accent">Ishonchli</em> Muloqot</h1>
+          <p class="hero-sub" data-i18n="hero_desc">Yaqinlaringiz va hamkasblaringiz bilan yuqori tezlikda xabar almashing, maxfiy suhbatlarni seyfda asrang — telefonda ham, Windows noutbukda ham.</p>
 
           <div class="hero-platforms">
             <div class="plat-icon" title="Android ilova">
@@ -151,15 +169,15 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
             </div>
             <div class="plat-meta">
-              <strong data-i18n="hero_plat_t">Ishonchli va Tezkor</strong>
-              <span data-i18n="hero_plat_s">Android & Windows v1.5.0</span>
+              <strong data-i18n="hero_plat_t">Yangi yilga tayyor reliz</strong>
+              <span class="mono-metric" data-i18n="hero_plat_s">Android & Windows v1.5.0</span>
             </div>
           </div>
 
           <div class="hero-btn-row">
-            <button type="button" class="btn-white-pill open-download" data-i18n="hero_cta">Hozir yuklab olish</button>
-            <a href="desktop/" class="btn-hero-laptop">
-              <span aria-hidden="true">💻</span>
+            <button type="button" class="btn-white-pill open-download" data-magnetic data-i18n="hero_cta">Hozir yuklab olish</button>
+            <a href="desktop/" class="btn-hero-laptop" data-magnetic>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
               <span data-i18n="hero_laptop">Laptop uchun (.exe) →</span>
             </a>
             <a href="web/" class="btn-hero-web" data-i18n="hero_web">AeroGram’ni saytda ochish →</a>
@@ -170,23 +188,57 @@
           </div>
         </div>
 
-        <div class="hero-hand-wrap reveal">
-          <img src="assets/images/hero-hand.jpg" alt="Qo‘lda ushlab turilgan AeroGram ilovasi" class="hero-hand-img">
+        <!-- Layered Architectural Hero Stage -->
+        <div class="hero-stage-col reveal">
+          <div class="hero-stage-shell">
+            <div class="hero-aurora-ring" aria-hidden="true"></div>
+            <img src="assets/images/hero-hand.jpg" alt="Qo‘lda ushlab turilgan AeroGram ilovasi" class="hero-hand-img">
+
+            <!-- Floating Card 1: Stealth Vault Pill -->
+            <div class="hero-float-card hf-vault" aria-hidden="true">
+              <span class="hf-ic is-emerald">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </span>
+              <div>
+                <strong data-i18n="hf_vault_t">Maxfiy Seyf</strong>
+                <small data-i18n="hf_vault_s">Yashirin PIN kirish</small>
+              </div>
+              <kbd class="aero-kbd">PIN</kbd>
+            </div>
+
+            <!-- Floating Card 2: Live TV Pill -->
+            <a href="tv/#channel=zor-tv" class="hero-float-card hf-tv">
+              <img src="tv/logos/zor-tv.png" width="28" height="28" alt="Zo‘r TV" class="hf-tv-logo">
+              <div>
+                <strong>Zo‘r TV • JONLI</strong>
+                <small class="mono-metric">1080p Full HD</small>
+              </div>
+              <span class="hf-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            </a>
+
+            <!-- Floating Card 3: Infinite Accounts Pill -->
+            <div class="hero-float-card hf-studio" aria-hidden="true">
+              <div class="hf-av-stack">
+                <span>AG</span><span>UZ</span><span>∞</span>
+              </div>
+              <strong data-i18n="hf_studio_t">Studio v1.5</strong>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Section 1: Sticky Left + Clean Stacked Feature Cards -->
+    <!-- Section 1: Sticky Left + Clean Bento Feature Cards -->
     <section id="features" class="section section-light">
       <div class="container offer-grid">
         <div class="offer-sticky reveal">
           <span class="eyebrow-pill" data-i18n="offer_pill">Nimalar mavjud</span>
-          <h2 data-i18n="offer_title">Foydali va Keng<br>Imkoniyatlar</h2>
+          <h2 data-i18n="offer_title">Foydali va Keng<br><em class="serif-accent">Imkoniyatlar</em></h2>
           <p class="muted-copy" data-i18n="offer_sub">Kundalik yozishmalaringizdan ko‘proq qulaylik oling</p>
         </div>
 
         <div class="offer-stack">
-          <article class="offer-card reveal">
+          <article class="offer-card reveal" data-tilt>
             <div class="outline-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             </div>
@@ -194,7 +246,7 @@
             <p data-i18n="of1_d">Chatlar bir zumda ochiladi, animatsiyalar yengil ishlaydi va kuchsiz internetda ham barqaror aloqa ta’minlanadi.</p>
           </article>
 
-          <article class="offer-card reveal">
+          <article class="offer-card reveal" data-tilt>
             <div class="outline-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             </div>
@@ -202,31 +254,23 @@
             <p data-i18n="of2_d">Yaqinlaringiz bilan ovozli va video suhbatlarni kechikishsiz va trafikni tejagan holda amalga oshiring.</p>
           </article>
 
-          <article class="offer-card reveal">
+          <article class="offer-card reveal" data-tilt>
             <div class="outline-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             </div>
-            <h3 data-i18n="of3_t">Shaxsiy Maxfiylik Nazorati</h3>
-            <p data-i18n="of3_d">Kuchli shifrlash protokoli va moslashuvchan xavfsizlik boshqaruvi orqali yozishmalaringiz doim himoyada bo‘ladi.</p>
+            <h3 data-i18n="of3_t">Maxfiy Chatlar Seyfi</h3>
+            <p data-i18n="of3_d">Shaxsiy suhbatlar oddiy ro‘yxat va qidiruvdan butunlay yashiriladi — faqat sizning PIN kodingiz bilan ochiladi.</p>
           </article>
 
-          <article class="offer-card reveal">
+          <article class="offer-card reveal" data-tilt>
             <div class="outline-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
             </div>
-            <h3 data-i18n="of4_t">Cheksiz Bulut Sinxronizatsiyasi</h3>
-            <p data-i18n="of4_d">Telefon, planshet va brauzer o‘rtasida barcha chatlar va katta hajmli fayllar bir zumda yangilanib turadi.</p>
+            <h3 data-i18n="of4_t">Windows Noutbuk va Telefon Birga</h3>
+            <p data-i18n="of4_d">Telefon, Windows kompyuter va brauzer o‘rtasida barcha chatlar va katta fayllar bir zumda sinxronlanadi.</p>
           </article>
 
-          <article class="offer-card reveal">
-            <div class="outline-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12h8M12 8v8"/></svg>
-            </div>
-            <h3 data-i18n="of5_t">O‘zbek Tili va Zamonaviy Dizayn</h3>
-            <p data-i18n="of5_d">Yorug‘ va tungi mavzular, chiroyli tipografika hamda O‘zbekiston foydalanuvchilari uchun qulay interfeys.</p>
-          </article>
-
-          <article class="offer-card reveal">
+          <article class="offer-card reveal" data-tilt>
             <div class="outline-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
@@ -234,7 +278,7 @@
             <p data-i18n="of6_d">Bitta ilovada xohlagancha Telegram akkaunt ulang — Premium cheklovisiz, har biri mustaqil bildirishnomalar bilan ishlaydi.</p>
           </article>
 
-          <article class="offer-card offer-card-tv reveal">
+          <article class="offer-card offer-card-tv reveal" data-tilt>
             <div class="outline-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
             </div>
@@ -246,20 +290,114 @@
       </div>
     </section>
 
+    <!-- NEW Section 1.5: Interactive Studio Sandbox ("Sinab ko'ring") -->
+    <section id="studio-sandbox" class="section section-light pt-0">
+      <div class="container">
+        <div class="sandbox-card reveal">
+          <div class="sandbox-left">
+            <span class="eyebrow-pill" data-i18n="sb_pill">Jonli Studio Sinovi</span>
+            <h2 data-i18n="sb_title">Maxfiy Seyf va Ghost Blur’ni hoziroq sinab ko‘ring</h2>
+            <p class="muted-copy" data-i18n="sb_desc">Yonimizdagi tugmalarni bosing yoki qidiruv qatoriga 2027 PIN kodini tering — chatlar qanday yashirinishi va xiralashishini ko‘rasiz.</p>
+
+            <div class="sandbox-controls">
+              <button type="button" class="sb-btn" id="sandbox-blur-btn" aria-pressed="false">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                <span data-i18n="sb_blur_btn">Ghost Blur yoqish</span>
+              </button>
+
+              <button type="button" class="sb-btn is-primary" id="sandbox-pin-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span data-i18n="sb_pin_btn">PIN: 2027 terish</span>
+              </button>
+
+              <button type="button" class="sb-btn is-ghost" id="sandbox-reset-btn" data-i18n="sb_reset">Qaytarish</button>
+            </div>
+          </div>
+
+          <div class="sandbox-phone" id="sandbox-stage">
+            <div class="sb-top">
+              <span class="sb-brand-mini">AeroGram <em class="mono-metric">v1.5</em></span>
+              <div class="sb-kbd-row" aria-hidden="true">
+                <kbd class="aero-kbd" id="sb-k1">2</kbd>
+                <kbd class="aero-kbd" id="sb-k2">0</kbd>
+                <kbd class="aero-kbd" id="sb-k3">2</kbd>
+                <kbd class="aero-kbd" id="sb-k4">7</kbd>
+              </div>
+            </div>
+
+            <div class="sb-search-wrap">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="sandbox-pin-input" maxlength="8" placeholder="Qidiruv yoki PIN (2027)..." data-i18n-ph="sb_input_ph" aria-label="PIN sinovi">
+            </div>
+
+            <div class="sb-chat-list" id="sandbox-public-list">
+              <div class="sb-row">
+                <span class="sb-av av-sky">AG</span>
+                <div class="sb-row-copy">
+                  <strong data-i18n="sb_c1">AeroGram Yangiliklari</strong>
+                  <small data-i18n="sb_m1">2027 Yangi Yil mavzusi faol</small>
+                </div>
+                <span class="sb-time mono-metric">15:10</span>
+              </div>
+              <div class="sb-row">
+                <span class="sb-av av-amber">OY</span>
+                <div class="sb-row-copy">
+                  <strong data-i18n="sb_c2">Oila Guruhi</strong>
+                  <small data-i18n="sb_m2">Bayram tabriklari tayyor!</small>
+                </div>
+                <span class="sb-badge">4</span>
+              </div>
+              <div class="sb-row">
+                <span class="sb-av av-pine">IS</span>
+                <div class="sb-row-copy">
+                  <strong data-i18n="sb_c3">Dizayn Jamoasi</strong>
+                  <small data-i18n="sb_m3">Desktop .exe yakuniy tekshiruv</small>
+                </div>
+                <span class="sb-time mono-metric">14:48</span>
+              </div>
+            </div>
+
+            <div class="sb-vault-unlocked" id="sandbox-vault-view" hidden>
+              <div class="sb-vault-banner">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span data-i18n="sb_unlocked">Maxfiy Chatlar Seyfi Ochildi</span>
+              </div>
+              <div class="sb-row is-secret">
+                <span class="sb-av av-rose">SH</span>
+                <div class="sb-row-copy">
+                  <strong data-i18n="sb_sc1">Shaxsiy Seyf Suhbat</strong>
+                  <small data-i18n="sb_sm1">Asosiy ro‘yxat va qidiruvdan yashirin</small>
+                </div>
+              </div>
+              <div class="sb-row is-secret">
+                <span class="sb-av av-gold">VIP</span>
+                <div class="sb-row-copy">
+                  <strong data-i18n="sb_sc2">Muhim Hujjatlar 2027</strong>
+                  <small data-i18n="sb_sm2">Chiqqanda avtomatik qulflanadi</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Section 2: Why AeroGram? Bento Grid -->
     <section id="why-aero" class="section section-light pt-0">
       <div class="container">
         <div class="bento-top">
-          <div class="bento-card bento-hero-card reveal">
+          <div class="bento-card bento-hero-card reveal" data-tilt>
             <div class="bento-corner-mist" aria-hidden="true"></div>
             <span class="eyebrow-pill" data-i18n="why_pill">Nega AeroGram?</span>
             <h2 data-i18n="why_title">Abadiy Bepul | Cheksiz Bulut va Yuqori Shifrlash</h2>
-            <button type="button" class="btn-dark-pill open-download" data-i18n="why_btn">AeroGram’ni yuklab olish</button>
+            <button type="button" class="btn-dark-pill open-download" data-magnetic data-i18n="why_btn">AeroGram’ni yuklab olish</button>
           </div>
 
-          <div class="bento-card bento-photo-card reveal">
-            <h3 data-i18n="bt1_t">Doim Yangilanib Boradi</h3>
-            <p data-i18n="bt1_d">Rasmiy Telegram bazasiga asoslangan muntazam sifat va tezlik yangilanishlari.</p>
+          <div class="bento-card bento-photo-card reveal" data-tilt>
+            <div>
+              <h3 data-i18n="bt1_t">Doim Yangilanib Boradi</h3>
+              <p data-i18n="bt1_d">Rasmiy Telegram bazasiga asoslangan muntazam sifat va tezlik yangilanishlari.</p>
+            </div>
             <div class="bento-media">
               <img src="assets/images/bento-update.jpg" alt="Doim yangi versiya">
             </div>
@@ -267,30 +405,48 @@
         </div>
 
         <div class="bento-bottom">
-          <div class="bento-card bento-photo-card reveal">
-            <h3 data-i18n="bt2_t">Yuqori Xavfsizlik</h3>
-            <p data-i18n="bt2_d">Shaxsiy raqamli sertifikat bilan imzolangan toza va ishonchli ilova.</p>
+          <div class="bento-card bento-photo-card reveal" data-tilt>
+            <div>
+              <h3 data-i18n="bt2_t">Yuqori Xavfsizlik</h3>
+              <p data-i18n="bt2_d">Shaxsiy raqamli sertifikat bilan imzolangan toza va ishonchli ilova.</p>
+            </div>
             <div class="bento-media">
               <img src="assets/images/bento-security.jpg" alt="AeroGram xavfsizligi">
             </div>
           </div>
 
-          <div class="bento-card bento-photo-card reveal">
-            <h3 data-i18n="bt3_t">Ortiqcha Ruxsatlarsiz</h3>
-            <p data-i18n="bt3_d">Ilova faqat muloqot va qo‘ng‘iroqlar uchun zarur ruxsatlarnigina so‘raydi.</p>
+          <div class="bento-card bento-photo-card reveal" data-tilt>
+            <div>
+              <h3 data-i18n="bt3_t">Ortiqcha Ruxsatlarsiz</h3>
+              <p data-i18n="bt3_d">Ilova faqat muloqot va qo‘ng‘iroqlar uchun zarur ruxsatlarnigina so‘raydi.</p>
+            </div>
             <div class="bento-media bento-clean-stage">
               <div class="clean-audit-visual">
-                <div class="audit-pill"><span>✓</span> <em data-i18n="aud_1">Ovozli va Video Qo‘ng‘iroq</em></div>
-                <div class="audit-pill"><span>✓</span> <em data-i18n="aud_2">Tezkor Yozishmalar</em></div>
-                <div class="audit-pill is-off"><span>✕</span> <em data-i18n="aud_3">Ortiqcha Kuzatuvlar</em></div>
-                <div class="audit-pill is-off"><span>✕</span> <em data-i18n="aud_4">Keraksiz Ruxsatlar</em></div>
+                <div class="audit-pill">
+                  <svg class="aud-ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+                  <em data-i18n="aud_1">Ovozli va Video Qo‘ng‘iroq</em>
+                </div>
+                <div class="audit-pill">
+                  <svg class="aud-ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="3 8 6.5 11.5 13 4.5"/></svg>
+                  <em data-i18n="aud_2">Tezkor Yozishmalar</em>
+                </div>
+                <div class="audit-pill is-off">
+                  <svg class="aud-ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>
+                  <em data-i18n="aud_3">Ortiqcha Kuzatuvlar</em>
+                </div>
+                <div class="audit-pill is-off">
+                  <svg class="aud-ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>
+                  <em data-i18n="aud_4">Keraksiz Ruxsatlar</em>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="bento-card bento-photo-card reveal">
-            <h3 data-i18n="bt4_t">O‘zbekiston Uchun Mos</h3>
-            <p data-i18n="bt4_d">O‘zbekcha qulay interfeys, tiniq dizayn va rasmiy Telegram yonida parallel ishlash.</p>
+          <div class="bento-card bento-photo-card reveal" data-tilt>
+            <div>
+              <h3 data-i18n="bt4_t">O‘zbekiston Uchun Mos</h3>
+              <p data-i18n="bt4_d">O‘zbekcha qulay interfeys, tiniq dizayn va rasmiy Telegram yonida parallel ishlash.</p>
+            </div>
             <div class="bento-media bento-uz-stage">
               <div class="uz-flag-visual" aria-label="O‘zbekiston bayrog‘i">
                 <div class="uz-stripe uz-blue">
@@ -318,7 +474,7 @@
     <!-- Section 3: Wide Security & Parallel Card -->
     <section id="security" class="section section-light pt-0">
       <div class="container">
-        <div class="wide-feature-card reveal">
+        <div class="wide-feature-card reveal" data-tilt>
           <div class="wf-visual">
             <div class="wf-icon-stage">
               <svg viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -344,82 +500,74 @@
 
             <ul class="check-list">
               <li>
-                <span class="check-dot">✓</span>
+                <span class="check-dot"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="3 8 6.5 11.5 13 4.5"/></svg></span>
                 <span data-i18n="chk_1">To‘g‘ridan-to‘g‘ri rasmiy Telegram serverlari orqali himoyalangan aloqa</span>
               </li>
               <li>
-                <span class="check-dot">✓</span>
-                <span data-i18n="chk_2">Barcha shaxsiy sozlamalar faqat sizning telefoningizda saqlanadi</span>
+                <span class="check-dot"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="3 8 6.5 11.5 13 4.5"/></svg></span>
+                <span data-i18n="chk_2">Barcha shaxsiy sozlamalar faqat sizning qurilmangizda saqlanadi</span>
               </li>
               <li>
-                <span class="check-dot">✓</span>
+                <span class="check-dot"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="3 8 6.5 11.5 13 4.5"/></svg></span>
                 <span data-i18n="chk_3">Bepul, reklamasiz va cheklovlarsiz foydalanish</span>
               </li>
             </ul>
 
-            <button type="button" class="btn-dark-pill open-download" data-i18n="sec_btn">AeroGram’ni yuklab olish</button>
+            <button type="button" class="btn-dark-pill open-download" data-magnetic data-i18n="sec_btn">AeroGram’ni yuklab olish</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section 3.5: Alohida TV uchun — Live Uzbekistan TV Spotlight -->
+    <!-- Section 3.5: Alohida TV uchun — Live Uzbekistan TV Kinetic Showcase -->
     <section id="tv-spotlight" class="section section-light pt-0">
       <div class="container">
         <div class="tv-spotlight-card reveal">
-          <div class="tv-spot-left">
-            <span class="tv-spot-pill">
-              <span class="tv-dot-live" aria-hidden="true"></span>
-              <span data-i18n="tvs_pill">Alohida TV uchun • Jonli efir</span>
-            </span>
-            <h2 data-i18n="tvs_title">Toshkent va O‘zbekiston TV kanallari — to‘liq ekranda</h2>
-            <p data-i18n="tvs_desc">Zo‘r TV, Sevimli TV, Toshkent, Milliy TV, Futbol TV va boshqa sevimli kanallarni telefonda ham, katta ekranda ham qotishsiz jonli tomosha qiling.</p>
+          <div class="tv-spot-head">
+            <div class="tv-spot-left">
+              <span class="tv-spot-pill">
+                <span class="tv-dot-live" aria-hidden="true"></span>
+                <span data-i18n="tvs_pill">Alohida TV uchun • Jonli efir</span>
+              </span>
+              <h2 data-i18n="tvs_title">Toshkent va O‘zbekiston TV kanallari — to‘liq ekranda</h2>
+              <p data-i18n="tvs_desc">Zo‘r TV, Sevimli TV, Toshkent, Milliy TV, Futbol TV va 29 ta kanallarni telefonda ham, noutbukda ham qotishsiz Full HD formatda tomosha qiling.</p>
+            </div>
             <div class="tv-spot-actions">
-              <a href="tv/" class="btn-white-pill" data-i18n="tvs_btn">TV bo‘limini ochish →</a>
-              <span class="tv-spot-note" data-i18n="tvs_note">29 ta jonli kanal • To‘liq ekran rejimi</span>
+              <a href="tv/" class="btn-white-pill" data-magnetic data-i18n="tvs_btn">TV bo‘limini ochish →</a>
+              <span class="tv-spot-note mono-metric" data-i18n="tvs_note">29 ta jonli kanal • Full HD</span>
             </div>
           </div>
 
-          <div class="tv-spot-grid" aria-label="Mashhur TV kanallar">
-            <a href="tv/#channel=zor-tv" class="tv-ch-chip">
-              <span class="ch-chip-live"></span>
-              <div><strong>Zo‘r TV</strong><small>1080p FHD</small></div>
-            </a>
-            <a href="tv/#channel=sevimli" class="tv-ch-chip">
-              <span class="ch-chip-live"></span>
-              <div><strong>Sevimli TV</strong><small>1080p FHD</small></div>
-            </a>
-            <a href="tv/#channel=toshkent" class="tv-ch-chip">
-              <span class="ch-chip-live"></span>
-              <div><strong>Toshkent</strong><small>576p Jonli</small></div>
-            </a>
-            <a href="tv/#channel=milliy" class="tv-ch-chip">
-              <span class="ch-chip-live"></span>
-              <div><strong>Milliy TV</strong><small>1080p FHD</small></div>
-            </a>
-            <a href="tv/#channel=my5" class="tv-ch-chip">
-              <span class="ch-chip-live"></span>
-              <div><strong>MY5</strong><small>576p Jonli</small></div>
-            </a>
-            <a href="tv/#channel=futbol-tv" class="tv-ch-chip">
-              <span class="ch-chip-live"></span>
-              <div><strong>Futbol TV</strong><small>1080p FHD</small></div>
-            </a>
-            <a href="tv/#channel=sport" class="tv-ch-chip">
-              <span class="ch-chip-live"></span>
-              <div><strong>Sport TV</strong><small>1080p FHD</small></div>
-            </a>
-            <a href="tv/#channel=uzbekiston-24" class="tv-ch-chip">
-              <span class="ch-chip-live"></span>
-              <div><strong>O‘zbekiston 24</strong><small>1080p FHD</small></div>
-            </a>
-            <a href="tv/#channel=kinoteatr" class="tv-ch-chip">
-              <span class="ch-chip-live"></span>
-              <div><strong>Kinoteatr</strong><small>1080p FHD</small></div>
-            </a>
-            <a href="tv/" class="tv-ch-chip tv-ch-more">
-              <div><strong data-i18n="tvs_more">+20 ta kanal</strong><small data-i18n="tvs_all">Barchasini ko‘rish →</small></div>
-            </a>
+          <!-- Kinetic Channel Marquee with real station logos -->
+          <div class="marquee-viewport tv-marquee" aria-label="Jonli TV kanallar">
+            <div class="marquee-track">
+              <a href="tv/#channel=zor-tv" class="tv-ch-chip"><img src="tv/logos/zor-tv.png" width="32" height="32" alt="Zo‘r TV" class="tv-chip-logo"><div><strong>Zo‘r TV</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=sevimli" class="tv-ch-chip"><img src="tv/logos/sevimli.png" width="32" height="32" alt="Sevimli TV" class="tv-chip-logo"><div><strong>Sevimli TV</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=toshkent" class="tv-ch-chip"><img src="tv/logos/toshkent.png" width="32" height="32" alt="Toshkent" class="tv-chip-logo"><div><strong>Toshkent</strong><small class="mono-metric">576p Jonli</small></div></a>
+              <a href="tv/#channel=milliy" class="tv-ch-chip"><img src="tv/logos/milliy.png" width="32" height="32" alt="Milliy TV" class="tv-chip-logo"><div><strong>Milliy TV</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=futbol-tv" class="tv-ch-chip"><img src="tv/logos/futbol-tv.png" width="32" height="32" alt="Futbol TV" class="tv-chip-logo"><div><strong>Futbol TV</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=sport" class="tv-ch-chip"><img src="tv/logos/sport.png" width="32" height="32" alt="Sport TV" class="tv-chip-logo"><div><strong>Sport TV</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=uzbekiston-24" class="tv-ch-chip"><img src="tv/logos/uzbekiston-24.png" width="32" height="32" alt="O‘zbekiston 24" class="tv-chip-logo"><div><strong>O‘zbekiston 24</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=kinoteatr" class="tv-ch-chip"><img src="tv/logos/kinoteatr.png" width="32" height="32" alt="Kinoteatr" class="tv-chip-logo"><div><strong>Kinoteatr</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=my5" class="tv-ch-chip"><img src="tv/logos/my5.png" width="32" height="32" alt="MY5" class="tv-chip-logo"><div><strong>MY5</strong><small class="mono-metric">576p Jonli</small></div></a>
+              <a href="tv/#channel=yoshlar" class="tv-ch-chip"><img src="tv/logos/yoshlar.png" width="32" height="32" alt="Yoshlar" class="tv-chip-logo"><div><strong>Yoshlar</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=uzreport" class="tv-ch-chip"><img src="tv/logos/uzreport.jpg" width="32" height="32" alt="UzReport TV" class="tv-chip-logo"><div><strong>UzReport TV</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=muz-tv" class="tv-ch-chip"><img src="tv/logos/muz-tv.jpg" width="32" height="32" alt="Muz TV" class="tv-chip-logo"><div><strong>Muz TV</strong><small class="mono-metric">1080p FHD</small></div></a>
+
+              <!-- Seamless Loop Clone -->
+              <a href="tv/#channel=zor-tv" class="tv-ch-chip" aria-hidden="true" tabindex="-1"><img src="tv/logos/zor-tv.png" width="32" height="32" alt="" class="tv-chip-logo"><div><strong>Zo‘r TV</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=sevimli" class="tv-ch-chip" aria-hidden="true" tabindex="-1"><img src="tv/logos/sevimli.png" width="32" height="32" alt="" class="tv-chip-logo"><div><strong>Sevimli TV</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=toshkent" class="tv-ch-chip" aria-hidden="true" tabindex="-1"><img src="tv/logos/toshkent.png" width="32" height="32" alt="" class="tv-chip-logo"><div><strong>Toshkent</strong><small class="mono-metric">576p Jonli</small></div></a>
+              <a href="tv/#channel=milliy" class="tv-ch-chip" aria-hidden="true" tabindex="-1"><img src="tv/logos/milliy.png" width="32" height="32" alt="" class="tv-chip-logo"><div><strong>Milliy TV</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=futbol-tv" class="tv-ch-chip" aria-hidden="true" tabindex="-1"><img src="tv/logos/futbol-tv.png" width="32" height="32" alt="" class="tv-chip-logo"><div><strong>Futbol TV</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=sport" class="tv-ch-chip" aria-hidden="true" tabindex="-1"><img src="tv/logos/sport.png" width="32" height="32" alt="" class="tv-chip-logo"><div><strong>Sport TV</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=uzbekiston-24" class="tv-ch-chip" aria-hidden="true" tabindex="-1"><img src="tv/logos/uzbekiston-24.png" width="32" height="32" alt="" class="tv-chip-logo"><div><strong>O‘zbekiston 24</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=kinoteatr" class="tv-ch-chip" aria-hidden="true" tabindex="-1"><img src="tv/logos/kinoteatr.png" width="32" height="32" alt="" class="tv-chip-logo"><div><strong>Kinoteatr</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=my5" class="tv-ch-chip" aria-hidden="true" tabindex="-1"><img src="tv/logos/my5.png" width="32" height="32" alt="" class="tv-chip-logo"><div><strong>MY5</strong><small class="mono-metric">576p Jonli</small></div></a>
+              <a href="tv/#channel=yoshlar" class="tv-ch-chip" aria-hidden="true" tabindex="-1"><img src="tv/logos/yoshlar.png" width="32" height="32" alt="" class="tv-chip-logo"><div><strong>Yoshlar</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=uzreport" class="tv-ch-chip" aria-hidden="true" tabindex="-1"><img src="tv/logos/uzreport.jpg" width="32" height="32" alt="" class="tv-chip-logo"><div><strong>UzReport TV</strong><small class="mono-metric">1080p FHD</small></div></a>
+              <a href="tv/#channel=muz-tv" class="tv-ch-chip" aria-hidden="true" tabindex="-1"><img src="tv/logos/muz-tv.jpg" width="32" height="32" alt="" class="tv-chip-logo"><div><strong>Muz TV</strong><small class="mono-metric">1080p FHD</small></div></a>
+            </div>
           </div>
         </div>
       </div>
@@ -430,7 +578,7 @@
       <div class="container">
         <div class="center-head reveal">
           <span class="eyebrow-pill" data-i18n="scr_pill">AeroGram ko‘rinishi</span>
-          <h2 data-i18n="scr_title">bir nechta jonli lavhalar!</h2>
+          <h2 data-i18n="scr_title">Ichki muhitdan <em class="serif-accent">jonli</em> lavhalar</h2>
         </div>
 
         <div class="shot-stack">
@@ -469,11 +617,11 @@
       </div>
     </section>
 
-    <!-- Section 4.5: Comparison & FAQ ("Koproq narsalar") -->
+    <!-- Section 4.5: Comparison & Smooth Accordion FAQ -->
     <section id="more-aero" class="section section-light pt-0">
       <div class="container">
         <div class="more-grid">
-          <div class="compare-card reveal">
+          <div class="compare-card reveal" data-tilt>
             <span class="eyebrow-pill" data-i18n="cmp_pill">Taqqoslash</span>
             <h2 data-i18n="cmp_title">Nima uchun AeroGram v1.5.0?</h2>
             <p class="muted-copy" data-i18n="cmp_sub">Oddiy messenjer imkoniyatlaridan ko‘prog‘i — ortiqcha cheklovlarsiz.</p>
@@ -486,22 +634,22 @@
               <div class="cmp-row">
                 <span data-i18n="cmp_r1_k">Ulash mumkin bo‘lgan akkauntlar</span>
                 <span data-i18n="cmp_r1_v1">3–4 ta</span>
-                <strong data-i18n="cmp_r1_v2">Cheksiz (∞)</strong>
+                <strong class="mono-metric" data-i18n="cmp_r1_v2">Cheksiz (∞)</strong>
               </div>
               <div class="cmp-row">
-                <span data-i18n="cmp_r2_k">Telegram bilan yonma-yon o‘rnatish</span>
+                <span data-i18n="cmp_r2_k">Maxfiy chatlar seyfi</span>
                 <span>—</span>
-                <strong data-i18n="cmp_yes">✓ Alohida ilova</strong>
+                <strong data-i18n="cmp_yes">PIN & Stealth rejim</strong>
               </div>
               <div class="cmp-row">
-                <span data-i18n="cmp_r3_k">Saytda Web + Alohida TV bo‘limi</span>
+                <span data-i18n="cmp_r3_k">Windows Desktop + Jonli TV</span>
                 <span>—</span>
-                <strong data-i18n="cmp_tv_yes">✓ Saytda tayyor</strong>
+                <strong data-i18n="cmp_tv_yes">.exe + 29 kanal</strong>
               </div>
               <div class="cmp-row">
                 <span data-i18n="cmp_r4_k">O‘zbekcha qulay interfeys</span>
                 <span data-i18n="cmp_part">Qisman</span>
-                <strong data-i18n="cmp_full">✓ To‘liq moslashgan</strong>
+                <strong data-i18n="cmp_full">To‘liq moslashgan</strong>
               </div>
             </div>
           </div>
@@ -510,62 +658,93 @@
             <span class="eyebrow-pill" data-i18n="faq_pill">Ko‘p beriladigan savollar</span>
             <h2 data-i18n="faq_title">Qisqacha ma’lumotlar</h2>
             <div class="faq-list">
-              <details class="faq-item" open>
-                <summary data-i18n="faq1_q">AeroGram’ni o‘rnatsam eski Telegram va chatlarim o‘chmaydimi?</summary>
-                <p data-i18n="faq1_a">Yo‘q! AeroGram alohida paket sifatida rasmiy Telegram yonida parallel o‘rnatiladi. Barcha chatlaringiz, kanallaringiz va media fayllaringiz xavfsiz saqlanadi.</p>
-              </details>
-              <details class="faq-item">
-                <summary data-i18n="faq2_q">Nechta Telegram akkaunt ulash mumkin?</summary>
-                <p data-i18n="faq2_a">v1.4.2 versiyadan boshlab cheksiz (∞) miqdorda akkaunt ulash mumkin — Premium obuna talab qilinmaydi va har bir akkaunt alohida bildirishnoma oladi.</p>
-              </details>
-              <details class="faq-item">
-                <summary data-i18n="faq3_q">“Alohida TV uchun” bo‘limi telefonda ham katta ekranda ishlaydimi?</summary>
-                <p data-i18n="faq3_a">Ha! Saytdagi Alohida TV bo‘limi telefon, planshet va kompyuterga moslashgan. “To‘liq ekran” belgisini bossangiz, efir ekraningizni to‘liq egallaydi.</p>
-              </details>
-              <details class="faq-item">
-                <summary data-i18n="faq4_q">Oldingi AeroGram versiyasidan qanday yangilayman?</summary>
-                <p data-i18n="faq4_a">Yangi AeroGram.apk ni yuklab olib ustidan o‘rnating — barcha ulangan akkauntlaringiz va sozlamalaringiz joyida qoladi.</p>
-              </details>
+              <div class="faq-acc-item is-open">
+                <button type="button" class="faq-acc-trigger" aria-expanded="true">
+                  <span data-i18n="faq1_q">AeroGram’ni o‘rnatsam eski Telegram va chatlarim o‘chmaydimi?</span>
+                  <span class="faq-acc-plus" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-acc-panel">
+                  <div class="faq-acc-inner">
+                    <p data-i18n="faq1_a">Yo‘q! AeroGram alohida paket sifatida rasmiy Telegram yonida parallel o‘rnatiladi. Barcha chatlaringiz, kanallaringiz va media fayllaringiz xavfsiz saqlanadi.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-acc-item">
+                <button type="button" class="faq-acc-trigger" aria-expanded="false">
+                  <span data-i18n="faq2_q">Nechta Telegram akkaunt ulash mumkin?</span>
+                  <span class="faq-acc-plus" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-acc-panel">
+                  <div class="faq-acc-inner">
+                    <p data-i18n="faq2_a">v1.4.2 versiyadan boshlab cheksiz (∞) miqdorda akkaunt ulash mumkin — Premium obuna talab qilinmaydi va har bir akkaunt alohida bildirishnoma oladi.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-acc-item">
+                <button type="button" class="faq-acc-trigger" aria-expanded="false">
+                  <span data-i18n="faq3_q">“Alohida TV uchun” bo‘limi telefonda ham katta ekranda ishlaydimi?</span>
+                  <span class="faq-acc-plus" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-acc-panel">
+                  <div class="faq-acc-inner">
+                    <p data-i18n="faq3_a">Ha! Saytdagi Alohida TV bo‘limi telefon, planshet va kompyuterga moslashgan. “To‘liq ekran” belgisini bossangiz, efir ekraningizni to‘liq egallaydi.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="faq-acc-item">
+                <button type="button" class="faq-acc-trigger" aria-expanded="false">
+                  <span data-i18n="faq4_q">Maxfiy Chatlar Seyfi qayerda joylashgan?</span>
+                  <span class="faq-acc-plus" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-acc-panel">
+                  <div class="faq-acc-inner">
+                    <p data-i18n="faq4_a">Android va Windows v1.5.0 da seyf sozlamalarda ko‘rinmaydi: uni qidiruv maydoniga PIN kodingizni yozib, Studio tugmasini bosib turib yoki Ctrl+Shift+H orqali ochasiz.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section 5: AeroGram Doodle Download Banner (Clean, zero tech hashes!) -->
+    <!-- Section 5: AeroGram Download Banner -->
     <section id="aero-download" class="section section-light pt-0">
       <div class="container">
         <div class="doodle-banner reveal">
           <div class="doodle-inner">
-            <h2>AeroGram</h2>
-            <p data-i18n="dl_sub">Oddiy Telegram’dan ham qulayroq, tezroq va xavfsizroq.</p>
+            <h2>AeroGram <em class="serif-accent">v1.5.0</em></h2>
+            <p data-i18n="dl_sub">Yangi yilga munosib tezkorlik, maxfiy seyf va barcha qurilmalarda qulay ishlash.</p>
 
             <div class="doodle-cards">
-              <button type="button" class="store-card-btn open-download">
+              <button type="button" class="store-card-btn open-download" data-tilt>
                 <span class="store-icon">
-                  <img src="assets/favicon-32x32.png" width="36" height="36" alt="AeroGram">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24a11.43 11.43 0 0 0-8.94 0L5.65 5.67c-.19-.29-.55-.38-.84-.22-.3.16-.42.54-.26.85l1.84 3.18C3.58 10.97 1.75 13.73 1.5 17h21c-.25-3.27-2.08-6.03-4.9-7.52zM7 14.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm10 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
                 </span>
                 <span class="store-text">
                   <strong data-i18n="dl_card_t">AeroGram Android</strong>
-                  <small data-i18n="dl_card_s">Android v1.5.0 (.apk) yuklab olish (52.13 MB)</small>
+                  <small class="mono-metric" data-i18n="dl_card_s">Android v1.5.0 (.apk) • 52.13 MB</small>
                 </span>
                 <span class="store-arrow" aria-hidden="true">→</span>
               </button>
 
-              <a href="desktop/" class="store-card-btn store-card-laptop">
-                <span class="store-icon">
-                  <img src="assets/favicon-32x32.png" width="36" height="36" alt="AeroGram Desktop">
+              <a href="desktop/" class="store-card-btn store-card-laptop" data-tilt>
+                <span class="store-icon is-win">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h8.5v8.5H3V3zm9.5 0H21v8.5h-8.5V3zM3 12.5h8.5V21H3v-8.5zm9.5 0H21V21h-8.5v-8.5z"/></svg>
                 </span>
                 <span class="store-text">
                   <strong data-i18n="desk_card_t">Laptop uchun (.exe)</strong>
-                  <small data-i18n="desk_card_s">Windows 10/11 Desktop v1.5.0 & Maxfiy Seyf</small>
+                  <small data-i18n="desk_card_s">Windows 10/11 Desktop & Maxfiy Seyf</small>
                 </span>
                 <span class="store-arrow" aria-hidden="true">→</span>
               </a>
 
-              <a href="web/" class="store-card-btn store-card-web">
-                <span class="store-icon">
-                  <img src="assets/favicon-32x32.png" width="36" height="36" alt="AeroGram Web">
+              <a href="web/" class="store-card-btn store-card-web" data-tilt>
+                <span class="store-icon is-web">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                 </span>
                 <span class="store-text">
                   <strong data-i18n="web_card_t">AeroGram Web</strong>
@@ -587,11 +766,11 @@
           <img src="assets/images/cta-glass.jpg" alt="" aria-hidden="true" class="cta-glass cta-glass-right">
 
           <div class="well-inner">
-            <span class="eyebrow-pill" data-i18n="well_pill">Xo‘sh!</span>
-            <h2 data-i18n="well_title">Telegram’ingizni yangi darajaga olib chiqishga tayyormisiz?</h2>
-            <p class="muted-copy" data-i18n="well_sub">AeroGram’ni hozir yuklab oling va oddiy Telegram bera olmaydigan imkoniyatlardan foydalaning.</p>
+            <span class="eyebrow-pill" data-i18n="well_pill">2027 • Yangi bosqich</span>
+            <h2 data-i18n="well_title">Muloqotingizni yangi darajaga olib chiqishga tayyormisiz?</h2>
+            <p class="muted-copy" data-i18n="well_sub">AeroGram’ni hozir yuklab oling — telefon va noutbukda yanada erkin va xavfsiz yozishing.</p>
             <div class="well-actions">
-              <button type="button" class="btn-dark-pill open-download" data-i18n="well_btn">AeroGram’ni yuklab olish</button>
+              <button type="button" class="btn-dark-pill open-download" data-magnetic data-i18n="well_btn">AeroGram’ni yuklab olish</button>
               <a href="web/" class="btn-outline-pill" data-i18n="hero_web">AeroGram’ni saytda ochish →</a>
             </div>
           </div>
@@ -600,7 +779,7 @@
     </section>
   </main>
 
-  <!-- Minimalist Dark Footer (Human product links, NO GitHub/source jargon!) -->
+  <!-- Dark Anchor Footer -->
   <footer class="footer">
     <div class="footer-glow" aria-hidden="true"></div>
     <div class="container footer-grid">
@@ -609,7 +788,7 @@
           <img src="assets/favicon-32x32.png" width="32" height="32" alt="AeroGram">
           <span class="brand-name-light">AeroGram</span>
         </a>
-        <p data-i18n="footer_sub">Android uchun qulay va tezkor messenjer</p>
+        <p data-i18n="footer_sub">Android va Windows Laptop uchun tezkor messenjer</p>
       </div>
 
       <div class="footer-col-center">
@@ -623,7 +802,7 @@
     </div>
 
     <div class="container footer-bottom">
-      <span>© 2026 AeroGram — <a href="https://aerogram.website">aerogram.website</a></span>
+      <span data-i18n="footer_copy">© 2026–2027 AeroGram — Yangi yil bilan! • <a href="https://aerogram.website">aerogram.website</a></span>
     </div>
   </footer>
 
@@ -633,10 +812,12 @@
     <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
   </button>
 
-  <!-- Clean Human Download Modal -->
+  <!-- Clean Download Modal -->
   <div class="modal-backdrop" id="download-modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-card">
-      <button type="button" class="modal-close" id="modal-close" aria-label="Yopish">✕</button>
+      <button type="button" class="modal-close" id="modal-close" aria-label="Yopish">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="3" x2="13" y2="13"/><line x1="13" y1="3" x2="3" y2="13"/></svg>
+      </button>
       <div class="modal-head">
         <img src="assets/icon-192.png" width="56" height="56" alt="AeroGram">
         <div>
@@ -667,7 +848,9 @@
   <!-- Clean Privacy Policy Modal -->
   <div class="modal-backdrop" id="privacy-modal" hidden role="dialog" aria-modal="true" aria-labelledby="privacy-title">
     <div class="modal-card">
-      <button type="button" class="modal-close" id="privacy-close" aria-label="Yopish">✕</button>
+      <button type="button" class="modal-close" id="privacy-close" aria-label="Yopish">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="3" x2="13" y2="13"/><line x1="13" y1="3" x2="3" y2="13"/></svg>
+      </button>
       <div class="modal-head">
         <img src="assets/icon-192.png" width="48" height="48" alt="AeroGram">
         <div>
@@ -682,6 +865,7 @@
     </div>
   </div>
 
-  <script src="js/app.js"></script>
+  <script src="js/festive-motion.js" defer></script>
+  <script src="js/app.js" defer></script>
 </body>
 </html>

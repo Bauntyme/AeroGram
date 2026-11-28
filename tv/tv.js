@@ -383,7 +383,7 @@
     });
   }
 
-  // Update HUD Meta
+  // Update HUD Meta + Cinema Ambilight Halo
   function updateChannelHudMeta() {
     fillLogoBox(hudLogoBox, currentChannel);
     hudChannelName.textContent = currentChannel.name;
@@ -391,6 +391,10 @@
     npTitle.textContent = currentChannel.name;
     npQualityBadge.textContent = currentChannel.maxQ;
     favCurrentBtn.classList.toggle("is-fav", favorites.has(currentChannel.id));
+    const ambi = document.getElementById("stage-ambilight");
+    if (ambi && currentChannel.grad) {
+      ambi.style.background = currentChannel.grad;
+    }
     updateLiveResolutionReadout();
   }
 

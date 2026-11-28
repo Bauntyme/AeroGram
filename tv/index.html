@@ -17,8 +17,9 @@
   <link rel="preconnect" href="https://stream3.cinerama.uz" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="../css/festive-ui.css">
   <link rel="stylesheet" href="tv.css">
 </head>
 <body>
@@ -56,6 +57,15 @@
         <a href="../desktop/" class="tv-nav-btn" data-tv-i18n="nav_laptop">Laptop uchun</a>
         <a href="../web/" class="tv-nav-btn tv-nav-web" data-tv-i18n="nav_web">AeroGram Web</a>
 
+        <button type="button" class="ny-fx-toggle tv-fx-pill" aria-pressed="true" aria-label="Qishki effektlar" title="Qor va Yangi Yil bezaklari">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true">
+            <line x1="12" y1="2" x2="12" y2="22"/>
+            <line x1="3.34" y1="7" x2="20.66" y2="17"/>
+            <line x1="20.66" y1="7" x2="3.34" y2="17"/>
+          </svg>
+          <span class="mono-metric">2027</span>
+        </button>
+
         <div class="tv-lang-wrap">
           <button type="button" class="tv-lang-btn" id="tv-lang-btn" aria-label="Tilni tanlash" aria-expanded="false">
             <span id="tv-lang-code">O‘Z</span>
@@ -79,7 +89,9 @@
   <main class="tv-workspace">
     <!-- Left / Primary Theater Stage -->
     <section class="tv-stage-col" aria-label="Jonli TV pleyer">
-      <div class="player-stage" id="player-stage" tabindex="0">
+      <div class="player-stage-wrap">
+        <div class="stage-ambilight" id="stage-ambilight" aria-hidden="true"></div>
+        <div class="player-stage" id="player-stage" tabindex="0">
         <video id="tv-video" playsinline autoplay muted></video>
 
         <!-- Center Loading / Unmute / Error States -->
@@ -212,6 +224,7 @@
             </button>
           </div>
         </div>
+        </div>
       </div>
 
       <!-- Current Channel Summary Card Below Player -->
@@ -219,7 +232,7 @@
         <div class="np-main">
           <div class="np-title-wrap">
             <h2 id="np-title">Zo‘r TV</h2>
-            <span class="np-badge" id="np-quality-badge">1080p Full HD</span>
+            <span class="np-badge mono-metric" id="np-quality-badge">1080p Full HD</span>
           </div>
           <p id="np-desc" data-tv-i18n="np_hint">Ekran burchagidagi “To‘liq ekran” tugmasini bossangiz, video butun telefon yoki monitor ekranini egallaydi.</p>
         </div>
@@ -267,6 +280,7 @@
   </main>
 
   <script src="vendor/hls.min.js"></script>
+  <script src="../js/festive-motion.js" defer></script>
   <script src="tv.js"></script>
 </body>
 </html>
