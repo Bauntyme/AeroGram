@@ -359,9 +359,9 @@ a {
   min-height: 760px;
   padding: 136px 0 44px;
   background:
-    radial-gradient(ellipse 68% 58% at 78% 28%, rgba(56, 189, 248, 0.25), transparent 68%),
-    radial-gradient(ellipse 46% 44% at 14% 24%, rgba(245, 158, 11, 0.13), transparent 70%),
-    radial-gradient(ellipse 52% 48% at 24% 86%, rgba(16, 185, 129, 0.13), transparent 70%),
+    radial-gradient(ellipse 68% 58% at 78% 28%, rgba(56, 189, 248, 0.24), transparent 68%),
+    radial-gradient(ellipse 46% 44% at 14% 24%, rgba(99, 102, 241, 0.16), transparent 70%),
+    radial-gradient(ellipse 52% 48% at 24% 86%, rgba(139, 92, 246, 0.14), transparent 70%),
     #040D1F;
   color: #FFFFFF;
   overflow: hidden;
@@ -375,9 +375,9 @@ a {
   gap: 8px;
   padding: 7px 15px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.16), rgba(56, 189, 248, 0.14));
-  border: 1px solid rgba(253, 230, 138, 0.34);
-  color: #FDE68A;
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.14), rgba(99, 102, 241, 0.18));
+  border: 1px solid rgba(56, 189, 248, 0.36);
+  color: #BAE6FD;
   font-size: 0.82rem;
   font-weight: 700;
   margin-bottom: 18px;
@@ -388,8 +388,8 @@ a {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #F59E0B;
-  box-shadow: 0 0 10px rgba(245, 158, 11, 0.95);
+  background: #22D3EE;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.95);
 }
 
 #hero-mist {
@@ -532,8 +532,8 @@ a {
   position: absolute;
   inset: -18px;
   border-radius: 46px;
-  background: radial-gradient(circle at 25% 20%, rgba(245, 158, 11, 0.22), transparent 52%),
-              radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.24), transparent 55%);
+  background: radial-gradient(circle at 25% 20%, rgba(139, 92, 246, 0.24), transparent 52%),
+              radial-gradient(circle at 80% 80%, rgba(34, 211, 238, 0.24), transparent 55%);
   z-index: -1;
   pointer-events: none;
 }
@@ -929,7 +929,7 @@ a {
   width: 280px;
   height: 280px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(245, 158, 11, 0.16), rgba(56, 189, 248, 0.14) 55%, transparent 72%);
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.16), rgba(56, 189, 248, 0.14) 55%, transparent 72%);
   pointer-events: none;
 }
 
@@ -1102,7 +1102,7 @@ a {
   padding: 40px 44px;
   background:
     radial-gradient(ellipse 68% 60% at 88% 18%, rgba(56, 189, 248, 0.24), transparent 65%),
-    radial-gradient(ellipse 52% 50% at 10% 90%, rgba(245, 158, 11, 0.14), transparent 68%),
+    radial-gradient(ellipse 52% 50% at 10% 90%, rgba(139, 92, 246, 0.16), transparent 68%),
     #061124;
   border: 1px solid rgba(56, 189, 248, 0.24);
   color: #FFFFFF;
