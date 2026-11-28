@@ -20,6 +20,7 @@
 
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/festive-ui.css">
+  <link rel="stylesheet" href="../css/cinema-2027.css">
   <link rel="stylesheet" href="desktop.css">
 </head>
 <body>
@@ -451,12 +452,15 @@
           <div class="cap-locked">
             <span class="cap-pill" data-desk-i18n="dcap_pill_l">2027 Yangilanish Kapsulasi • 00:00 UZT</span>
             <h3 data-desk-i18n="dcap_t_l" style="font-size:1.38rem;margin-bottom:6px">01.01.2027 soat 00:00 da AeroGram Desktop sahifasi ham avtomatik 2027 ko‘rinishiga o‘tadi</h3>
-            <p class="muted-copy" data-desk-i18n="dcap_d_l">Oltin-zumrad bayram dizayni, tojli logotip va bosh sahifadagi 2027 Tabriknoma studiyasi avtomatik ochiladi.</p>
+            <p class="muted-copy" data-desk-i18n="dcap_d_l">40 soniyalik 3D taqdimot, Cosmic Prism dizayn tizimi va Fazoviy Platforma markazi avtomatik ochiladi.</p>
           </div>
           <div class="cap-unlocked">
-            <span class="cap-pill" data-desk-i18n="dcap_pill_o">2027 Rejim Faol • Tabriknoma Studiyasi</span>
-            <h3 data-desk-i18n="dcap_t_o" style="font-size:1.42rem;margin-bottom:8px">2027-yil muborak! AeroGram Desktop yangi yil mavzusi ishga tushdi</h3>
-            <a href="../#capsule-2027" class="btn-white-pill" data-desk-i18n="dcap_cta">2027 Tabriknoma studiyasini ochish →</a>
+            <span class="cap-pill" data-desk-i18n="dcap_pill_o">2027 Rejim Faol • Cosmic Prism</span>
+            <h3 data-desk-i18n="dcap_t_o" style="font-size:1.42rem;margin-bottom:12px">2027-yil muborak! AeroGram Desktop Cosmic Prism mavzusi ishga tushdi</h3>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <button type="button" class="cinema-trigger-btn" id="desktop-replay2027-btn" data-replay-cinema data-desk-i18n="dcap_replay">▶ 2027 3D Taqdimot (40s)</button>
+              <a href="../#capsule-2027" class="btn-white-pill" data-desk-i18n="dcap_cta">2027 Fazoviy markazni ochish →</a>
+            </div>
           </div>
         </div>
       </div>
@@ -492,6 +496,8 @@
     <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
   </button>
 
+  <script src="../js/vendor/three.min.js" defer></script>
+  <script src="../js/cinema-2027.js" defer></script>
   <script src="../js/festive-motion.js" defer></script>
   <script src="desktop.js" defer></script>
 </body>

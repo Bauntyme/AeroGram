@@ -6,7 +6,7 @@
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   const isMobile = window.innerWidth < 768;
 
-  // 1. Holiday FX Preference
+  // 1. Holiday / Atmosphere FX Preference
   let fxEnabled = localStorage.getItem("aero_ny_fx") !== "off";
   root.setAttribute("data-ny-fx", fxEnabled ? "on" : "off");
 
@@ -27,7 +27,7 @@
   });
   syncFxButtons();
 
-  // 2. Santa Cap (Pre-00:00) & Golden 2027 Crown (Post-00:00) on Top-Left Brand Logo
+  // 2. Santa Cap (Pre-00:00) -> Faceted Cosmic Prism 2027 Emblem (Post-00:00)
   const SANTA_SVG = `<svg class="aero-santa-cap" viewBox="0 0 64 52" fill="none" aria-hidden="true">
     <path d="M12 36C13 17 26 5 46 8C53 9 58 14 57 20C52 17 44 17 38 22C34 26 37 32 41 36H12Z" fill="#DC2626"/>
     <path d="M12 36C16 24 27 14 41 11C34 15 26 24 23 36H12Z" fill="#EF4444"/>
@@ -35,18 +35,16 @@
     <circle cx="56" cy="20" r="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
   </svg>`;
 
-  const CROWN_2027_SVG = `<svg class="aero-crown-2027" viewBox="0 0 64 46" fill="none" aria-hidden="true">
-    <path d="M8 38L4 12L20 24L32 6L44 24L60 12L56 38H8Z" fill="url(#crownGold)" stroke="#FEF3C7" stroke-width="2" stroke-linejoin="round"/>
-    <rect x="8" y="37" width="48" height="6" rx="3" fill="#F59E0B"/>
-    <circle cx="32" cy="5" r="4" fill="#FEF3C7"/>
-    <circle cx="4" cy="11" r="3" fill="#34D399"/>
-    <circle cx="60" cy="11" r="3" fill="#34D399"/>
-    <defs><linearGradient id="crownGold" x1="8" y1="6" x2="56" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#FDE68A"/><stop offset="1" stop-color="#D97706"/></linearGradient></defs>
+  const PRISM_2027_SVG = `<svg class="aero-prism-2027" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+    <path d="M24 4L40 20L24 44L8 20L24 4Z" fill="url(#prismCore)" stroke="#E0F2FE" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M24 4L40 20H24V4Z" fill="#22D3EE" fill-opacity="0.45"/>
+    <path d="M24 20H40L24 44V20Z" fill="#8B5CF6" fill-opacity="0.5"/>
+    <defs><linearGradient id="prismCore" x1="8" y1="6" x2="38" y2="42" gradientUnits="userSpaceOnUse"><stop stop-color="#22D3EE"/><stop offset="0.55" stop-color="#6366F1"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs>
   </svg>`;
 
   document.querySelectorAll(".brand-logo, .tv-brand-logo").forEach((el) => {
     if (!el.querySelector(".aero-santa-cap")) el.insertAdjacentHTML("beforeend", SANTA_SVG);
-    if (!el.querySelector(".aero-crown-2027")) el.insertAdjacentHTML("beforeend", CROWN_2027_SVG);
+    if (!el.querySelector(".aero-prism-2027")) el.insertAdjacentHTML("beforeend", PRISM_2027_SVG);
   });
 
   // 3. Reading Progress Bar
@@ -65,7 +63,7 @@
   window.addEventListener("resize", updateScrollBar, { passive: true });
   updateScrollBar();
 
-  // 4. Sprite-Cached Snowfall -> Rising 2027 Stardust & Fireworks (Pauses on TV video play)
+  // 4. Sprite-Cached Snowfall -> Rising 2027 Cosmic Prism Stardust & Bursts (Pauses on TV video play)
   let snowCanvas = document.getElementById("aero-snow-canvas");
   if (!snowCanvas) {
     snowCanvas = document.createElement("canvas");
@@ -86,20 +84,23 @@
   let burstParticles = [];
   let tickTime = 0;
 
-  function makeSprite(type, isGold, isLight) {
+  function makeSprite(kind, isLight) {
     const c = document.createElement("canvas");
     c.width = 24;
     c.height = 24;
     const g = c.getContext("2d");
-    const col = isGold
-      ? isLight ? "217, 119, 6" : "253, 230, 138"
-      : type === 3 ? "52, 211, 153" : isLight ? "14, 165, 233" : "224, 242, 254";
-    if (type === 0) {
+    const col =
+      kind === "cyan" ? (isLight ? "14, 165, 233" : "34, 211, 238")
+      : kind === "violet" ? (isLight ? "109, 40, 217" : "139, 92, 246")
+      : kind === "indigo" ? "99, 102, 241"
+      : isLight ? "56, 189, 248" : "224, 242, 254";
+
+    if (kind === "dot") {
       g.fillStyle = `rgba(${col}, 0.65)`;
       g.beginPath();
       g.arc(12, 12, 2.1, 0, Math.PI * 2);
       g.fill();
-    } else if (type === 1) {
+    } else if (kind === "flake") {
       g.strokeStyle = `rgba(${col}, 0.72)`;
       g.lineWidth = 1.25;
       g.lineCap = "round";
@@ -113,7 +114,7 @@
       }
     } else {
       const grad = g.createRadialGradient(12, 12, 0, 12, 12, 9);
-      grad.addColorStop(0, `rgba(${col}, 0.62)`);
+      grad.addColorStop(0, `rgba(${col}, 0.68)`);
       grad.addColorStop(1, `rgba(${col}, 0)`);
       g.fillStyle = grad;
       g.beginPath();
@@ -125,13 +126,13 @@
 
   function rebuildSprites() {
     const isLight = root.getAttribute("data-theme") === "light";
-    sprites = [makeSprite(0, false, isLight), makeSprite(1, false, isLight), makeSprite(2, true, isLight)];
-    eraSprites = [makeSprite(2, true, isLight), makeSprite(3, false, isLight), makeSprite(2, true, isLight)];
+    sprites = [makeSprite("dot", isLight), makeSprite("flake", isLight), makeSprite("cyan", isLight)];
+    eraSprites = [makeSprite("cyan", isLight), makeSprite("violet", isLight), makeSprite("indigo", isLight)];
   }
 
   function spawnFlake(randomY) {
     const r = Math.random();
-    const sIdx = r < 0.55 ? 0 : r < 0.85 ? 1 : 2;
+    const sIdx = r < 0.52 ? 0 : r < 0.84 ? 1 : 2;
     return {
       sIdx,
       x: Math.random() * (sWidth || window.innerWidth),
@@ -166,7 +167,7 @@
     sHeight = window.innerHeight;
     snowCanvas.width = sWidth;
     snowCanvas.height = sHeight;
-    const count = sWidth < 768 ? 14 : 28;
+    const count = sWidth < 768 ? 14 : 26;
     flakes = Array.from({ length: count }, () => spawnFlake(true));
     rebuildSprites();
   }
@@ -212,7 +213,7 @@
         p.vy += 0.07;
         p.x += p.vx;
         p.y += p.vy;
-        p.life -= 0.014;
+        p.life -= 0.015;
         if (p.life <= 0) {
           burstParticles.splice(i, 1);
         } else {
@@ -236,12 +237,12 @@
     if (reducedMotion || isTvVideoPlaying()) return;
     const spots = [
       [sWidth * 0.28, sHeight * 0.28, 0],
-      [sWidth * 0.72, sHeight * 0.24, 380],
-      [sWidth * 0.50, sHeight * 0.34, 820],
+      [sWidth * 0.72, sHeight * 0.24, 340],
+      [sWidth * 0.50, sHeight * 0.34, 720],
     ];
     spots.forEach(([cx, cy, delay], sIdx) => {
       setTimeout(() => {
-        const perBurst = isMobile ? 16 : 26;
+        const perBurst = isMobile ? 16 : 24;
         for (let i = 0; i < perBurst; i++) {
           const angle = (i / perBurst) * Math.PI * 2 + (Math.random() - 0.5) * 0.25;
           const spd = 2.0 + Math.random() * 4.4;
@@ -265,8 +266,8 @@
   resizeSnow();
   startSnowLoop();
 
-  // 5. Event-Driven Holiday Garland Physics (0% idle CPU!)
-  const BULB_COLORS = ["#F59E0B", "#38BDF8", "#10B981", "#F43F5E", "#FDE68A"];
+  // 5. Event-Driven Cosmic Catenary Bulbs (0% idle CPU)
+  const BULB_COLORS = ["#22D3EE", "#6366F1", "#8B5CF6", "#38BDF8", "#A5B4FC"];
   const bulbSprings = [];
   let bulbRaf = 0;
   let bulbWakeUntil = 0;
@@ -352,7 +353,7 @@
     slot.appendChild(svg);
   });
 
-  // 6. Lightweight 3D Card Tilt & Magnetic Buttons (Desktop Fine Pointer)
+  // 6. Lightweight 3D Card Tilt & Magnetic Buttons
   if (finePointer && !reducedMotion && !isMobile) {
     document.querySelectorAll("[data-tilt]").forEach((card) => {
       card.addEventListener("pointermove", (e) => {
@@ -384,12 +385,12 @@
     });
   });
 
-  // 8. Precision Tashkent UTC+5 2027 Countdown & 00:00 Full-Site Metamorphosis
-  // Uzbekistan has permanent UTC+05:00 with no DST -> 2027-01-01 00:00:00 UZT === Date.UTC(2026, 11, 31, 19, 0, 0)
+  // 8. Precision Tashkent UTC+5 2027 Countdown -> 40s 3D WebGL + Voice Keynote -> Full-Site Transformation
   const REAL_2027_UTC = Date.UTC(2026, 11, 31, 19, 0, 0);
   const params = new URLSearchParams(window.location.search);
   const demoCdSec = parseInt(params.get("countdown") || "0", 10);
   const force2027 = params.get("ny2027") === "1";
+  const forceCinema = params.get("cinema2027") === "1";
 
   let serverOffsetMs = 0;
   try {
@@ -414,46 +415,97 @@
   const CD_I18N = {
     uz: {
       pre_title: "Toshkent 00:00 • 2027 Katta Update’gacha",
-      pre_sub: "00:00 da yangi 2027 dizayn, rasmlar va kapsula avtomatik ochiladi",
-      live_title: "2027-Yil Kirib Keldi! • Katta 2027 Update Faol",
-      live_sub: "Yangi 2027 dizayni, oltin mavzu va Tabriknoma studiyasi ochildi",
-      live_badge: "2027 LIVE • UPDATE ON",
+      pre_sub: "00:00 da 40 soniyalik 3D taqdimot va mutlaqo yangi Cosmic Prism sayt ochiladi",
+      live_title: "2027-Yil Kirib Keldi! • Katta Update Faol",
+      live_sub: "Yangi 2027 Cosmic Prism interfeysi, studiya rasmlari va fazoviy panel ochildi",
+      live_badge: "▶ 2027 3D FILM (40s)",
       d: "KUN", h: "SOAT", m: "DAQ", s: "SON",
-      hero_chip_2027: "2027-Yil Muborak • Yangi Avlod v2027",
-      hero_title_2027: "2027 bilan <em class=\"serif-accent\">Yangi</em><br>Darajaga Ko‘tariling",
-      desk_title_2027: "2027 Noutbuklar uchun<br><em class=\"serif-accent\">Kuchli</em> va Maxfiy AeroGram",
-      card_title: "Yangi 2027 Yil Muborak!",
-      card_sub: "AeroGram bilan cheksiz tezlik, ishonch va yorqin g‘alabalar yili bo‘lsin.",
-      card_stamp: "Toshkent • 01.01.2027",
+      hero_chip_2027: "AeroGram 2027 • Fazoviy Avlod",
+      hero_title_2027: "2027 bilan <em class=\"serif-accent\">Yangi</em><br>Fazoviy Muloqot",
+      desk_title_2027: "2027 Noutbuklar uchun<br><em class=\"serif-accent\">Mukammal</em> AeroGram",
+      deck: [
+        {
+          m1_v: "0.08 s", m1_l: "Android ↔ Windows sinxron",
+          m2_v: "∞ profil", m2_l: "Cheksiz akkaunt uyasi",
+          t: "Yagona Fazoviy Ekotizim",
+          d: "Telefon va Windows noutbukingiz o‘rtasida fayllar, chatlar va faol sessiyalar real vaqtda birlashadi."
+        },
+        {
+          m1_v: "PIN + Bio", m1_l: "Ko‘rinmas seyf qulfi",
+          m2_v: "Ghost Blur", m2_l: "Bir tugma bilan xiralashish",
+          t: "Maxfiy Seyf 2.0 & Ko‘rinmas Qalqon",
+          d: "Eng muhim yozishmalaringiz umumiy ro‘yxatdan yashiriladi — faqat qidiruvga PIN yozilgandagina ochiladi."
+        },
+        {
+          m1_v: "29+ kanal", m1_l: "Full HD jonli TV efir",
+          m2_v: "60 FPS", m2_l: "Yengil Liquid Motion",
+          t: "29+ Hamjamiyat va Jonli TV Markazi",
+          d: "O‘zbekistonning barcha yetakchi kanallari va sevimli hamjamiyatlar reklamasiz bitta platformada."
+        }
+      ]
     },
     ru: {
       pre_title: "Ташкент 00:00 • До Большого 2027 Update",
-      pre_sub: "В 00:00 автоматически откроются новый дизайн, арт и капсула 2027",
-      live_title: "С Новым 2027 Годом! • Большой Update Активен",
-      live_sub: "Включён новый облик 2027 года и генератор открыток",
-      live_badge: "2027 LIVE • UPDATE ON",
+      pre_sub: "Ровно в 00:00 запустится 40-сек 3D-презентация и полностью новый сайт 2027",
+      live_title: "С Новым 2027 Годом! • Grand Update Активен",
+      live_sub: "Активирован интерфейс Cosmic Prism, новые фото и платформа 2027",
+      live_badge: "▶ 2027 3D ФИЛЬМ (40с)",
       d: "ДНИ", h: "ЧАС", m: "МИН", s: "СЕК",
-      hero_chip_2027: "С Новым 2027 Годом • Эра v2027",
-      hero_title_2027: "Новый 2027 год —<br><em class=\"serif-accent\">Новый</em> Уровень Общения",
+      hero_chip_2027: "AeroGram 2027 • Новая Архитектура",
+      hero_title_2027: "Новый 2027 год —<br><em class=\"serif-accent\">Космический</em> Уровень",
       desk_title_2027: "Новый 2027 AeroGram<br><em class=\"serif-accent\">для</em> Ноутбука и ПК",
-      card_title: "С Новым 2027 Годом!",
-      card_sub: "Скорости без границ, приватности и больших побед вместе с AeroGram.",
-      card_stamp: "Ташкент • 01.01.2027",
+      deck: [
+        {
+          m1_v: "0.08 с", m1_l: "Синхрон Android ↔ Windows",
+          m2_v: "∞ аккаунты", m2_l: "Безлимитное переключение",
+          t: "Единая Пространственная Экосистема",
+          d: "Смартфон и ноутбук работают как одно устройство — диалоги и файлы синхронизируются мгновенно."
+        },
+        {
+          m1_v: "PIN + Био", m1_l: "Невидимый Сейф 2.0",
+          m2_v: "Ghost Blur", m2_l: "Мгновенная приватность",
+          t: "Секретный Сейф 2.0",
+          d: "Важные чаты полностью скрыты из общего списка и открываются только по вашему PIN-коду в поиске."
+        },
+        {
+          m1_v: "29+ каналов", m1_l: "Прямой Full HD эфир",
+          m2_v: "60 FPS", m2_l: "Лёгкий Liquid Motion",
+          t: "29+ каналов и Платформа 2027",
+          d: "Любимые сообщества и прямое телевидение Узбекистана на телефоне и ПК без задержек."
+        }
+      ]
     },
     en: {
       pre_title: "Tashkent 00:00 • Countdown to 2027 Grand Update",
-      pre_sub: "At 00:00 UZT new artwork, 2027 UI & interactive capsule unlock automatically",
-      live_title: "Happy New Year 2027! • Grand 2027 Update Live",
-      live_sub: "All 2027 visual redesign, custom aura & card studio are now unlocked",
-      live_badge: "2027 LIVE • UPDATE ON",
+      pre_sub: "At 00:00 UZT a 40s 3D keynote film & Cosmic Prism 2027 redesign launch automatically",
+      live_title: "Welcome to 2027! • Cosmic Prism Edition Live",
+      live_sub: "2027 Cosmic Prism UI, new studio photography & spatial hub are now unlocked",
+      live_badge: "▶ 2027 3D FILM (40s)",
       d: "DAYS", h: "HRS", m: "MIN", s: "SEC",
-      hero_chip_2027: "Happy 2027 Edition • Next-Gen Release",
+      hero_chip_2027: "AeroGram 2027 • Spatial Architecture",
       hero_title_2027: "Step Into <em class=\"serif-accent\">2027</em><br>Without Limits",
       desk_title_2027: "AeroGram 2027 <em class=\"serif-accent\">Built</em><br>for Windows Laptops",
-      card_title: "Happy New Year 2027!",
-      card_sub: "Wishing you effortless speed, privacy and milestones with AeroGram.",
-      card_stamp: "Tashkent • 01.01.2027",
-    },
+      deck: [
+        {
+          m1_v: "0.08s", m1_l: "Android ↔ Windows Handoff",
+          m2_v: "∞ slots", m2_l: "Unlimited account workspace",
+          t: "Unified Spatial Architecture",
+          d: "Messages, channels, and active work threads glide instantaneously between mobile and Windows Desktop."
+        },
+        {
+          m1_v: "PIN + Bio", m1_l: "Stealth Vault 2.0 Shield",
+          m2_v: "Ghost Blur", m2_l: "One-keyscreen privacy",
+          t: "Zero-Trace Secret Vault",
+          d: "Conceal sensitive threads completely from search and main lists — revealable solely via PIN entry."
+        },
+        {
+          m1_v: "29+ TV", m1_l: "Live Full HD Broadcast",
+          m2_v: "60 FPS", m2_l: "GPU-tuned Liquid Motion",
+          t: "29+ Live Channels & Creator Engine",
+          d: "High-bitrate Uzbekistan TV channels and redesigned community spaces engineered for silky smoothness."
+        }
+      ]
+    }
   };
 
   function getLang() {
@@ -477,9 +529,38 @@
     });
   }
 
+  let activeDeckIdx = 0;
+  function renderSpatialDeck(idx) {
+    activeDeckIdx = idx;
+    const deckData = (CD_I18N[getLang()] || CD_I18N.uz).deck;
+    const item = deckData[idx] || deckData[0];
+    document.querySelectorAll(".cap-tab-btn").forEach((btn) => {
+      btn.classList.toggle("active", Number(btn.dataset.deckTab) === idx);
+    });
+    const m1v = document.getElementById("deck-m1-v");
+    const m1l = document.getElementById("deck-m1-l");
+    const m2v = document.getElementById("deck-m2-v");
+    const m2l = document.getElementById("deck-m2-l");
+    const dt = document.getElementById("deck-title");
+    const dd = document.getElementById("deck-desc");
+    if (m1v) m1v.textContent = item.m1_v;
+    if (m1l) m1l.textContent = item.m1_l;
+    if (m2v) m2v.textContent = item.m2_v;
+    if (m2l) m2l.textContent = item.m2_l;
+    if (dt) dt.textContent = item.t;
+    if (dd) dd.textContent = item.d;
+  }
+
   let swappedImages = false;
   function apply2027Metamorphosis() {
     const tr = CD_I18N[getLang()];
+    if (root.getAttribute("data-era") !== "2027-live") {
+      root.setAttribute("data-era", "2027-live");
+    }
+    if (!root.getAttribute("data-aura")) {
+      root.setAttribute("data-aura", "prism");
+    }
+
     if (!swappedImages) {
       swappedImages = true;
       document.querySelectorAll("img[data-src-2027]").forEach((img) => {
@@ -493,14 +574,34 @@
       });
     }
 
-    const chip = document.querySelector(".hero-chip span[data-i18n], .hero-chip span[data-desk-i18n]");
-    if (chip && chip.getAttribute("data-i18n")) chip.textContent = tr.hero_chip_2027;
+    const chip = document.querySelector(".hero-chip span[data-i18n]");
+    if (chip) chip.textContent = tr.hero_chip_2027;
     const h1 = document.querySelector(".hero h1[data-i18n]");
     if (h1) h1.innerHTML = tr.hero_title_2027;
     const deskH1 = document.querySelector(".desk-hero h1[data-desk-i18n]");
     if (deskH1) deskH1.innerHTML = tr.desk_title_2027;
 
-    if (typeof draw2027GreetingCard === "function") draw2027GreetingCard();
+    renderSpatialDeck(activeDeckIdx);
+  }
+
+  let cinemaLaunched = false;
+  function launch2027Keynote(fromUserReplay) {
+    if (window.AeroCinema2027 && typeof window.AeroCinema2027.play === "function") {
+      if (!fromUserReplay && cinemaLaunched) return;
+      cinemaLaunched = true;
+      window.AeroCinema2027.play({
+        onBeforeReveal: () => {
+          apply2027Metamorphosis();
+        },
+        onComplete: () => {
+          apply2027Metamorphosis();
+          trigger2027Fireworks();
+        }
+      });
+    } else {
+      apply2027Metamorphosis();
+      trigger2027Fireworks();
+    }
   }
 
   let hasTriggeredArrival = false;
@@ -522,7 +623,7 @@
                   <span class="ny-uz-live-clock">${uzClock}</span>
                 </div>
               </div>
-              <div class="ny-arrived-badge">${tr.live_badge}</div>
+              <button type="button" class="ny-arrived-badge" data-replay-cinema>${tr.live_badge}</button>
             </div>`
           : `<div class="ny-countdown-bar" data-mode="pre" data-lang="${curLang}">
               <div class="ny-cd-meta">
@@ -564,18 +665,26 @@
     const nowUtcMs = Date.now() + (demoCdSec > 0 ? 0 : serverOffsetMs);
     const diffMs = effectiveTargetUtc - nowUtcMs;
     const uzClock = getTashkentClockStr(nowUtcMs);
-    if (diffMs <= 20000 || demoCdSec > 0 || force2027) preload2027Images();
+    if (diffMs <= 20000 || demoCdSec > 0 || force2027 || forceCinema) preload2027Images();
+
+    if (forceCinema && !cinemaLaunched) {
+      apply2027Metamorphosis();
+      renderCountdown(true, "00", "00", "00", "00", uzClock);
+      launch2027Keynote(false);
+      return;
+    }
 
     if (diffMs <= 0) {
-      if (root.getAttribute("data-era") !== "2027-live") {
-        root.setAttribute("data-era", "2027-live");
-        if (!root.getAttribute("data-aura")) root.setAttribute("data-aura", "emerald");
-      }
       renderCountdown(true, "00", "00", "00", "00", uzClock);
-      apply2027Metamorphosis();
       if (!hasTriggeredArrival) {
         hasTriggeredArrival = true;
-        trigger2027Fireworks();
+        if (force2027) {
+          apply2027Metamorphosis();
+          trigger2027Fireworks();
+        } else {
+          // 00:00 UZT exact arrival or ?countdown=N reaching zero -> launch 40s 3D WebGL Keynote!
+          launch2027Keynote(false);
+        }
       }
       return;
     }
@@ -588,140 +697,35 @@
     renderCountdown(false, pad2(days), pad2(hrs), pad2(mins), pad2(secs), uzClock);
   }
 
-  // 9. Interactive 2027 Capsule: Personalized Greeting Card Canvas + Live Aura + Chime
-  const cardCanvas = document.getElementById("card2027-canvas");
-  const cardNameInput = document.getElementById("card2027-name");
-  const cardDlBtn = document.getElementById("card2027-dl");
-  const chimeBtn = document.getElementById("chime2027-btn");
-  let cardPalette = "emerald";
-
-  const PALETTES = {
-    emerald: { bg1: "#041612", bg2: "#0A2B23", accent: "#10B981", gold: "#FBBF24" },
-    gold: { bg1: "#161004", bg2: "#2C1E06", accent: "#F59E0B", gold: "#FDE68A" },
-    royal: { bg1: "#080B20", bg2: "#151B42", accent: "#6366F1", gold: "#FBBF24" },
-  };
-
-  function draw2027GreetingCard() {
-    if (!cardCanvas) return;
-    const ctx = cardCanvas.getContext("2d");
-    const w = cardCanvas.width;
-    const h = cardCanvas.height;
-    const pal = PALETTES[cardPalette] || PALETTES.emerald;
-    const tr = CD_I18N[getLang()];
-    const recipient = (cardNameInput?.value || "AeroGram").trim() || "AeroGram";
-
-    const grad = ctx.createLinearGradient(0, 0, w, h);
-    grad.addColorStop(0, pal.bg1);
-    grad.addColorStop(1, pal.bg2);
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, w, h);
-
-    // Subtle radial aurora glows
-    const g1 = ctx.createRadialGradient(w * 0.8, h * 0.2, 10, w * 0.8, h * 0.2, 340);
-    g1.addColorStop(0, pal.gold + "44");
-    g1.addColorStop(1, "transparent");
-    ctx.fillStyle = g1;
-    ctx.fillRect(0, 0, w, h);
-
-    const g2 = ctx.createRadialGradient(w * 0.18, h * 0.82, 10, w * 0.18, h * 0.82, 300);
-    g2.addColorStop(0, pal.accent + "44");
-    g2.addColorStop(1, "transparent");
-    ctx.fillStyle = g2;
-    ctx.fillRect(0, 0, w, h);
-
-    // Double chamfered frame
-    ctx.strokeStyle = pal.gold + "88";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(24, 24, w - 48, h - 48);
-
-    // Header badge
-    ctx.fillStyle = pal.gold;
-    ctx.font = "700 22px 'JetBrains Mono', monospace";
-    ctx.fillText("AEROGRAM • 2027", 56, 86);
-
-    ctx.fillStyle = "#94A3B8";
-    ctx.font = "600 18px 'JetBrains Mono', monospace";
-    ctx.fillText(tr.card_stamp, w - 260, 86);
-
-    // Main Headline & Recipient
-    ctx.fillStyle = "#FFFFFF";
-    ctx.font = "700 54px 'Plus Jakarta Sans', sans-serif";
-    ctx.fillText(tr.card_title, 56, 190);
-
-    ctx.fillStyle = pal.gold;
-    ctx.font = "italic 60px Georgia, serif";
-    ctx.fillText(recipient, 56, 272);
-
-    ctx.fillStyle = "#CBD5E1";
-    ctx.font = "400 23px 'Plus Jakarta Sans', sans-serif";
-    ctx.fillText(tr.card_sub.slice(0, 56), 56, 354);
-    if (tr.card_sub.length > 56) {
-      ctx.fillText(tr.card_sub.slice(56), 56, 388);
-    }
-
-    ctx.fillStyle = pal.accent;
-    ctx.font = "700 20px 'JetBrains Mono', monospace";
-    ctx.fillText("aerogram.website", 56, h - 54);
-  }
-
-  cardNameInput?.addEventListener("input", draw2027GreetingCard);
-  document.querySelectorAll(".cap-pal-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      cardPalette = btn.dataset.pal || "emerald";
-      document.querySelectorAll(".cap-pal-btn").forEach((b) => b.classList.toggle("active", b === btn));
-      draw2027GreetingCard();
-    });
-  });
-
-  cardDlBtn?.addEventListener("click", () => {
-    if (!cardCanvas) return;
-    draw2027GreetingCard();
-    const a = document.createElement("a");
-    a.download = "AeroGram-2027-Tabrik.png";
-    a.href = cardCanvas.toDataURL("image/png");
-    a.click();
-  });
-
-  document.querySelectorAll(".cap-aura-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const aura = btn.dataset.auraSet || "emerald";
+  // 9. Interactive 2027 Cosmic Prism Spatial Deck Controls
+  document.addEventListener("click", (e) => {
+    const auraBtn = e.target.closest(".cap-aura-btn");
+    if (auraBtn) {
+      const aura = auraBtn.dataset.auraSet || "prism";
       root.setAttribute("data-aura", aura);
-      document.querySelectorAll(".cap-aura-btn").forEach((b) => b.classList.toggle("active", b === btn));
-      cardPalette = aura;
-      document.querySelectorAll(".cap-pal-btn").forEach((b) => b.classList.toggle("active", b.dataset.pal === aura));
-      draw2027GreetingCard();
-    });
+      document.querySelectorAll(".cap-aura-btn").forEach((b) => b.classList.toggle("active", b === auraBtn));
+      return;
+    }
+    const tabBtn = e.target.closest(".cap-tab-btn");
+    if (tabBtn) {
+      renderSpatialDeck(Number(tabBtn.dataset.deckTab || 0));
+      return;
+    }
+    if (e.target.closest("[data-replay-cinema]")) {
+      launch2027Keynote(true);
+    }
   });
 
-  chimeBtn?.addEventListener("click", () => {
-    try {
-      const AudioCtx = window.AudioContext || window.webkitAudioContext;
-      if (!AudioCtx) return;
-      const ac = new AudioCtx();
-      [523.25, 659.25, 783.99, 1046.5].forEach((freq, idx) => {
-        const osc = ac.createOscillator();
-        const gain = ac.createGain();
-        osc.type = "sine";
-        osc.frequency.value = freq;
-        const start = ac.currentTime + idx * 0.12;
-        gain.gain.setValueAtTime(0.001, start);
-        gain.gain.exponentialRampToValueAtTime(0.11, start + 0.04);
-        gain.gain.exponentialRampToValueAtTime(0.0001, start + 1.1);
-        osc.connect(gain);
-        gain.connect(ac.destination);
-        osc.start(start);
-        osc.stop(start + 1.15);
-      });
-    } catch (_) {}
-  });
-
-  if (cardCanvas) draw2027GreetingCard();
+  if (document.getElementById("deck-title")) renderSpatialDeck(0);
 
   if (cdMounts.length > 0) {
     tick2027Clock();
     setInterval(tick2027Clock, 1000);
     new MutationObserver(() => {
-      setTimeout(() => tick2027Clock(), 0);
+      setTimeout(() => {
+        tick2027Clock();
+        if (root.getAttribute("data-era") === "2027-live") apply2027Metamorphosis();
+      }, 0);
     }).observe(root, { attributes: true, attributeFilter: ["lang"] });
   }
 
@@ -729,6 +733,6 @@
     syncFxButtons,
     isFxEnabled: () => fxEnabled,
     tick2027Clock,
-    draw2027GreetingCard,
+    playKeynote: () => launch2027Keynote(true),
   };
 })();

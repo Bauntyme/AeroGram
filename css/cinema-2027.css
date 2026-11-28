@@ -1,0 +1,321 @@
+/* AeroGram 2027 — 40-Second 3D WebGL Keynote Overlay & Entrance Choreography */
+
+#aero-cinema-2027 {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  background: radial-gradient(circle at 50% 42%, #0b1130 0%, #040613 62%, #020309 100%);
+  color: #f8fafc;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  overflow: hidden;
+  user-select: none;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.9s;
+}
+
+#aero-cinema-2027.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0s;
+}
+
+#aero-cinema-2027.is-exiting {
+  opacity: 0;
+  transform: scale(1.03);
+  pointer-events: none;
+  transition:
+    opacity 1.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.35s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 1.35s;
+}
+
+#cinema-webgl-stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.cinema-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 48%, transparent 48%, rgba(2, 3, 12, 0.72) 100%),
+    linear-gradient(180deg, rgba(2, 4, 15, 0.72) 0%, transparent 18%, transparent 74%, rgba(2, 4, 15, 0.88) 100%);
+}
+
+.cinema-top-bar {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: max(18px, env(safe-area-inset-top)) clamp(16px, 3.2vw, 40px) 0;
+}
+
+.cinema-brand-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(10, 15, 36, 0.62);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e2e8f0;
+}
+
+.cinema-prism-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  transform: rotate(45deg);
+  background: linear-gradient(135deg, #22d3ee, #6366f1 55%, #8b5cf6);
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.8);
+  flex-shrink: 0;
+}
+
+.cinema-timecode {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: #22d3ee;
+  font-variant-numeric: tabular-nums;
+  padding-left: 8px;
+  border-left: 1px solid rgba(148, 163, 184, 0.24);
+}
+
+.cinema-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cinema-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(15, 23, 42, 0.68);
+  color: #f1f5f9;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.cinema-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(34, 211, 238, 0.55);
+  background: rgba(30, 41, 68, 0.84);
+  box-shadow: 0 10px 26px rgba(34, 211, 238, 0.16);
+}
+
+.cinema-btn-primary {
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.22), rgba(99, 102, 241, 0.32));
+  border-color: rgba(34, 211, 238, 0.45);
+}
+
+.cinema-eq {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 12px;
+}
+
+.cinema-eq i {
+  display: block;
+  width: 2.5px;
+  height: 4px;
+  border-radius: 2px;
+  background: #22d3ee;
+  transition: height 0.15s;
+}
+
+.cinema-eq.is-playing i:nth-child(1) { animation: cineBar 0.72s infinite alternate ease-in-out; }
+.cinema-eq.is-playing i:nth-child(2) { animation: cineBar 0.52s 0.15s infinite alternate ease-in-out; }
+.cinema-eq.is-playing i:nth-child(3) { animation: cineBar 0.64s 0.28s infinite alternate ease-in-out; }
+.cinema-eq.is-muted i {
+  height: 3px;
+  opacity: 0.45;
+  animation: none;
+}
+
+@keyframes cineBar {
+  from { height: 3px; }
+  to { height: 12px; }
+}
+
+/* Center-bottom act headline + subtitle card */
+.cinema-bottom-hud {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: max(22px, env(safe-area-inset-bottom));
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 0 clamp(16px, 4vw, 48px);
+  pointer-events: none;
+}
+
+.cinema-sub-card {
+  width: min(760px, 100%);
+  padding: 16px 22px;
+  border-radius: 22px;
+  background: rgba(6, 10, 26, 0.68);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.52), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  text-align: center;
+  pointer-events: auto;
+}
+
+.cinema-act-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #38bdf8;
+  margin-bottom: 6px;
+}
+
+.cinema-act-title {
+  margin: 0 0 6px;
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  background: linear-gradient(120deg, #ffffff 10%, #a5f3fc 52%, #c4b5fd 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cinema-subtitle {
+  margin: 0;
+  font-size: clamp(13.5px, 1.55vw, 16px);
+  line-height: 1.48;
+  font-weight: 500;
+  color: rgba(241, 245, 249, 0.9);
+  min-height: 1.5em;
+}
+
+/* Sound unlock gentle banner when browser blocks autoplay audio */
+.cinema-audio-prompt {
+  display: none;
+  pointer-events: auto;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(34, 211, 238, 0.16);
+  border: 1px solid rgba(34, 211, 238, 0.5);
+  color: #cffafe;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cinema-audio-prompt.is-visible {
+  display: inline-flex;
+}
+
+/* 5-Act Timeline Scrubber */
+.cinema-timeline {
+  width: min(760px, 100%);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  pointer-events: auto;
+}
+
+.cinema-seg {
+  position: relative;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.22);
+  overflow: hidden;
+}
+
+.cinema-seg-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #22d3ee, #6366f1 65%, #a78bfa);
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.7);
+}
+
+/* Slow, choreographed reveal right as 40s keynote unveils AeroGram 2027 website */
+@keyframes aero2027FloatIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 26px, 0) scale(0.975);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+}
+
+body.era-2027-entering .navbar {
+  animation: aero2027FloatIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+body.era-2027-entering .hero-title,
+body.era-2027-entering .desk-hero-title {
+  animation: aero2027FloatIn 1.0s 0.08s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+body.era-2027-entering .hero-sub,
+body.era-2027-entering .desk-hero-sub {
+  animation: aero2027FloatIn 1.0s 0.18s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+body.era-2027-entering .hero-actions,
+body.era-2027-entering .desk-dl-row {
+  animation: aero2027FloatIn 1.05s 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+body.era-2027-entering .hero-visual-wrap,
+body.era-2027-entering .desk-hero-visual {
+  animation: aero2027FloatIn 1.2s 0.36s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+body.era-2027-entering #capsule-2027,
+body.era-2027-entering .bento-grid,
+body.era-2027-entering .showcase-layout {
+  animation: aero2027FloatIn 1.25s 0.44s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (max-width: 640px) {
+  .cinema-brand-label { display: none; }
+  .cinema-btn { min-height: 38px; padding: 6px 12px; font-size: 12px; }
+  .cinema-sub-card { padding: 14px 15px; border-radius: 18px; }
+}
