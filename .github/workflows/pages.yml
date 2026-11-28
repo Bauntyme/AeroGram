@@ -51,7 +51,7 @@ jobs:
           rm -rf _site
           mkdir -p _site/web
           cp index.html site.webmanifest favicon.ico CNAME robots.txt sitemap.xml _site/
-          cp -r css js assets tv _site/
+          cp -r css js assets tv desktop _site/
           cp -r tweb-src/dist/. _site/web/
           touch _site/.nojekyll
 

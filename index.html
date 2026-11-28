@@ -69,9 +69,12 @@
 
       <nav class="nav-center" aria-label="Asosiy menyu">
         <a href="#features" class="nav-link" data-i18n="nav_features">Imkoniyatlar</a>
-        <a href="#why-aero" class="nav-link" data-i18n="nav_why">Nega AeroGram?</a>
         <a href="#more-aero" class="nav-link" data-i18n="nav_more">Taqqoslash & FAQ</a>
         <a href="#aero-download" class="nav-link" data-i18n="nav_apk">Yuklash</a>
+        <a href="desktop/" class="nav-link-laptop">
+          <span aria-hidden="true">💻</span>
+          <span data-i18n="nav_laptop">Laptop uchun</span>
+        </a>
         <a href="tv/" class="nav-link-tv">
           <span class="tv-dot-live" aria-hidden="true"></span>
           <span data-i18n="nav_tv">Alohida TV uchun</span>
@@ -115,9 +118,12 @@
     <!-- Mobile Dropdown Sheet -->
     <div class="mobile-sheet" id="mobile-sheet" hidden>
       <a href="#features" data-i18n="nav_features">Imkoniyatlar</a>
-      <a href="#why-aero" data-i18n="nav_why">Nega AeroGram?</a>
       <a href="#more-aero" data-i18n="nav_more">Taqqoslash & FAQ</a>
       <a href="#aero-download" data-i18n="nav_apk">Yuklash</a>
+      <a href="desktop/" class="mobile-laptop-link">
+        <span aria-hidden="true">💻</span>
+        <span data-i18n="nav_laptop">Laptop uchun</span>
+      </a>
       <a href="tv/" class="mobile-tv-link">
         <span class="tv-dot-live" aria-hidden="true"></span>
         <span data-i18n="nav_tv">Alohida TV uchun</span>
@@ -133,7 +139,7 @@
       <canvas id="hero-mist" aria-hidden="true"></canvas>
       <div class="container hero-grid">
         <div class="hero-content reveal">
-          <div class="hero-chip"><span class="hero-chip-dot"></span> <span data-i18n="hero_chip">AeroGram • Android & Web</span></div>
+          <div class="hero-chip"><span class="hero-chip-dot"></span> <span data-i18n="hero_chip">AeroGram • Android, Laptop & Web</span></div>
           <h1 data-i18n="hero_title">Yengil, Tez va<br>Ishonchli Muloqot</h1>
           <p class="hero-sub" data-i18n="hero_desc">Yaqinlaringiz va hamkasblaringiz bilan yuqori tezlikda xabar almashing, tiniq ovozli va video qo‘ng‘iroqlar qiling.</p>
 
@@ -141,17 +147,21 @@
             <div class="plat-icon" title="Android ilova">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.61 1.814L13.793 12 3.61 22.186a1.48 1.48 0 0 1-.404-1.015V2.829c0-.387.152-.75.404-1.015zM14.85 13.057l2.927 2.927-11.264 6.451 8.337-9.378zm3.884-2.203l2.435 1.394c.707.405.707 1.1 0 1.504l-2.435 1.394-3.175-2.146 3.175-2.146zM6.513 1.565l11.264 6.451-2.927 2.927-8.337-9.378z"/></svg>
             </div>
-            <div class="plat-icon plat-shield" title="Xavfsiz va Ishonchli">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            <div class="plat-icon plat-shield" title="Windows & Laptop">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
             </div>
             <div class="plat-meta">
               <strong data-i18n="hero_plat_t">Ishonchli va Tezkor</strong>
-              <span data-i18n="hero_plat_s">Android v1.4.2 • 52.12 MB</span>
+              <span data-i18n="hero_plat_s">Android & Windows v1.5.0</span>
             </div>
           </div>
 
           <div class="hero-btn-row">
             <button type="button" class="btn-white-pill open-download" data-i18n="hero_cta">Hozir yuklab olish</button>
+            <a href="desktop/" class="btn-hero-laptop">
+              <span aria-hidden="true">💻</span>
+              <span data-i18n="hero_laptop">Laptop uchun (.exe) →</span>
+            </a>
             <a href="web/" class="btn-hero-web" data-i18n="hero_web">AeroGram’ni saytda ochish →</a>
             <a href="tv/" class="btn-hero-tv">
               <span class="tv-dot-live" aria-hidden="true"></span>
@@ -465,13 +475,13 @@
         <div class="more-grid">
           <div class="compare-card reveal">
             <span class="eyebrow-pill" data-i18n="cmp_pill">Taqqoslash</span>
-            <h2 data-i18n="cmp_title">Nima uchun AeroGram v1.4.2?</h2>
+            <h2 data-i18n="cmp_title">Nima uchun AeroGram v1.5.0?</h2>
             <p class="muted-copy" data-i18n="cmp_sub">Oddiy messenjer imkoniyatlaridan ko‘prog‘i — ortiqcha cheklovlarsiz.</p>
             <div class="cmp-table">
               <div class="cmp-row cmp-head">
                 <span data-i18n="cmp_col1">Imkoniyat</span>
                 <span data-i18n="cmp_col2">Oddiy Telegram</span>
-                <span>AeroGram v1.4.2</span>
+                <span>AeroGram v1.5.0</span>
               </div>
               <div class="cmp-row">
                 <span data-i18n="cmp_r1_k">Ulash mumkin bo‘lgan akkauntlar</span>
@@ -536,11 +546,22 @@
                   <img src="assets/favicon-32x32.png" width="36" height="36" alt="AeroGram">
                 </span>
                 <span class="store-text">
-                  <strong data-i18n="dl_card_t">AeroGram ilovasi</strong>
-                  <small data-i18n="dl_card_s">Android v1.4.2 uchun bevosita yuklab olish (52.12 MB)</small>
+                  <strong data-i18n="dl_card_t">AeroGram Android</strong>
+                  <small data-i18n="dl_card_s">Android v1.5.0 (.apk) yuklab olish (52.13 MB)</small>
                 </span>
                 <span class="store-arrow" aria-hidden="true">→</span>
               </button>
+
+              <a href="desktop/" class="store-card-btn store-card-laptop">
+                <span class="store-icon">
+                  <img src="assets/favicon-32x32.png" width="36" height="36" alt="AeroGram Desktop">
+                </span>
+                <span class="store-text">
+                  <strong data-i18n="desk_card_t">Laptop uchun (.exe)</strong>
+                  <small data-i18n="desk_card_s">Windows 10/11 Desktop v1.5.0 & Maxfiy Seyf</small>
+                </span>
+                <span class="store-arrow" aria-hidden="true">→</span>
+              </a>
 
               <a href="web/" class="store-card-btn store-card-web">
                 <span class="store-icon">
@@ -619,18 +640,26 @@
       <div class="modal-head">
         <img src="assets/icon-192.png" width="56" height="56" alt="AeroGram">
         <div>
-          <span class="eyebrow-pill" data-i18n="mod_pill">v1.4.2 • Yangi versiya</span>
+          <span class="eyebrow-pill" data-i18n="mod_pill">v1.5.0 • Yangi reliz</span>
           <h3 id="modal-title" data-i18n="mod_t">AeroGram ilovasini yuklash</h3>
-          <p class="modal-sub" data-i18n="mod_sub">Android 8.0+ • v1.4.2 • 52.12 MB</p>
+          <p class="modal-sub" data-i18n="mod_sub">Android (.apk) & Windows Laptop (.exe) • v1.5.0</p>
         </div>
       </div>
 
-      <a href="https://github.com/Bauntyme/AeroGram/releases/download/v1.4.2/AeroGram.apk" class="btn-nav-cta btn-full modal-dl-btn" target="_blank" rel="noopener noreferrer" data-i18n="mod_btn">
-        AeroGram.apk ni yuklab olish (52.12 MB)
-      </a>
+      <div class="modal-dl-stack">
+        <a href="https://github.com/Bauntyme/AeroGram/releases/download/v1.5.0/AeroGram.apk" class="btn-nav-cta btn-full modal-dl-btn" target="_blank" rel="noopener noreferrer" data-i18n="mod_btn">
+          Android: AeroGram.apk yuklab olish (52.13 MB)
+        </a>
+        <a href="https://github.com/Bauntyme/AeroGram/releases/download/v1.5.0/AeroGram-Setup.exe" class="btn-dark-pill btn-full modal-dl-btn" target="_blank" rel="noopener noreferrer" data-i18n="mod_btn_win">
+          Laptop: AeroGram-Setup.exe yuklab olish (152.9 MB)
+        </a>
+        <a href="desktop/" class="btn-outline-pill btn-full modal-dl-btn" data-i18n="mod_btn_desk_page">
+          Laptop uchun batafsil sahifa (Qo‘llanma & Portable .exe) →
+        </a>
+      </div>
 
       <p class="modal-foot-note" data-i18n="mod_note">
-        <strong>O‘rnatish eslatmasi:</strong> v1.3.0 / v1.3.1 / v1.4.0 / v1.4.1 dan yangilashda ustidan bemalol o‘rnatish mumkin. Rasmiy Telegram ilovangiz va chatlaringiz saqlanib qoladi.
+        <strong>O‘rnatish eslatmasi:</strong> Agar Android telefoningizda eski versiya ustidan o‘rnatishda imzo xatoligi chiqsa, avval eski AeroGram’ni o‘chirib yangi v1.5.0 ni o‘rnating — barcha Telegram chatlaringiz bulutda saqlanadi.
       </p>
     </div>
   </div>

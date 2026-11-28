@@ -533,11 +533,13 @@ replaceExact('src/util/localization/index.ts', [
   ],
 ]);
 
-// Ensure static sub-pages (Alohida TV uchun) & SEO files are staged in _site for Render Static Site builds
+// Ensure static sub-pages (Alohida TV uchun & Laptop uchun) & SEO files are staged in _site for Render Static Site builds
 const outSiteDir = path.join(siteDir, '_site');
-const tvSrcDir = path.join(siteDir, 'tv');
-if (fs.existsSync(tvSrcDir)) {
-  fs.cpSync(tvSrcDir, path.join(outSiteDir, 'tv'), { recursive: true });
+for (const subDir of ['tv', 'desktop']) {
+  const srcSub = path.join(siteDir, subDir);
+  if (fs.existsSync(srcSub)) {
+    fs.cpSync(srcSub, path.join(outSiteDir, subDir), { recursive: true });
+  }
 }
 for (const extraFile of ['robots.txt', 'sitemap.xml']) {
   const srcPath = path.join(siteDir, extraFile);

@@ -37,6 +37,7 @@
     uz: {
       badge_tv: "Alohida TV uchun",
       nav_home: "Bosh sahifa",
+      nav_laptop: "Laptop uchun",
       nav_web: "AeroGram Web",
       loading_stream: "Efirga ulanmoqda...",
       tap_unmute: "Ovozni yoqish uchun bosing",
@@ -74,6 +75,7 @@
     ru: {
       badge_tv: "Раздел для ТВ",
       nav_home: "Главная",
+      nav_laptop: "Для ноутбука",
       nav_web: "AeroGram Web",
       loading_stream: "Подключение к эфиру...",
       tap_unmute: "Нажмите, чтобы включить звук",
@@ -111,6 +113,7 @@
     en: {
       badge_tv: "Dedicated Live TV",
       nav_home: "Home",
+      nav_laptop: "For Laptop",
       nav_web: "AeroGram Web",
       loading_stream: "Connecting to live stream...",
       tap_unmute: "Tap to unmute audio",

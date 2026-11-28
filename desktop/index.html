@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>AeroGram Desktop — Laptop va Windows uchun | Maxfiy Seyf & Cheksiz Akkauntlar</title>
+  <meta name="description" content="AeroGram Desktop v1.5.0 Windows noutbuk va kompyuterlar uchun: Maxfiy chatlar seyfi, cheksiz akkauntlar, yangilangan Studio sozlamalar va tezkor .exe yuklab olish.">
+  <meta name="theme-color" content="#0EA5E9">
+  <link rel="canonical" href="https://aerogram.website/desktop/">
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="desktop.css">
+</head>
+<body>
+
+  <!-- Floating Pill Header -->
+  <header class="floating-nav" id="navbar">
+    <div class="nav-pill">
+      <a href="../" class="brand" aria-label="AeroGram bosh sahifa">
+        <span class="brand-logo">
+          <svg viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="aeroDeskGrad" x1="14" y1="8" x2="114" y2="120" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#38BDF8"/>
+                <stop offset="52%" stop-color="#0284C7"/>
+                <stop offset="100%" stop-color="#1E3A8A"/>
+              </linearGradient>
+            </defs>
+            <circle cx="64" cy="64" r="64" fill="url(#aeroDeskGrad)"/>
+            <circle cx="64" cy="64" r="42" fill="#FFFFFF" fill-opacity="0.06"/>
+            <path d="M64 29C66.9 29 69.5 30.7 70.8 33.4L93.8 83.2C95.6 87.1 92.1 91.3 87.9 90.2L68.2 85.1C65.4 84.4 62.6 84.4 59.8 85.1L40.1 90.2C35.9 91.3 32.4 87.1 34.2 83.2L57.2 33.4C58.5 30.7 61.1 29 64 29Z" fill="#FFFFFF"/>
+            <path d="M64 47L75.5 76.5L64 73.2L52.5 76.5L64 47Z" fill="#0284C7"/>
+            <path d="M52.5 76.5L64 73.2V84.6C62.6 84.6 61.2 84.8 59.8 85.1L46.5 88.5L52.5 76.5Z" fill="#38BDF8" fill-opacity="0.88"/>
+          </svg>
+        </span>
+        <span class="brand-name">AeroGram</span>
+      </a>
+
+      <nav class="nav-center" aria-label="Sahifalar">
+        <a href="../" class="nav-link" data-desk-i18n="nav_home">Bosh sahifa</a>
+        <a href="#features" class="nav-link active" data-desk-i18n="nav_laptop">Laptop uchun</a>
+        <a href="#laptop-carousel" class="nav-link" data-desk-i18n="nav_guide">Qo‘llanma</a>
+        <a href="../tv/" class="nav-link-tv">
+          <span class="tv-dot-live" aria-hidden="true"></span>
+          <span data-desk-i18n="nav_tv">Alohida TV uchun</span>
+        </a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="lang-dropdown" id="desk-lang-dropdown">
+          <button type="button" class="lang-trigger" id="desk-lang-trigger" aria-expanded="false" aria-label="Tilni tanlash">
+            <span class="flag-slot" id="desk-current-flag">
+              <svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="5.2" fill="#0099B5"/><rect y="5.2" width="24" height="0.5" fill="#CE1126"/><rect y="5.7" width="24" height="4.6" fill="#FFFFFF"/><rect y="10.3" width="24" height="0.5" fill="#CE1126"/><rect y="10.8" width="24" height="5.2" fill="#1EB53A"/><circle cx="4.5" cy="2.6" r="1.4" fill="#FFFFFF"/><circle cx="5.1" cy="2.6" r="1.2" fill="#0099B5"/></svg>
+            </span>
+            <span id="desk-current-lang-label">O‘Z</span>
+            <svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="4 6 8 10 12 6"/></svg>
+          </button>
+          <div class="lang-menu" id="desk-lang-menu" hidden>
+            <button type="button" class="lang-opt active" data-lang="uz">
+              <svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="5.2" fill="#0099B5"/><rect y="5.2" width="24" height="0.5" fill="#CE1126"/><rect y="5.7" width="24" height="4.6" fill="#FFFFFF"/><rect y="10.3" width="24" height="0.5" fill="#CE1126"/><rect y="10.8" width="24" height="5.2" fill="#1EB53A"/><circle cx="4.5" cy="2.6" r="1.4" fill="#FFFFFF"/><circle cx="5.1" cy="2.6" r="1.2" fill="#0099B5"/></svg>
+              <span>O‘Z</span>
+            </button>
+            <button type="button" class="lang-opt" data-lang="ru">
+              <svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="5.33" fill="#FFFFFF"/><rect y="5.33" width="24" height="5.33" fill="#0039A6"/><rect y="10.66" width="24" height="5.34" fill="#D52B1E"/></svg>
+              <span>RU</span>
+            </button>
+            <button type="button" class="lang-opt" data-lang="en">
+              <svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#B22234"/><path d="M0 2h24M0 5h24M0 8h24M0 11h24M0 14h24" stroke="#FFF" stroke-width="1.2"/><rect width="10" height="8.5" fill="#3C3B6E"/></svg>
+              <span>EN</span>
+            </button>
+          </div>
+        </div>
+
+        <a href="../web/" class="btn-nav-web" data-desk-i18n="nav_web">AeroGram Web</a>
+        <a href="https://github.com/Bauntyme/AeroGram/releases/download/v1.5.0/AeroGram-Setup.exe" class="btn-nav-cta" target="_blank" rel="noopener noreferrer" data-desk-i18n="nav_dl">Yuklash (.exe)</a>
+
+        <button type="button" class="mobile-burger" id="desk-burger" aria-label="Menyuni ochish" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-sheet" id="desk-mobile-sheet" hidden>
+      <a href="../" data-desk-i18n="nav_home">Bosh sahifa</a>
+      <a href="#features" data-desk-i18n="nav_laptop">Laptop uchun</a>
+      <a href="#laptop-carousel" data-desk-i18n="nav_guide">Qo‘llanma</a>
+      <a href="../tv/" class="mobile-tv-link">
+        <span class="tv-dot-live" aria-hidden="true"></span>
+        <span data-desk-i18n="nav_tv">Alohida TV uchun</span>
+      </a>
+      <a href="../web/" class="btn-outline-pill btn-full" data-desk-i18n="nav_web">AeroGram Web</a>
+      <a href="https://github.com/Bauntyme/AeroGram/releases/download/v1.5.0/AeroGram-Setup.exe" class="btn-nav-cta btn-full" target="_blank" rel="noopener noreferrer" data-desk-i18n="nav_dl">Yuklash (.exe)</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Laptop Hero Section -->
+    <section class="desk-hero">
+      <div class="desk-hero-glow" aria-hidden="true"></div>
+      <div class="container desk-hero-grid">
+        <div class="desk-hero-copy">
+          <div class="hero-chip"><span class="hero-chip-dot"></span> <span data-desk-i18n="hero_chip">AeroGram Desktop v1.5.0 • Windows 10 / 11 (x64)</span></div>
+          <h1 data-desk-i18n="hero_title">Noutbuk va Kompyuter uchun<br>Qulay va Maxfiy AeroGram</h1>
+          <p class="desk-hero-desc" data-desk-i18n="hero_desc">Katta ekranda bir vaqtda o‘nlab akkauntlarni boshqaring, muhim suhbatlarni Maxfiy Seyfga yashiring va yangilangan Studio sozlamalaridan foydalaning.</p>
+
+          <div class="desk-dl-row">
+            <a href="https://github.com/Bauntyme/AeroGram/releases/download/v1.5.0/AeroGram-Setup.exe" class="btn-white-pill" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span data-desk-i18n="btn_setup">AeroGram-Setup.exe yuklash (152.9 MB)</span>
+            </a>
+            <a href="https://github.com/Bauntyme/AeroGram/releases/download/v1.5.0/AeroGram-Desktop.exe" class="btn-hero-web" target="_blank" rel="noopener noreferrer" data-desk-i18n="btn_portable">
+              Portable .exe (143.9 MB)
+            </a>
+          </div>
+
+          <div class="desk-specs">
+            <div class="spec-chip"><strong data-desk-i18n="sp1_k">O‘rnatgich (.exe)</strong><span id="meta-setup-size" data-desk-i18n="sp1_v">Windows 10/11 64-bit • 152.9 MB</span></div>
+            <div class="spec-chip"><strong data-desk-i18n="sp2_k">Maxfiy Seyf</strong><span data-desk-i18n="sp2_v">Qidiruvda PIN & Ctrl+Shift+H</span></div>
+            <div class="spec-chip"><strong data-desk-i18n="sp3_k">Cheksiz Akkauntlar</strong><span data-desk-i18n="sp3_v">Bitta oynada ∞ profil</span></div>
+          </div>
+        </div>
+
+        <!-- Interactive Laptop Mockup -->
+        <div class="desk-laptop-wrap">
+          <div class="laptop-shell">
+            <div class="laptop-topbar">
+              <div class="win-dots"><span></span><span></span><span></span></div>
+              <div class="laptop-preview-tabs" role="tablist">
+                <button type="button" class="lp-tab active" data-lp-tab="chats" data-desk-i18n="tab_chats">Chatlar</button>
+                <button type="button" class="lp-tab" data-lp-tab="vault" data-desk-i18n="tab_vault">🔒 Maxfiy Seyf</button>
+                <button type="button" class="lp-tab" data-lp-tab="studio" data-desk-i18n="tab_studio">⚙️ Studio</button>
+              </div>
+            </div>
+
+            <div class="laptop-screen">
+              <!-- Tab 1: Normal Chats -->
+              <div class="lp-pane active" data-lp-pane="chats">
+                <div class="lp-sidebar">
+                  <div class="lp-search-bar" data-desk-i18n="lp_search">Qidiruv (yoki seyf uchun PIN)...</div>
+                  <div class="lp-chat-item is-sel">
+                    <span class="lp-av av-blue">AG</span>
+                    <div><strong data-desk-i18n="lp_c1">AeroGram Rasmiy</strong><small data-desk-i18n="lp_m1">v1.5.0 Windows relizi chiqdi!</small></div>
+                    <span class="lp-time">14:05</span>
+                  </div>
+                  <div class="lp-chat-item">
+                    <span class="lp-av av-purple">IT</span>
+                    <div><strong data-desk-i18n="lp_c2">Ish Guruhi</strong><small data-desk-i18n="lp_m2">Loyiha fayllari yuborildi</small></div>
+                    <span class="lp-badge">3</span>
+                  </div>
+                  <div class="lp-chat-item">
+                    <span class="lp-av av-green">UZ</span>
+                    <div><strong data-desk-i18n="lp_c3">Toshkent TV Klubi</strong><small data-desk-i18n="lp_m3">Futbol TV jonli efir boshlandi</small></div>
+                    <span class="lp-time">13:40</span>
+                  </div>
+                </div>
+                <div class="lp-chat-view">
+                  <div class="lp-chat-head">
+                    <strong data-desk-i18n="lp_c1">AeroGram Rasmiy</strong>
+                    <span class="lp-status-pill" data-desk-i18n="lp_online">Tezkor MTProto</span>
+                  </div>
+                  <div class="lp-bubbles">
+                    <div class="lp-bub in" data-desk-i18n="lp_b1">O‘ng tugma bilan istalgan chatni Maxfiy Seyfga yashirishingiz mumkin.</div>
+                    <div class="lp-bub out" data-desk-i18n="lp_b2">Qidiruvga PIN kiritilsa darhol maxfiy seyf ochiladi!</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 2: Secret Vault -->
+              <div class="lp-pane" data-lp-pane="vault">
+                <div class="lp-vault-box">
+                  <div class="lp-vault-hero">
+                    <span>🔒</span>
+                    <div>
+                      <strong data-desk-i18n="lp_vh_t">Maxfiy Chatlar Seyfi Ochiq</strong>
+                      <small data-desk-i18n="lp_vh_s">Asosiy ro‘yxatdan yashirilgan • Ctrl+Shift+H</small>
+                    </div>
+                  </div>
+                  <div class="lp-vault-list">
+                    <div class="lp-v-row"><strong data-desk-i18n="lp_vc1">Shaxsiy Hamkor</strong><span data-desk-i18n="lp_v_open">Ochish →</span></div>
+                    <div class="lp-v-row"><strong data-desk-i18n="lp_vc2">VIP Mijozlar</strong><span data-desk-i18n="lp_v_open">Ochish →</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab 3: Studio Settings -->
+              <div class="lp-pane" data-lp-pane="studio">
+                <div class="lp-studio-box">
+                  <div class="lp-studio-banner">
+                    <strong data-desk-i18n="lp_st_t">AeroGram Desktop Studio v1.5.0</strong>
+                    <small data-desk-i18n="lp_st_s">O‘Z / RU / EN • Ghost Blur • Ilova Qulfi</small>
+                  </div>
+                  <div class="lp-studio-rows">
+                    <div class="lp-s-row"><span data-desk-i18n="lp_sr1">Chatlarni xiralashtirish (Ghost Blur)</span><em class="pill-on">ON</em></div>
+                    <div class="lp-s-row"><span data-desk-i18n="lp_sr2">Yig‘ilganda avtomatik qulflash</span><em class="pill-on">ON</em></div>
+                    <div class="lp-s-row"><span data-desk-i18n="lp_sr3">Akkauntlar uyasi (∞)</span><em>50 / ∞</em></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="laptop-base"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Desktop Features Bento -->
+    <section id="features" class="section section-light">
+      <div class="container">
+        <div class="center-head">
+          <span class="eyebrow-pill" data-desk-i18n="feat_pill">Windows Imkoniyatlari</span>
+          <h2 data-desk-i18n="feat_title">Laptopda ishlash uchun mukammal</h2>
+          <p class="muted-copy" data-desk-i18n="feat_sub">Oddiy brauzerdan farqli o‘laroq mustaqil oyna, System Tray va maxfiy vositalar bilan keladi.</p>
+        </div>
+
+        <div class="desk-bento-grid">
+          <article class="desk-bento-card">
+            <div class="desk-ic ic-emerald">🔒</div>
+            <h3 data-desk-i18n="f1_t">Yaxshilangan Maxfiy Chatlar Seyfi</h3>
+            <p data-desk-i18n="f1_d">Maxfiy chatlar endi sozlamalarda ko‘rinib turmaydi. Ularni faqat Qidiruvga PIN kodingizni yozib, AeroGram Studio tugmasini bosib turib yoki Ctrl+Shift+H orqali ochasiz.</p>
+          </article>
+
+          <article class="desk-bento-card">
+            <div class="desk-ic ic-sky">⚙️</div>
+            <h3 data-desk-i18n="f2_t">Yangilangan Studio Sozlamalar</h3>
+            <p data-desk-i18n="f2_d">Ctrl+, bilan zamonaviy Studio oynasini oching: O‘Z / RU / EN til almashtirish, Ghost Blur (chatlarni xiralashtirish), masshtab va Ctrl+L tezkor qulf.</p>
+          </article>
+
+          <article class="desk-bento-card">
+            <div class="desk-ic ic-violet">👥</div>
+            <h3 data-desk-i18n="f3_t">Cheksiz Akkauntlar (∞)</h3>
+            <p data-desk-i18n="f3_d">Shaxsiy, ish va biznes Telegram profillaringizni bitta Windows dasturida parallel ishlating — cheklovlarsiz.</p>
+          </article>
+
+          <article class="desk-bento-card">
+            <div class="desk-ic ic-amber">📺</div>
+            <h3 data-desk-i18n="f4_t">Windows Tray & Jonli TV</h3>
+            <p data-desk-i18n="f4_d">Soat yonidagi Tray ikonkasi orqali tezkor qulflang, seyfni oching yoki 29 ta Toshkent TV kanallarini alohida HD oynada tomosha qiling.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Interactive Carousel / Walkthrough ("Pastida o'tkazish bo'ladi") -->
+    <section id="laptop-carousel" class="section section-light pt-0">
+      <div class="container">
+        <div class="carousel-shell">
+          <div class="carousel-head">
+            <div>
+              <span class="eyebrow-pill" data-desk-i18n="car_pill">Qadam-baqadam qo‘llanma</span>
+              <h2 data-desk-i18n="car_title">Laptopda qanday ishlatiladi?</h2>
+            </div>
+            <div class="carousel-controls">
+              <button type="button" class="car-arrow" id="car-prev" aria-label="Oldingi slayd">←</button>
+              <span class="car-counter" id="car-counter">01 / 05</span>
+              <button type="button" class="car-arrow" id="car-next" aria-label="Keyingi slayd">→</button>
+            </div>
+          </div>
+
+          <div class="carousel-viewport" id="car-viewport">
+            <div class="carousel-track" id="car-track">
+              <article class="car-slide">
+                <div class="car-num">01</div>
+                <div class="car-copy">
+                  <span class="car-tag" data-desk-i18n="s1_tag">Yuklash va O‘rnatish</span>
+                  <h3 data-desk-i18n="s1_t">Setup.exe yoki Portable.exe tanlang</h3>
+                  <p data-desk-i18n="s1_d">Doimiy foydalanish uchun AeroGram-Setup.exe ni o‘rnating (Ish stolida yorliq ochadi). O‘rnatmasdan yoki fleshkadan ishga tushirish uchun AeroGram-Desktop.exe ni bosing.</p>
+                </div>
+                <div class="car-visual">
+                  <div class="cv-badge">Windows 10 / 11 • x64</div>
+                  <div class="cv-box"><code>AeroGram-Setup.exe</code> &nbsp;|&nbsp; <code>AeroGram-Desktop.exe</code></div>
+                </div>
+              </article>
+
+              <article class="car-slide">
+                <div class="car-num">02</div>
+                <div class="car-copy">
+                  <span class="car-tag" data-desk-i18n="s2_tag">Tezkor Kirish</span>
+                  <h3 data-desk-i18n="s2_t">QR-kod yoki telefon bilan 3 soniyada kiring</h3>
+                  <p data-desk-i18n="s2_d">Telefoningizdagi AeroGram orqali QR-kodni skanerlang yoki raqamingizni kiriting. Barcha chatlar, papkalar va fayllar darhol sinxronlanadi.</p>
+                </div>
+                <div class="car-visual">
+                  <div class="cv-badge">MTProto Direct</div>
+                  <div class="cv-box" data-desk-i18n="s2_vis">📱 QR Skaner → 💻 Sinxronizatsiya</div>
+                </div>
+              </article>
+
+              <article class="car-slide">
+                <div class="car-num">03</div>
+                <div class="car-copy">
+                  <span class="car-tag" data-desk-i18n="s3_tag">Maxfiy Chatlar Seyfi</span>
+                  <h3 data-desk-i18n="s3_t">Chatlarni ko‘zdan yashiring va Qidiruvda PIN bilan oching</h3>
+                  <p data-desk-i18n="s3_d">Suhbat ustida o‘ng tugmani bosib «Maxfiy seyfga yashirish»ni tanlang. Ochish uchun Qidiruv maydoniga PIN kodingizni yozing yoki Ctrl+Shift+H bosing.</p>
+                </div>
+                <div class="car-visual is-emerald">
+                  <div class="cv-badge">Stealth Vault</div>
+                  <div class="cv-box" data-desk-i18n="s3_vis">🔍 PIN kiritish &nbsp;|&nbsp; ⌨️ Ctrl + Shift + H</div>
+                </div>
+              </article>
+
+              <article class="car-slide">
+                <div class="car-num">04</div>
+                <div class="car-copy">
+                  <span class="car-tag" data-desk-i18n="s4_tag">Studio & Maxfiylik</span>
+                  <h3 data-desk-i18n="s4_t">Ghost Blur, Ilova Qulfi va O‘Z / RU / EN til</h3>
+                  <p data-desk-i18n="s4_d">Pastki o‘ng burchakdagi «AeroGram Studio» tugmasini bosing (yoki Ctrl+,): chat sarlavhalarini xiralashtiring, masshtabni sozlang va Ctrl+L bilan qulflang.</p>
+                </div>
+                <div class="car-visual">
+                  <div class="cv-badge">AeroGram Studio</div>
+                  <div class="cv-box">⚙️ Ctrl + , &nbsp;|&nbsp; 🔒 Ctrl + L</div>
+                </div>
+              </article>
+
+              <article class="car-slide">
+                <div class="car-num">05</div>
+                <div class="car-copy">
+                  <span class="car-tag" data-desk-i18n="s5_tag">Akkauntlar & Jonli TV</span>
+                  <h3 data-desk-i18n="s5_t">Cheksiz akkauntlar va 29 ta Toshkent TV kanali</h3>
+                  <p data-desk-i18n="s5_d">Studio bo‘limidan istalgancha Telegram akkauntini almashtiring hamda System Tray orqali Zo‘r TV, Sevimli TV va Sport TV ni alohida oynada oching.</p>
+                </div>
+                <div class="car-visual">
+                  <div class="cv-badge">∞ Accounts + Live TV</div>
+                  <div class="cv-box" data-desk-i18n="s5_vis">👥 Akkaunt 1..∞ &nbsp;|&nbsp; 📺 Full HD TV</div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="carousel-dots" id="car-dots" role="tablist" aria-label="Slaydlar">
+            <button type="button" class="car-dot active" data-slide="0" aria-label="1-slayd"><span>01</span></button>
+            <button type="button" class="car-dot" data-slide="1" aria-label="2-slayd"><span>02</span></button>
+            <button type="button" class="car-dot" data-slide="2" aria-label="3-slayd"><span>03</span></button>
+            <button type="button" class="car-dot" data-slide="3" aria-label="4-slayd"><span>04</span></button>
+            <button type="button" class="car-dot" data-slide="4" aria-label="5-slayd"><span>05</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-glow" aria-hidden="true"></div>
+    <div class="container footer-grid">
+      <div class="footer-col-brand">
+        <a href="../" class="brand footer-brand-row">
+          <img src="../assets/favicon-32x32.png" width="32" height="32" alt="AeroGram">
+          <span class="brand-name-light">AeroGram</span>
+        </a>
+        <p data-desk-i18n="footer_sub">Android va Windows Laptop uchun tezkor messenjer</p>
+      </div>
+      <div class="footer-col-center">
+        <a href="../" class="footer-link-btn" data-desk-i18n="nav_home">Bosh sahifa</a>
+      </div>
+      <div class="footer-col-right">
+        <strong data-desk-i18n="footer_contact">Bog‘lanish</strong>
+        <a href="mailto:info@aerogram.website">info@aerogram.website</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 AeroGram — <a href="https://aerogram.website">aerogram.website</a></span>
+    </div>
+  </footer>
+
+  <!-- Floating Bottom-Right Theme Switcher -->
+  <button type="button" class="floating-theme-tab" id="desk-theme-toggle" aria-label="Tun / Kun mavzusi">
+    <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+  </button>
+
+  <script src="desktop.js"></script>
+</body>
+</html>
