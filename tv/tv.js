@@ -89,6 +89,7 @@
       pip_btn: "Kichik oyna",
       sleep_off: "Taymer",
       single_track: "Yagona oqim",
+      clear_audio: "Tiniq ovoz",
       count_fmt: (n) => `${n} ta jonli kanal`,
       empty_search: "Mos kanal topilmadi",
     },
@@ -130,6 +131,7 @@
       pip_btn: "Мини-окно",
       sleep_off: "Таймер",
       single_track: "Единый поток",
+      clear_audio: "Чистый звук",
       count_fmt: (n) => `Каналов в эфире: ${n}`,
       empty_search: "Каналы не найдены",
     },
@@ -171,6 +173,7 @@
       pip_btn: "Mini Window",
       sleep_off: "Timer",
       single_track: "Single feed",
+      clear_audio: "Clear Audio",
       count_fmt: (n) => `${n} live channels`,
       empty_search: "No matching channels",
     },
@@ -212,6 +215,7 @@
   const volSlider = document.getElementById("vol-slider");
   const latencyModeBtn = document.getElementById("latency-mode-btn");
   const latencyModeLabel = document.getElementById("latency-mode-label");
+  const audioClearBtn = document.getElementById("audio-clear-btn");
   const clarityBtn = document.getElementById("clarity-btn");
   const pipBtn = document.getElementById("pip-btn");
   const sleepBtn = document.getElementById("sleep-btn");
@@ -245,6 +249,8 @@
   let hls = null;
   let desiredHeight = -1; // -1 = lock highest HD level, -2 = adaptive auto
   let clarityBoost = localStorage.getItem("aero_tv_clarity") !== "off";
+  let clearAudio = localStorage.getItem("aero_tv_clear_audio") !== "off";
+  let audioEngine = null;
   let sleepMins = 0;
   let sleepTimerId = null;
   let hudHideTimer = null;
@@ -505,18 +511,126 @@
     }
   }
 
+  // HLS Playlist Cleaner: strips redundant #EXT-X-MEDIA:TYPE=AUDIO when tracks-v*a1 already carries muxed AAC audio
+  function createCleanPlaylistLoader() {
+    const BaseLoader = window.Hls && window.Hls.DefaultConfig && window.Hls.DefaultConfig.loader;
+    if (!BaseLoader) return null;
+    return class CleanMuxPlaylistLoader extends BaseLoader {
+      load(context, config, callbacks) {
+        const wrappedCallbacks = {
+          onSuccess(response, stats, ctx, networkDetails) {
+            if (
+              typeof response.data === "string" &&
+              response.data.indexOf("#EXT-X-MEDIA:TYPE=AUDIO") !== -1 &&
+              /tracks-v\d*a\d+/i.test(response.data)
+            ) {
+              response.data = response.data
+                .split("\n")
+                .filter((line) => line.indexOf("#EXT-X-MEDIA:TYPE=AUDIO") !== 0)
+                .map((line) =>
+                  line.indexOf("#EXT-X-STREAM-INF:") === 0
+                    ? line.replace(/,?AUDIO="[^"]*"/g, "")
+                    : line
+                )
+                .join("\n");
+            }
+            callbacks.onSuccess(response, stats, ctx, networkDetails);
+          },
+          onError: callbacks.onError,
+          onTimeout: callbacks.onTimeout,
+          onAbort: callbacks.onAbort,
+          onProgress: callbacks.onProgress,
+        };
+        super.load(context, config, wrappedCallbacks);
+      }
+    };
+  }
+
+  // Lazy User-Gesture WebAudio Mastering Chain (cuts 50Hz buzz, tightens voice clarity, prevents 0 dBFS clipping)
+  function syncClearAudioNodes() {
+    if (!audioEngine) return;
+    const { ctx, highpass, presence, air, masterGain } = audioEngine;
+    const now = ctx.currentTime;
+    if (clearAudio) {
+      highpass.frequency.setTargetAtTime(75, now, 0.02);
+      presence.gain.setTargetAtTime(2.0, now, 0.02);
+      air.gain.setTargetAtTime(1.4, now, 0.02);
+      masterGain.gain.setTargetAtTime(0.94, now, 0.02);
+    } else {
+      highpass.frequency.setTargetAtTime(10, now, 0.02);
+      presence.gain.setTargetAtTime(0, now, 0.02);
+      air.gain.setTargetAtTime(0, now, 0.02);
+      masterGain.gain.setTargetAtTime(1.0, now, 0.02);
+    }
+  }
+
+  function ensureAudioEngine() {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    try {
+      if (!audioEngine) {
+        const ctx = new AudioCtx();
+        const source = ctx.createMediaElementSource(video);
+
+        const highpass = ctx.createBiquadFilter();
+        highpass.type = "highpass";
+        highpass.frequency.value = 75;
+        highpass.Q.value = 0.707;
+
+        const presence = ctx.createBiquadFilter();
+        presence.type = "peaking";
+        presence.frequency.value = 3100;
+        presence.Q.value = 1.0;
+        presence.gain.value = 2.0;
+
+        const air = ctx.createBiquadFilter();
+        air.type = "highshelf";
+        air.frequency.value = 7500;
+        air.gain.value = 1.4;
+
+        const compressor = ctx.createDynamicsCompressor();
+        compressor.threshold.value = -14;
+        compressor.knee.value = 18;
+        compressor.ratio.value = 3.5;
+        compressor.attack.value = 0.003;
+        compressor.release.value = 0.18;
+
+        const masterGain = ctx.createGain();
+        masterGain.gain.value = 0.94;
+
+        source
+          .connect(highpass)
+          .connect(presence)
+          .connect(air)
+          .connect(compressor)
+          .connect(masterGain)
+          .connect(ctx.destination);
+
+        audioEngine = { ctx, source, highpass, presence, air, compressor, masterGain };
+        syncClearAudioNodes();
+      }
+      if (audioEngine.ctx.state === "suspended") {
+        audioEngine.ctx.resume().catch(() => {});
+      }
+    } catch (_) {}
+  }
+
   // HLS Player Initialization & Error Recovery
   function getHlsConfig() {
     const fast = latencyMode === "fast";
-    return {
+    const CleanPLoader = createCleanPlaylistLoader();
+    const cfg = {
       enableWorker: true,
       lowLatencyMode: false,
-      backBufferLength: 16,
-      maxBufferLength: fast ? 14 : 24,
-      maxMaxBufferLength: fast ? 24 : 40,
-      liveSyncDurationCount: fast ? 2 : 3,
-      liveMaxLatencyDurationCount: fast ? 5 : 8,
-      maxLiveSyncPlaybackRate: 1.06,
+      backBufferLength: 20,
+      maxBufferLength: fast ? 18 : 28,
+      maxMaxBufferLength: fast ? 30 : 48,
+      liveSyncDurationCount: fast ? 3 : 4,
+      liveMaxLatencyDurationCount: fast ? 7 : 10,
+      maxLiveSyncPlaybackRate: 1,
+      maxAudioFramesDrift: 2,
+      stretchShortVideoTrack: true,
+      maxBufferHole: 0.5,
       abrEwmaDefaultEstimate: 5500000,
       capLevelToPlayerSize: false,
       manifestLoadingTimeOut: 12000,
@@ -526,6 +640,8 @@
       fragLoadingMaxRetry: 6,
       startLevel: -1,
     };
+    if (CleanPLoader) cfg.pLoader = CleanPLoader;
+    return cfg;
   }
 
   function showSpinner(visible) {
@@ -539,8 +655,11 @@
   }
 
   function tryPlayVideo(fromUserGesture) {
+    video.defaultPlaybackRate = 1;
+    video.playbackRate = 1;
     if (fromUserGesture) {
       video.muted = false;
+      ensureAudioEngine();
       updateMuteIcons();
     }
     const p = video.play();
@@ -755,6 +874,9 @@
   });
   video.addEventListener("loadedmetadata", updateLiveResolutionReadout);
   video.addEventListener("resize", updateLiveResolutionReadout);
+  video.addEventListener("ratechange", () => {
+    if (video.playbackRate !== 1) video.playbackRate = 1;
+  });
 
   setInterval(() => {
     if (!hls || video.paused) return;
@@ -797,6 +919,7 @@
 
   unmuteFloating.addEventListener("click", () => {
     video.muted = false;
+    ensureAudioEngine();
     if (video.volume === 0) video.volume = 0.9;
     volSlider.value = String(video.volume);
     updateMuteIcons();
@@ -806,6 +929,7 @@
 
   muteBtn.addEventListener("click", () => {
     video.muted = !video.muted;
+    if (!video.muted) ensureAudioEngine();
     if (!video.muted && video.volume === 0) {
       video.volume = 0.85;
       volSlider.value = "0.85";
@@ -818,6 +942,7 @@
     const v = parseFloat(volSlider.value);
     video.volume = v;
     video.muted = v === 0;
+    if (!video.muted) ensureAudioEngine();
     updateMuteIcons();
     unmuteFloating.setAttribute("hidden", "");
   });
@@ -1015,7 +1140,16 @@
     return CHANNELS.find((c) => c.id === targetId) || CHANNELS[0];
   }
 
-  // Clarity Boost (HD+), Picture-in-Picture (PiP), and Sleep Timer
+  // Clear Audio & Clarity Boost (HD+), Picture-in-Picture (PiP), and Sleep Timer
+  audioClearBtn?.classList.toggle("is-clarity-on", clearAudio);
+  audioClearBtn?.addEventListener("click", () => {
+    clearAudio = !clearAudio;
+    localStorage.setItem("aero_tv_clear_audio", clearAudio ? "on" : "off");
+    audioClearBtn.classList.toggle("is-clarity-on", clearAudio);
+    ensureAudioEngine();
+    syncClearAudioNodes();
+  });
+
   stage.classList.toggle("is-clarity", clarityBoost);
   clarityBtn?.classList.toggle("is-clarity-on", clarityBoost);
   clarityBtn?.addEventListener("click", () => {

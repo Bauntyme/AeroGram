@@ -94,7 +94,7 @@
       <div class="player-stage-wrap">
         <div class="stage-ambilight" id="stage-ambilight" aria-hidden="true"></div>
         <div class="player-stage" id="player-stage" tabindex="0">
-        <video id="tv-video" playsinline autoplay muted></video>
+        <video id="tv-video" playsinline autoplay muted crossorigin="anonymous"></video>
 
         <!-- Center Loading / Unmute / Error States -->
         <div class="stage-center-state" id="stage-spinner" hidden>
@@ -182,6 +182,10 @@
           </div>
 
           <div class="hud-controls-right">
+            <button type="button" class="ctrl-chip is-clarity-on" id="audio-clear-btn" data-tv-i18n="clear_audio" title="Tiniq ovoz (shovqin va xirillashni tozalash)">
+              <span>Tiniq ovoz</span>
+            </button>
+
             <button type="button" class="ctrl-chip is-clarity-on" id="clarity-btn" title="Tiniq HD+ rang va ravshanlik">
               <span>HD+</span>
             </button>

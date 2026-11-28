@@ -1453,6 +1453,7 @@ button, input {
 }
 
 @media (max-width: 760px) {
+  #audio-clear-btn,
   #clarity-btn,
   #sleep-btn,
   #latency-mode-btn,
